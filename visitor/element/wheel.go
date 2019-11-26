@@ -1,10 +1,15 @@
 package element
 
-import "go-design-pattern/visitor/visitor"
+import (
+	"fmt"
+	"go-design-pattern/visitor/visitor"
+)
 
 type Wheel struct {
 }
 
-func (*Wheel) Accept(visitor visitor.Visitor) {
+func (c *Wheel) Accept(visitor visitor.Visitor) {
 	//
+	fmt.Println("wheel implement")
+	visitor.VisitWheel(c)
 }

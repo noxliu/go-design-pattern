@@ -1,8 +1,9 @@
 package visitor
 
+import (
+	. "go-design-pattern/visitor/element"
+)
+
 type Visitor interface {
-	visitWheel(wheel Wheel) string
-	visitEngine(engine Engine) string
-	visitBody(body Body) string
-	visitCar(car Car) string
+	VisitWheel(wheel Wheel) string
 }
