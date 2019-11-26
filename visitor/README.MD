@@ -4,7 +4,8 @@
 
 ### 定义
 
-***Allows for one or more operation to be applied to a set of objects at runtime, decoupling the operations from the object structure.***
+***Represent an operation to be performed on elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.***
+
 
 
 ```greenplum
