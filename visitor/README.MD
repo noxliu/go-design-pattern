@@ -20,7 +20,7 @@
 
 1. 应对以上场景，访问者模式的解决方案是，当有访问需要访问元素对象的时候，元素对象提供一个accept方法，允许接受者访问其内部对象。
 
-```greenplum
+```go
 type Element interface {
 	Accept(visitor Visitor)
 }
