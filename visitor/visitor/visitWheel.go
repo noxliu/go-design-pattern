@@ -1,12 +1,13 @@
 package visitor
 
 import (
-	. "go-design-pattern/visitor/element"
+	"fmt"
 )
 
 type VisitWheel struct {
 }
 
 func (*VisitWheel) VisitWheel(wheel Wheel) string {
-	return "wheel"
+	fmt.Println(wheel.WheelSize)
+	return "visit wheel"
 }
