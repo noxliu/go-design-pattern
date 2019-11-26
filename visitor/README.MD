@@ -43,10 +43,10 @@ func (*VisitEngine) VisitEngine(engine Engine) string {
 
 ### 例子分析
 
-##### 一. 汽车例子
+##### 一. 汽车案例
 
 
-##### 二. 购物车例子
+##### 二. 购物车案例
 
 
 参考文档：
