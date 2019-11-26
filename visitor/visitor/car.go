@@ -1,9 +1,5 @@
 package visitor
 
-import (
-	"fmt"
-)
-
 type Car struct {
 	Wheel    Wheel
 	CarColor string
@@ -11,6 +7,12 @@ type Car struct {
 }
 
 func (c Car) Accept(visitor Visitor) {
-	//
-	fmt.Println("wheel implement")
+	elements := []Element{
+		&c.Engine,
+		&c.Wheel,
+	}
+
+	for _, elem := range elements {
+		elem.Accept(visitor)
+	}
 }
