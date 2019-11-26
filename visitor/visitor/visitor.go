@@ -1,5 +1,6 @@
 package visitor
 
 type Visitor interface {
-	VisitWheel(wheel Wheel) string
+	VisitEngine(Engine Engine) string
+	VisitWheel(While Wheel) string
 }
