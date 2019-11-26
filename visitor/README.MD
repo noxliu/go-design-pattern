@@ -2,7 +2,7 @@
 
 ### 行为模式（Behavioural Pattern）
 
-### 定义
+#### 定义
 
 ***Represent an operation to be performed on elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.***
 
@@ -12,9 +12,9 @@
 
 在访问者模式中
 
-被访问的对象称为元素对象element
+被访问的对象称为**元素对象**element
 
-而访问对象就是访问者visitor
+而访问对象称为**访问者**visitor
 
 元素对象表示具备一定属性、数据、内容的对象，其不能因为有外部对象希望访问（读取）其内容，就改动自己的代码以提供对外方法，这样做的的缺陷是会污染到原对象的代码：新增加的给予外部对象提供数据的方法会和元素对象本身的业务代码混合在一起。
 
