@@ -5,6 +5,5 @@ type Engine struct {
 }
 
 func (e Engine) Accept(visitor Visitor) {
-	//
 	visitor.VisitEngine(e)
 }
