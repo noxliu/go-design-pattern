@@ -13,5 +13,4 @@ type Car struct {
 func (c Car) Accept(visitor Visitor) {
 	//
 	fmt.Println("wheel implement")
-	visitor.VisitWheel(c)
 }
