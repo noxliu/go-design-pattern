@@ -1,7 +1,7 @@
-package visitor
+package visitorCarExample
 
 type Visitor interface {
-	VisitEngine(Engine Engine) string
+	VisitEngine(Engine Engine) (int, string)
 	VisitWheel(While Wheel) string
 	VisitBody(body Body) string
 }

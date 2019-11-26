@@ -1,7 +1,8 @@
-package visitor
+package visitorCarExample
 
 type Wheel struct {
-	WheelSize int
+	WheelSize  int
+	WheelBrand string
 }
 
 func (e Wheel) Accept(visitor Visitor) {

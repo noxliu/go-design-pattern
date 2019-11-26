@@ -1,4 +1,4 @@
-package visitor
+package visitorCarExample
 
 type Engine struct {
 	EngineType string
