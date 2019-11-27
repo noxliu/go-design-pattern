@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "go-design-pattern/proxy/proxy"
+	. "go-design-pattern/proxy/proxyExample/proxy"
 )
 
 func main() {
