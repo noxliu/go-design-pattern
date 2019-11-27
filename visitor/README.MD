@@ -1,6 +1,6 @@
 ### 访问者模式（Visitor Pattern）
 
-### 行为模式（Behavioural Pattern）
+##### 行为模式（Behavioural Pattern）
 
 #### 定义
 

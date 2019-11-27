@@ -1,4 +1,4 @@
-package template
+package templateMethod
 
 import "fmt"
 
@@ -16,8 +16,8 @@ type Template struct {
 }
 
 func (t *Template) Download(url string, savePath string) {
-	fmt.Println("prepare downloading")
+	fmt.Println("start download")
 	t.Implement.download(url)
 	t.Implement.save(savePath)
-	fmt.Println("finish downloading")
+	fmt.Println("finish download")
 }
