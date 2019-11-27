@@ -27,7 +27,7 @@
 * 观察者模式（Observer）
 * 命令模式（Command）
 * 迭代器模式（Iterator）
-* 模板方法模式（Template Method）
+* [模板方法模式（Template Method）](https://github.com/nox60/go-design-pattern/tree/master/templateMethod)
 * 策略模式（Strategy）
 * 状态模式（State）
 * 备忘录模式（Memento）
