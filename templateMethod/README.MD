@@ -1,14 +1,14 @@
-### 访问者模式（Visitor Pattern）
+### 模板方法模式（Template Method Pattern）
 
 ##### 行为模式（Behavioural Pattern）
 
 #### 定义
 
-***Represent an operation to be performed on elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.***
+***Defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithms structure.***
 
-***访问者模式用于操作某个结构中各个对象. 它可以不用改变对象本身, 对对象的新操作定义在访问者自己内部.***
+***定义一个操作中的算法的骨架，而将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。***
 
-![Visitor Pattern UML](../images/visitor_pattern.png)
+![Visitor Pattern UML](../images/template_method.png)
 
 在访问者模式中
 

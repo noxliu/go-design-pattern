@@ -34,3 +34,7 @@
 * 解释器模式（Interpreter）
 * 职责链模式（Chain of Responsibility）
 * [访问者模式（Visitor）](https://github.com/nox60/go-design-pattern/tree/master/visitor)
+
+### 参考文档
+
+https://dzone.com/refcardz/design-patterns
