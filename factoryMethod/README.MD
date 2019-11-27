@@ -11,3 +11,6 @@ The advantage: you separated the use of Pizzas from its creation. You only want 
 The downside: If you have several subtypes of the given flavours of Pizza (e.g. ROMANABerlinStyle, ROMANAHamburgStyle) you have two choices.
 
 https://softwareengineering.stackexchange.com/questions/254923/what-are-the-disadvantages-of-a-simple-factory
+
+
+https://zhidao.baidu.com/question/131823823.html
