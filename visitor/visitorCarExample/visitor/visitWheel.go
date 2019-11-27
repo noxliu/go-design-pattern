@@ -1,4 +1,4 @@
-package visitorCarExample
+package visitor
 
 type VisitWheel struct {
 }

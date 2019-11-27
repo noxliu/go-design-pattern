@@ -1,4 +1,4 @@
-package visitorCarExample
+package visitor
 
 type Visitor interface {
 	VisitEngine(Engine Engine) (int, string)
