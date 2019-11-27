@@ -2,4 +2,12 @@ The idea behind the Factory Method pattern is that it allows for the case where 
 
 优点：
 
-1. 
+1. 在运行时候，只是期望一个抽象的对象来执行任务，并不清晰的知道到底需要什么对象？在运行时并不明确知道，应该创建什么类型的问题。
+
+you separated the use of Pizzas from its creation.
+
+The advantage: you separated the use of Pizzas from its creation. You only want Pizza, independend of its creation process. You could enjoy Pizza without baking one yourself.
+
+The downside: If you have several subtypes of the given flavours of Pizza (e.g. ROMANABerlinStyle, ROMANAHamburgStyle) you have two choices.
+
+https://softwareengineering.stackexchange.com/questions/254923/what-are-the-disadvantages-of-a-simple-factory
