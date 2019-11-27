@@ -3,6 +3,8 @@ package templateMethod
 import "fmt"
 
 type FtpDownloader struct {
+	UserName string
+	PassWord string
 }
 
 func (*FtpDownloader) download(url string) {

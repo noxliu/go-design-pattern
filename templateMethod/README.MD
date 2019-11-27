@@ -10,59 +10,93 @@
 
 ![Visitor Pattern UML](../images/template_method.png)
 
-在访问者模式中
 
-被访问的对象称为**元素对象**element
-
-而访问对象称为**访问者**visitor
-
-元素对象表示具备一定属性、数据、内容的对象，其不能因为有外部对象希望访问（读取）其内容，就改动自己的代码以提供对外方法，这样做的的缺陷是会污染到原对象的代码：新增加的给予外部对象提供数据的方法会和元素对象本身的业务代码混合在一起。
-
-1. 应对以上场景，访问者模式的解决方案是，当有访问需要访问元素对象的时候，元素对象提供一个accept方法，使得元素对象具备了可访问性，允许接受者访问其内部对象。
-
-```go
-type Element interface {
-	Accept(visitor Visitor)
-}
-
-func (e Engine) Accept(visitor Visitor) {
-	visitor.VisitEngine(e)
-}
-```
-
-2. 访问者将数据访问逻辑全部移到访问方法"visitMethod"内部，访问方法由访问者自己实现，这样就避免了对元素对象的污染。
-
-```go
-func (*VisitEngine) VisitEngine(engine Engine) string {
-	return engine.EngineType
-}
-```
 
 ### 优点
-实现了元素本身的可访问性，也保证了逻辑的清晰隔离：外部的访问逻辑不会和原有的业务逻辑混在一起。
+1. 封装和控制了业务的不变部分。
+2. 实现代码复用，将公共功能部分代码抽取出来，更易于维护。
 
 ### 例子分析
 
-##### 一. 汽车案例
-某个二手汽车相关的业务系统，汽车对象有若干字段，比如轮胎尺寸、轴距、马力、使用时间（年）等。
+##### 下载工具案例
+有一个下载工具，可能有多个步骤，目前为了简化假设只有两个：首先是下载文件，然后是写入磁盘。
 
-目前有个需求是，在某节日，可能会根据汽车的某些特性进行附加的礼品赠送，这就要求能够对汽车对象的某些属性能够访问以判断是否满足赠送条件。
+下载文件会有多种方式，比如http直接下载，也可能是ftp下载（需要用户名和密码），写入磁盘也可能有不同的实现。
 
-首先能够想到的第一个做法，就是在客户下单之前，在程序中取出汽车的相关字段进行计算，如果达到条件，则进行礼品赠送。但是这里的坏处就是要修改原有的业务逻辑，而且一旦赠送活动结束，此处增加的业务代码可能成为无用的废代码，污染了原有程序。
+1. 我们在父类中定义了下面的方法模版：
+```go
+func (t *Template) Download(url string, savePath string) {
+	fmt.Println("start download")
+	t.Implement.download(url)
+	t.Implement.save(savePath)
+	fmt.Println("finish download")
+}
+```
 
-另外一个做法则是使用访问者模式，此处只要实现能够访问汽车对象（通过增加accept方法使汽车对象具备可访问性），则可以在不破坏原有业务逻辑的前提下，编写并上线访问者相关的程序，按照访问者模式的设计，新增加的业务逻辑全部增加在访问者的visit方法中，即便某一套折扣逻辑未来要下线停用或者更改赠送逻辑，也是在访问者者相关的代码中更改，总之不会影响到现有的标准逻辑。
+2. 在具体实现方法中，ftp下载器的实现：
+```go
+type FtpDownloader struct {
+	UserName string
+	PassWord string
+}
 
-具体代码详见 
+func (*FtpDownloader) download(url string) {
+	fmt.Println("ftp download from ", url)
+}
 
-##### 二. 购物车案例
-某供应链系统，部分员工的工作是在该系统在线采购公司所需要的原材料，不同种类材料有不同价格以及其他复杂属性。业务经理作为资深领导，有时候要实时的关注员工正在采购的工作，如果发现问题需要进行帮助和建议。
+func (*FtpDownloader) save(savePath string) {
+	fmt.Println("ftp save file to ", savePath)
+}
+```
 
-因为员工采购的材料可能有多个属性，需要一些附加的业务计算逻辑帮经理判断员工正在采购的工作的状况，如果直接让经理的访问逻辑加入到员工的业务逻辑代码中以帮助经理监督过程，这样会侵入原有的代码。
+3. 在具体实现方法中，http下载器的实现：
+```go
+type FtpDownloader struct {
+	UserName string
+	PassWord string
+}
 
-所以，此处最合适的方法也依然是实现访问者模式，让员工对象实现可访问性。
+func (*FtpDownloader) download(url string) {
+	fmt.Println("ftp download from ", url)
+}
+
+func (*FtpDownloader) save(savePath string) {
+	fmt.Println("ftp save file to ", savePath)
+}
+```
+
+4. 执行测试代码，分别用不同的下载器进行下载：
+```go
+func main() {
+	template := Template{}
+
+	ftpDownloader := FtpDownloader{
+		UserName: "testUser",
+		PassWord: "password",
+	}
+	template.Implement = &ftpDownloader
+	template.Download("ftp://www.xxx.com/a.zip", "/opt/local")
+
+	httpDownloader := HttpDownloader{}
+	template.Implement = &httpDownloader
+	template.Download("http://www.xxx.com/a.zip", "/opt/local")
+}
+```
+
+5. 输出结果
+```go
+start download
+ftp download from  ftp://www.xxx.com/a.zip
+ftp save file to  /opt/local
+finish download
+start download
+http download from  http://www.xxx.com/a.zip
+http save file to  /opt/local
+finish download
+```
 
 ### 参考文档：
 
-https://en.wikipedia.org/wiki/Visitor_pattern
+https://en.wikipedia.org/wiki/Template_method_pattern
 
-https://dzone.com/articles/design-patterns-visitor
+https://dzone.com/articles/design-patterns-template-method

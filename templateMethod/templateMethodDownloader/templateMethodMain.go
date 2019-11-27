@@ -7,9 +7,12 @@ import (
 func main() {
 	template := Template{}
 
-	ftpDownloader := FtpDownloader{}
+	ftpDownloader := FtpDownloader{
+		UserName: "testUser",
+		PassWord: "password",
+	}
 	template.Implement = &ftpDownloader
-	template.Download("http://www.xxx.com/a.zip", "/opt/local")
+	template.Download("ftp://www.xxx.com/a.zip", "/opt/local")
 
 	httpDownloader := HttpDownloader{}
 	template.Implement = &httpDownloader
