@@ -37,7 +37,6 @@ func (c *StateContext) PrintWord(word string) {
 		upperPrinter.PrintWord(word)
 		c.state = 0
 	}
-
 }
 
 type State interface {
