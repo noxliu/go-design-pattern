@@ -1,6 +1,5 @@
 package simpleFactory
 
-//API is interface
 type Car interface {
 	Drive() string
 }

@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	car := simpleFactory.GetCar("bmw")
-	fmt.Println(car.Drive())
+	car1 := simpleFactory.GetCar("bmw")
+	fmt.Println(car1.Drive())
 
-	benz := simpleFactory.GetCar("benz")
-	fmt.Println(benz.Drive())
+	car2 := simpleFactory.GetCar("benz")
+	fmt.Println(car2.Drive())
 }
