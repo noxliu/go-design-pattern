@@ -6,13 +6,8 @@ type Benz struct {
 	CarType CarType
 }
 
-func (*Benz) Drive(carName string) CarType {
-	car := CarType{
-		carName: carName,
-		size:    10,
-	}
-
-	return car
+func (b *Benz) Drive(carName string) string {
+	return b.CarType.carName
 }
 
 func (c *Benz) ShowMyCar() {

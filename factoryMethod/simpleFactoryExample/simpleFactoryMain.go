@@ -1,1 +1,5 @@
 package simpleFactoryExample
+
+func main() {
+
+}
