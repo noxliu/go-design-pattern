@@ -10,6 +10,6 @@ func (b Benz) Drive() string {
 	return b.CarType.carName
 }
 
-func (c *Benz) ShowMyCar() {
+func (c Benz) ShowMyCar() {
 	fmt.Println(c.CarType)
 }
