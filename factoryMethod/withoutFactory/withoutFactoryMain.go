@@ -5,11 +5,12 @@ import (
 )
 
 func main() {
-	carType := CarType{
+	carTypeBenz := CarType{
 		CarName: "benz",
 		Size:    10,
 	}
 
-	benz := Benz{CarType: carType}
+	benz := Benz{CarType: carTypeBenz}
 	benz.Drive()
+
 }
