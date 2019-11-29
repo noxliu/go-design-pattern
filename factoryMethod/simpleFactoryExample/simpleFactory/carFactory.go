@@ -2,13 +2,8 @@ package simpleFactory
 
 func getCar(carType string) Car {
 	if carType == "benz" {
-		/*
-			car := CarType{
-				carName: carType,
-				size:    10,
-			}
-		*/
-		return nil
+		benz := Benz{}
+		return benz
 	} else {
 		return nil
 	}

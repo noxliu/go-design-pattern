@@ -6,7 +6,7 @@ type Benz struct {
 	CarType CarType
 }
 
-func (b *Benz) Drive(carName string) string {
+func (b Benz) Drive(carName string) string {
 	return b.CarType.carName
 }
 
