@@ -2,7 +2,7 @@
 
 设计模式 Golang 实现代码说明与例子如下
 
-## 创建型模式
+## 创建模式
 
 * 工厂方法模式（Factory Method）
 * 抽象工厂模式（Abstract Factory）
@@ -10,7 +10,7 @@
 * 原型模式（Prototype）
 * 单例模式（Singleton）
 
-## 结构型模式
+## 结构模式
 
 * 外观模式（Facade）
 * 适配器模式（Adapter）
@@ -20,7 +20,7 @@
 * 装饰模式（Decorator）
 * 桥模式（Bridge）
 
-## 行为型模式
+## 行为模式
 
 * 中介者模式（Mediator）
 * 观察者模式（Observer）
