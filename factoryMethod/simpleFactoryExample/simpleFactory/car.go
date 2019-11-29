@@ -2,7 +2,7 @@ package simpleFactory
 
 //API is interface
 type Car interface {
-	Drive(name string) string
+	Drive() string
 }
 
 type CarType struct {
