@@ -13,4 +13,11 @@ func main() {
 	benz := Benz{CarType: carTypeBenz}
 	benz.Drive()
 
+	carTypeBmw := CarType{
+		CarName: "bmw",
+		Size:    9,
+	}
+
+	bmw := Benz{CarType: carTypeBmw}
+	bmw.Drive()
 }
