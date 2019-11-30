@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	. "go-design-pattern/factoryMethod/withoutFactory/example"
 )
 
@@ -11,7 +12,7 @@ func main() {
 	}
 
 	benz := Benz{CarType: carTypeBenz}
-	benz.Drive()
+	fmt.Println(benz.Drive())
 
 	carTypeBmw := CarType{
 		CarName: "bmw",
@@ -19,5 +20,5 @@ func main() {
 	}
 
 	bmw := Benz{CarType: carTypeBmw}
-	bmw.Drive()
+	fmt.Println(bmw.Drive())
 }
