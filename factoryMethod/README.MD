@@ -36,8 +36,62 @@ https://blog.51cto.com/zero01/2067822
 
 在讨论工厂方法模式之前，我们首先要讨论的一定是简单工厂(Simple Factory)，严格的说，简单工厂不是Gof23设计模式中的一种。
 
-首先我们看看不使用简单工厂或者工厂方法之前，我们要创建对象的方式。
+首先我们看看不使用简单工厂或者工厂方法之前，我们要创建对象的方式:
 
+假设我们有汽车类型接口及其两种实现：一个benz，一个bwm
+
+汽车类型car：
+
+```go
+type Car interface {
+	Drive() string
+}
+
+type CarType struct {
+	CarName string
+	Size    int
+}
+```
+
+两种实现：
+```go
+type Benz struct {
+	CarType CarType
+}
+
+func (b Benz) Drive() string {
+	return b.CarType.CarName
+}
+
+type Bmw struct {
+	CarType CarType
+}
+
+func (b Bmw) Drive() string {
+	return b.CarType.CarName
+}
+```
+
+对两种汽车类型的调用：
+```go
+func main() {
+	carTypeBenz := CarType{
+		CarName: "benz",
+		Size:    10,
+	}
+
+	benz := Benz{CarType: carTypeBenz}
+	fmt.Println(benz.Drive())
+
+	carTypeBmw := CarType{
+		CarName: "bmw",
+		Size:    9,
+	}
+
+	bmw := Benz{CarType: carTypeBmw}
+	fmt.Println(bmw.Drive())
+}
+```
 
 
 
