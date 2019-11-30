@@ -1,4 +1,4 @@
-package example
+package withoutFactory
 
 type Car interface {
 	Drive() string

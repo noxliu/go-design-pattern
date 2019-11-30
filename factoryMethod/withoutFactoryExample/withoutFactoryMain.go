@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	. "go-design-pattern/factoryMethod/withoutFactory/example"
+	. "go-design-pattern/factoryMethod/withoutFactoryExample/withoutFactory"
 )
 
 func main() {
