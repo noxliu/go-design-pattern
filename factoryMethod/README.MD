@@ -93,7 +93,52 @@ func main() {
 }
 ```
 
-以上代码是没有使用任何工厂模式的用法，虽然并没有什么bug，但是如果在代码中这样接口的实例化和使用有多处，同时汽车接口一旦发生变化，这些使用该接口的地方都需要改动（有100处使用，就要改动100处）。
+以上代码是没有使用任何工厂模式的用法，虽然并没有什么bug，但是如果在代码中这样接口的实例化和使用有多处:
+
+
+```go
+	carTypeBenz := CarType{
+		CarName: "benz",
+		Size:    10,
+	}
+
+	benz := Benz{CarType: carTypeBenz}
+	fmt.Println(benz.Drive())
+
+	carTypeBmw := CarType{
+		CarName: "bmw",
+		Size:    9,
+	}
+
+	bmw := Benz{CarType: carTypeBmw}
+	fmt.Println(bmw.Drive())
+ 
+    ...
+
+	carTypeBenz := CarType{
+		CarName: "benz",
+		Size:    10,
+	}
+
+	benz := Benz{CarType: carTypeBenz}
+	fmt.Println(benz.Drive())
+
+	carTypeBmw := CarType{
+		CarName: "bmw",
+		Size:    9,
+	}
+
+	bmw := Benz{CarType: carTypeBmw}
+	fmt.Println(bmw.Drive())
+
+    ...
+
+```
+
+
+同时汽车接口一旦发生变化，这些使用该接口的地方都需要改动（有100处使用，就要改动100处）。
+
+
 
 所以，上述代码也没有实现代码的复用，创建汽车类型的代码在很多地方重复，这是造成如果使用了100处就要改动这100个地方的原因。
 
