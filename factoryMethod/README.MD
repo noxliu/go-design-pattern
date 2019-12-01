@@ -217,6 +217,12 @@ func GetCar(carType string) Car {
 
 此时我们使用工厂方法模式解决该问题。
 
+
+
+
+
+
+
 在访问者模式中
 
 被访问的对象称为**元素对象**element
