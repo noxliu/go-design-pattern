@@ -100,7 +100,23 @@ func main() {
 我们使用简单工厂模式对上述代码进行改动。
 
 增加一个工厂函数，用于产生汽车对象。
-
+```go
+func GetCar(carType string) Car {
+	carType1 := CarType{
+		carName: carType,
+		size:    10,
+	}
+	if carType == "benz" {
+		benz := Benz{CarType: carType1}
+		return benz
+	} else if carType == "bmw" {
+		bmw := Bmw{CarType: carType1}
+		return bmw
+	} else {
+		return nil
+	}
+}
+```
 
 
 
