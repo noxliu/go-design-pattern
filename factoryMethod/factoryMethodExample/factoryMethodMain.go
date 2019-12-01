@@ -1,1 +1,1 @@
-package factoryMethodExample
+package main
