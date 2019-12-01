@@ -118,6 +118,17 @@ func GetCar(carType string) Car {
 }
 ```
 
+而新的客户端代码则变成了
+
+```go
+	car1 := simpleFactory.GetCar("bmw")
+	fmt.Println(car1.Drive())
+
+	car2 := simpleFactory.GetCar("benz")
+	fmt.Println(car2.Drive())
+```
+
+从上面的代码可以看出，GetCar是一个工厂函数，其负责了汽车对象的创建
 
 
 
