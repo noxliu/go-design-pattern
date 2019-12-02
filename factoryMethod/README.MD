@@ -1,18 +1,3 @@
-The idea behind the Factory Method pattern is that it allows for the case where a client doesn't know what concrete classes it will be required to create at runtime, but just wants to get a class that will do the job. The FactoryMethod builds on the concept of a simple Factory, but lets the subclasses decide which implementation of the concrete class to use.  You'll see factories used in logging frameworks, and in a lot of scenarios where the client doesn't need to know about the concrete implementations. It's a good approach to encapsulation.
-
-优点：
-
-1. 在运行时候，只是期望一个抽象的对象来执行任务，并不清晰的知道到底需要什么对象？在运行时并不明确知道，应该创建什么类型的问题。
-
-
-https://zhidao.baidu.com/question/131823823.html
-
-
-》》》》》》
-
-https://blog.51cto.com/zero01/2067822
-
-
 ### 工厂方法模式（Factory Method pattern）
 
 ##### 创建模式（Creational Pattern）
@@ -251,8 +236,38 @@ func (*BenzFactory) GetCar(carName string) Car {
 ```
 
 ```go
+type BmwFactory struct {
+}
 
+func (*BmwFactory) GetCar(carName string) Car {
+	cartype := CarType{
+		CarName:  carName,
+		CarBrand: "bmw",
+		Size:     10,
+	}
+
+	bmw := Bmw{
+		CarType: cartype,
+	}
+
+	return bmw
+}
 ```
+
+这样，在客户端代码中，调用不同的工厂生产不同的对象：
+
+```go
+	bmwFactory := factoryMethod.BmwFactory{}
+	bmw1 := bmwFactory.GetCar("bmw1")
+	fmt.Println(bmw1.Drive())
+
+	benzFactory := factoryMethod.BenzFactory{}
+	benz1 := benzFactory.GetCar("my benz")
+	fmt.Println(benz1.Drive())
+```
+
+### 总结
+工厂方法模式是代码封装性的一个良好体现，很好的将对象的创建和使用隔离开。在开发中合理的使用，会体会到开闭原则的真正意义。
 
 ### 参考文档：
 
@@ -261,3 +276,5 @@ https://en.wikipedia.org/wiki/Visitor_pattern
 https://dzone.com/articles/design-patterns-visitor
 
 https://blog.51cto.com/zero01/2067822
+
+https://zhidao.baidu.com/question/131823823.html
