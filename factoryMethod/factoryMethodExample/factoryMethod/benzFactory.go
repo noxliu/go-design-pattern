@@ -5,8 +5,9 @@ type BenzFactory struct {
 
 func (*BenzFactory) GetCar(carName string) Car {
 	cartype := CarType{
-		carName: carName,
-		size:    10,
+		CarName:  carName,
+		CarBrand: "benz",
+		Size:     10,
 	}
 
 	benz := Benz{

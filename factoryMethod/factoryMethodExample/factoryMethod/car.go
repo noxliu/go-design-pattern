@@ -5,6 +5,7 @@ type Car interface {
 }
 
 type CarType struct {
-	carName string
-	size    int
+	CarName  string
+	CarBrand string
+	Size     int
 }
