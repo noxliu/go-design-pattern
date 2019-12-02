@@ -6,13 +6,13 @@ import (
 )
 
 func main() {
-	fmt.Println("--")
-	fmt.Println(GetFLyWeight("a11"))
-	fmt.Println(GetFLyWeight("a12"))
-	fmt.Println(GetFLyWeight("a13"))
-	fmt.Println(GetFLyWeight("a11"))
-	fmt.Println(GetFLyWeight("a12"))
-	fmt.Println(GetFLyWeight("a13"))
-	fmt.Println(GetFLyWeight("a11"))
+	fmt.Println(GetFLyWeight("a"))
+	fmt.Println(GetFLyWeight("a"))
+	fmt.Println(GetFLyWeight("c"))
+	fmt.Println(GetFLyWeight("b"))
+	fmt.Println(GetFLyWeight("a"))
+	fmt.Println(GetFLyWeight("a"))
+	fmt.Println(GetFLyWeight("b"))
+	fmt.Println(GetFLyWeight("d"))
 	fmt.Println(len(F))
 }
