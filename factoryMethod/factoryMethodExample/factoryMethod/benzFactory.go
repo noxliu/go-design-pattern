@@ -15,5 +15,4 @@ func (*BenzFactory) GetCar(carName string) Car {
 	}
 
 	return benz
-
 }

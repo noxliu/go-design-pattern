@@ -221,8 +221,12 @@ func GetCar(carType string) Car {
 
 此处，我们为每一种对象（汽车类型）增加一个构建工厂方法。
 
-```go
+首先是工厂接口
 
+```go
+type Factory interface {
+	GetCar() Car
+}
 ```
 
 
