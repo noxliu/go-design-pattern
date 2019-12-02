@@ -5,5 +5,5 @@ type Bmw struct {
 }
 
 func (b Bmw) Drive() string {
-	return b.CarType.CarName
+	return b.CarType.CarName + "," + b.CarType.CarBrand
 }

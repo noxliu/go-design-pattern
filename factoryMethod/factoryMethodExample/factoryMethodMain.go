@@ -8,7 +8,9 @@ import (
 func main() {
 	bmwFactory := factoryMethod.BmwFactory{}
 	bmw1 := bmwFactory.GetCar("bmw1")
+	fmt.Println(bmw1.Drive())
 
-	fmt.Println("The car brand is %s, name is %s ", bmw1)
-
+	benzFactory := factoryMethod.BenzFactory{}
+	benz1 := benzFactory.GetCar("my benz")
+	fmt.Println(benz1.Drive())
 }
