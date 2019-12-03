@@ -6,5 +6,5 @@ type fileAccessorImpl struct {
 }
 
 func (*fileAccessorImpl) ReadFile(filePath string) {
-	fmt.Println("access file")
+	fmt.Println("访问文件操作")
 }

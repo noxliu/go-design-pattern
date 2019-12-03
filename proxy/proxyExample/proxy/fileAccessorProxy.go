@@ -10,11 +10,11 @@ type FileAccessorProxy struct {
 
 func (f *FileAccessorProxy) ReadFile(filePath string) {
 	if f.UserType == "user" {
-		fmt.Printf("Current user: %s \n", f.UserType)
+		fmt.Printf("当前用户: %s \n", f.UserType)
 		fileAccessor := fileAccessorImpl{}
 		fileAccessor.ReadFile(filePath)
 	} else if f.UserType == "guest" {
-		fmt.Printf("Current user: %s \n", f.UserType)
-		fmt.Println("Sorry, you cannot access this file")
+		fmt.Printf("当前用户: %s \n", f.UserType)
+		fmt.Println("对不起，你没有访问权限")
 	}
 }
