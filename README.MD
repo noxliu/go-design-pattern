@@ -39,3 +39,4 @@
 https://dzone.com/refcardz/design-patterns
 https://www.tutorialspoint.com/design_pattern/index.htm
 https://en.wikipedia.org/wiki/Design_Patterns
+https://www.cnblogs.com/adamjwh/category/1215890.html
