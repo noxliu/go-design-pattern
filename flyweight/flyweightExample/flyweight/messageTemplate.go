@@ -7,7 +7,7 @@ func GetMsgTemplate(templateNo int) string {
 	msgTemplateBody := F[templateNo]
 	if msgTemplateBody == nil {
 		//模拟去数据库查询
-		messageBody := QueryByType(templateNo)
+		messageBody := QueryByNo(templateNo)
 		F[templateNo] = &messageBody
 		msgTemplateBody = &messageBody
 	}

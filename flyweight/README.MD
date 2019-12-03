@@ -42,6 +42,41 @@
 
 2. 当需要给客户发送信息时候，只需要调用正确的模版然后套用相关数据发送信息即可。
 
+3. 代码示例
+
+message 结构体是不可共享的外部状态，是消息的变化的内容。
+```go
+type Message struct {
+	ProductName string
+	OrderNo     string
+	TrackNo     string
+	TemplateNo  int
+}
+
+func (m *Message) Merge(MessageTemplate string) string {
+	message := strings.ReplaceAll(MessageTemplate, "<<ProductName>>", m.ProductName)
+	message = strings.ReplaceAll(message, "<<OrderNo>>", m.OrderNo)
+	message = strings.ReplaceAll(message, "<<TrackNo>>", m.TrackNo)
+	return message
+}
+```
+
+全局变量F充当缓存作用，缓存所有可以共享的内部状态，也就是消息的模板，当缓存中没有模板存在的时候，就调用QueryByNo
+```go
+var F = make(map[int]*string)
+
+func GetMsgTemplate(templateNo int) string {
+	msgTemplateBody := F[templateNo]
+	if msgTemplateBody == nil {
+		//模拟去数据库查询
+		messageBody := QueryByNo(templateNo)
+		F[templateNo] = &messageBody
+		msgTemplateBody = &messageBody
+	}
+
+	return *msgTemplateBody
+}
+```
 
 
 ### 参考文档：

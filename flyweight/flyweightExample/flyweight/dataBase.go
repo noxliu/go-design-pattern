@@ -4,7 +4,7 @@ var template1 = "感谢你的支持, 你购买的商品<<ProductName>>, 订单�
 var template2 = "客户你好, 你关注的商品<<ProductName>>, 正在促销打折! 数量不多!"
 var template3 = "客户你好, 我们已经你对订单<<OrderNo>>的评价, 感谢!"
 
-func QueryByType(templateNo int) string {
+func QueryByNo(templateNo int) string {
 	if templateNo == 1 {
 		return template1
 	} else if templateNo == 2 {
