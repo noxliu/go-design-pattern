@@ -10,7 +10,7 @@ type Message struct {
 }
 
 func (m *Message) Merge(MessageTemplate string) string {
-	message := strings.ReplaceAll(MessageTemplate, "\\<\\<ProductName\\>\\>", m.ProductName)
+	message := strings.ReplaceAll(MessageTemplate, "<<ProductName>>", m.ProductName)
 	message = strings.ReplaceAll(message, "<<OrderNo>>", m.OrderNo)
 	message = strings.ReplaceAll(message, "<<TrackNo>>", m.TrackNo)
 	return message
