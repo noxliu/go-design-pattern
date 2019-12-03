@@ -41,8 +41,43 @@ type fileAccessorImpl struct {
 }
 
 func (*fileAccessorImpl) ReadFile(filePath string) {
-	fmt.Println("access file")
+	fmt.Println("访问文件操作")
 }
+```
+
+代理文件访问
+```go
+type FileAccessorProxy struct {
+	UserType string
+}
+
+func (f *FileAccessorProxy) ReadFile(filePath string) {
+	if f.UserType == "user" {
+		fmt.Printf("当前用户: %s \n", f.UserType)
+		fileAccessor := fileAccessorImpl{}
+		fileAccessor.ReadFile(filePath)
+	} else if f.UserType == "guest" {
+		fmt.Printf("当前用户: %s \n", f.UserType)
+		fmt.Println("对不起，你没有访问权限")
+	}
+}
+```
+
+测试访问
+```go
+	//fileAccessorImpl := fileAccessorImpl{} 用户不能访问到 fileAccessorImpl, 利用包权限隔离，只能通过下面的代理实现访问
+	userFileAccessProxy := FileAccessorProxy{UserType: "user"}
+	guestFileAccessProxy := FileAccessorProxy{UserType: "guest"}
+	userFileAccessProxy.ReadFile("/opt/user/file")
+	guestFileAccessProxy.ReadFile("/opt/user/file")
+```
+
+输出
+```go
+当前用户: user 
+访问文件操作
+当前用户: guest 
+对不起，你没有访问权限
 ```
 
 ### 参考文档：
