@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	. "go-design-pattern/flyweight/flyweightExample/flyweight"
+	. "go-design-pattern/flyweight/flyweightExample1/flyweight"
 )
 
 func main() {
