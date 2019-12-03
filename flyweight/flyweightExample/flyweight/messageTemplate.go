@@ -1,17 +1,16 @@
 package flyweight
 
-type MsgTemplate struct {
-	data string
-}
+//Flyweight Factory，享元工厂
+var F = make(map[int]*string)
 
-var F = make(map[string]*MsgTemplate)
-
-func GetMsgTemplate(msgTemplate string) *MsgTemplate {
-	msgTemplateBody := F[msgTemplate]
+func GetMsgTemplate(templateNo int) string {
+	msgTemplateBody := F[templateNo]
 	if msgTemplateBody == nil {
-		msgTemplateBody = &MsgTemplate{data: msgTemplate}
-		F[msgTemplate] = msgTemplateBody
+		//模拟去数据库查询
+		messageBody := QueryByType(templateNo)
+		F[templateNo] = &messageBody
+		msgTemplateBody = &messageBody
 	}
 
-	return msgTemplateBody
+	return *msgTemplateBody
 }
