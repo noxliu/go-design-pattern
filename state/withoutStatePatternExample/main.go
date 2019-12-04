@@ -44,13 +44,15 @@ func stateChange(nextState int) {
 			fmt.Print("停止电梯")
 			currentState = STOP
 		}
-	} else if currentState == RUN {
+	} else if currentState == STOP {
 		if nextState == OPEN {
-			fmt.Println("不能打开运行中的电梯门")
+			fmt.Println("打开电梯门")
+			currentState = OPEN
 		} else if nextState == CLOSE {
 			fmt.Println("状态切换错误，只能从电梯门打开状态切换到关闭状态")
 		} else if nextState == RUN {
-			fmt.Println("电梯正在运行")
+			fmt.Println("电梯开始运行")
+			currentState = RUN
 		} else if nextState == STOP {
 			fmt.Print("停止电梯")
 			currentState = STOP
