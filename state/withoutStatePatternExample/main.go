@@ -54,8 +54,7 @@ func stateChange(nextState int) {
 			fmt.Println("电梯开始运行")
 			currentState = RUN
 		} else if nextState == STOP {
-			fmt.Print("停止电梯")
-			currentState = STOP
+			fmt.Print("电梯已经停止")
 		}
 	}
 
