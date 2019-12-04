@@ -6,11 +6,13 @@
 
 ***Ties object circumstances to its behavior, allowing the object to behave in different ways based upon its internal state.***
 
-***定义一个操作中的算法的骨架，而将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。***
+***。***
 
-![Visitor Pattern UML](../images/template_method.png)
+![State Pattern UML](../images/state_pattern.png)
 
+状态模式主要解决的问题就是当控制一个对象状态转换的条件表达式过于复杂时的情况。即把状态的判断逻辑转移到标识不同状态的一系列类当中。
 
+状态模式在开发中非常有用，从开关按钮，到任务和购物车，都存在很多种不同的状态。
 
 ### 优点
 1. 封装和控制了业务的不变部分。
