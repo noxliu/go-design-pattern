@@ -5,18 +5,31 @@ import "fmt"
 var currentState = 0
 
 //四种状态，0代表电梯门打开，1代表电梯门关闭，2代表电梯在运行，3代表电梯停止（电梯门没有打开）
-var OPENED = 0
-var CLOSED = 1
-var RUNNING = 2
-var STOPPED = 3
+var OPEN = 0
+var CLOSE = 1
+var RUN = 2
+var STOP = 3
 
 func stateChange(nextState int) {
-	if currentState == OPENED {
-		if nextState == OPENED {
-			fmt.Println("电梯已经打开")
-		} else if nextState == CLOSED {
+	if currentState == OPEN {
+		if nextState == OPEN {
+			fmt.Println("电梯门已经打开")
+		} else if nextState == CLOSE {
 			fmt.Println("关闭电梯门")
-			currentState = CLOSED
+			currentState = CLOSE
+		} else if nextState == RUN {
+			fmt.Println("电梯门尚未关闭，不能运行")
+		} else if nextState == STOP {
+			fmt.Print("状态切换错误，只能从运行状态切换到停止状态")
+		}
+	} else if currentState == CLOSE {
+		if nextState == OPEN {
+			fmt.Println("打开电梯门")
+		} else if nextState == CLOSE {
+			fmt.Println("电梯门已经关闭")
+		} else if nextState == RUN {
+			fmt.Println()
 		}
 	}
+
 }
