@@ -15,10 +15,10 @@ func (*Close) Open() {
 }
 
 func (*Close) Close() {
-	fmt.Println("关闭电梯门")
 }
 
 func (*Close) Run() {
+	fmt.Println("启动电梯")
 }
 
 func (*Close) Stop() {

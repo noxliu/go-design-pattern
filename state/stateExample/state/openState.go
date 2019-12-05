@@ -12,10 +12,10 @@ func (*Open) SetState(s State) {
 }
 
 func (c Open) Open() {
-	fmt.Println("电梯门打卡")
 }
 
 func (c Open) Close() {
+	fmt.Println("关闭电梯门")
 }
 
 func (c Open) Run() {
