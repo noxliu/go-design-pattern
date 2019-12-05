@@ -28,7 +28,7 @@
 * 迭代器模式（Iterator）
 * [模板方法模式（Template Method）](https://github.com/nox60/go-design-pattern/tree/master/templateMethod)
 * 策略模式（Strategy）
-* 状态模式（State）
+* [状态模式（State）](https://github.com/nox60/go-design-pattern/tree/master/state)
 * 备忘录模式（Memento）
 * 解释器模式（Interpreter）
 * 职责链模式（Chain of Responsibility）
@@ -40,3 +40,4 @@ https://dzone.com/refcardz/design-patterns
 https://www.tutorialspoint.com/design_pattern/index.htm
 https://en.wikipedia.org/wiki/Design_Patterns
 https://www.cnblogs.com/adamjwh/category/1215890.html
+https://www.runoob.com/design-pattern/design-pattern-tutorial.html
