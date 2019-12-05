@@ -6,7 +6,9 @@
 
 ***Allows for the dynamic creation of objects based upon easily interchangeable algorithms.***
 
-***使用多个简单的对象一步一步构建成一个复杂的对象。建造者模式，就是把复杂，易出错的进行封装。便于创建对象。***
+***使用多个简单的对象一步一步构建成一个复杂的对象。建造者模式，就是把复杂，易出错的进行封装。便于创建对象。将创建和展现分开***
+
+将一个复杂的构建与表示分离，使得同样的构建过程，能有不一样的表示。
 
 ![Builder Pattern UML](../images/builder_pattern.png)
 
@@ -24,3 +26,4 @@
 
 ### 参考文档：
 
+https://www.jianshu.com/p/a200c63adf2e
