@@ -5,9 +5,10 @@ import "fmt"
 type Run struct {
 }
 
+/*
 func (*Run) SetState(s State) {
 	fmt.Println("")
-}
+}*/
 
 func (c Run) Open() {
 }

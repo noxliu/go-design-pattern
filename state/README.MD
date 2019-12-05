@@ -31,17 +31,31 @@ var STOP = 3
 
 func stateChange(nextState int) {
 	if currentState == OPEN {
+		//打开状态只能切换到关闭
 		fmt.Println("关闭电梯门")
 		currentState = CLOSE
 	} else if currentState == CLOSE {
-		fmt.Println("电梯开始运行")
-		currentState = RUN
+		//关闭状态可以切换到打开或者运行
+		if nextState == OPEN {
+			fmt.Println("打开电梯门")
+			currentState = OPEN
+		} else if nextState == RUN {
+			fmt.Println("电梯开始运行")
+			currentState = RUN
+		}
 	} else if currentState == RUN {
+		//运行状态只能选择停止
 		fmt.Print("停止电梯")
 		currentState = STOP
 	} else if currentState == STOP {
-		fmt.Println("打开电梯门")
-		currentState = OPEN
+		//停止状态可以选择再次运行或者打开电梯门
+		if nextState == RUN {
+			fmt.Println("电梯开始运行")
+			currentState = RUN
+		} else if nextState == OPEN {
+			fmt.Println("打开电梯门")
+			currentState = OPEN
+		}
 	}
 }
 ```
@@ -50,7 +64,7 @@ func stateChange(nextState int) {
 
 而且这还不是最糟糕的，当状态的数量和切换变得更加复杂之后，麻烦会更加严重的增加。比如将RUN状态改为UP或者DOWN两种状态，分别为上升运行和下降运行，然后再加入维护状态和紧急状态等状态。可以想象的是，上面的代码将会有非常复杂的if嵌套。
 
-代码的可读性和可维护性将非常低，即便在耗费大量精力之后保证逻辑正确，一旦要增加或者删减状态，将又要花费很大的精力来保证改动后的代码的正确性。
+代码的可读性和可维护性将越来越低，即便在耗费大量精力之后保证逻辑正确，一旦要增加或者删减状态，将又要花费很大的精力来保证改动后的代码的正确性。
 
 state模式正是为了解决状态切换的需求而存在的。
 
@@ -71,9 +85,14 @@ state模式正是为了解决状态切换的需求而存在的。
 
 ### 例子分析
 
-//电梯例子
+##### 电梯案例
 
-##### 下载工具案例
+1. 电梯分为四种状态：OPEN（电梯门打开），CLOSE（电梯门关闭），RUN（电梯运行），STOP（电梯停止）
+2. 电梯状态间可以合理的相互切换，但是一些不合理的方式是不行的，比如OPEN -> RUN是不能被接受的，因为不能直接让打开门的电梯运行。
+
+代码如下：
+
+
 
 ### 参考文档：
 

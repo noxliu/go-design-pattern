@@ -12,4 +12,7 @@ func main() {
 	context.Close()
 	context.Run()
 	context.Stop()
+	context.Run()
+	context.Stop()
+	context.Open()
 }
