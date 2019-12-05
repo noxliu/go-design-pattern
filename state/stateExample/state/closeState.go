@@ -15,7 +15,7 @@ func (*Close) Open() {
 }
 
 func (*Close) Close() {
-	fmt.Println("cannot stop")
+	fmt.Println("关闭电梯门")
 }
 
 func (*Close) Run() {

@@ -14,7 +14,7 @@ func (c *Context) SetState(s State) {
 
 func (c *Context) Open() {
 	c.currentState.Open()
-	c.currentState = Open{}
+	c.currentState = &Open{}
 }
 
 func (c *Context) Close() {

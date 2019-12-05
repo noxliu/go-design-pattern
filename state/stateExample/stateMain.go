@@ -5,8 +5,9 @@ import (
 )
 
 func main() {
-	run := Open{}
+	stop := Stop{}
 	context := Context{}
-	context.SetState(&run)
-	context.Run()
+	context.SetState(&stop)
+	context.Open()
+
 }
