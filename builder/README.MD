@@ -14,6 +14,14 @@
 
 在建造者模式中
 
+```go
+
+ConcreteBuilder builder = new ConcreteBuilder();
+Director director = new Director( builder );
+
+director.construct();
+Product product = builder.getResult();
+```
 
 
 
