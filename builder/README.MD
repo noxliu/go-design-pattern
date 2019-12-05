@@ -1,0 +1,26 @@
+### 建造者模式（Builder Pattern）
+
+##### 创建模式（Creational Pattern）
+
+#### 定义
+
+***Allows for the dynamic creation of objects based upon easily interchangeable algorithms.***
+
+***使用多个简单的对象一步一步构建成一个复杂的对象。建造者模式，就是把复杂，易出错的进行封装。便于创建对象。***
+
+![Builder Pattern UML](../images/builder_pattern.png)
+
+在建造者模式中
+
+
+
+
+### 优点
+
+### 例子分析
+
+##### 一. 汽车案例
+
+
+### 参考文档：
+
