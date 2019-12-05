@@ -31,53 +31,19 @@ var STOP = 3
 
 func stateChange(nextState int) {
 	if currentState == OPEN {
-		if nextState == OPEN {
-			fmt.Println("电梯门已经打开")
-		} else if nextState == CLOSE {
-			fmt.Println("关闭电梯门")
-			currentState = CLOSE
-		} else if nextState == RUN {
-			fmt.Println("电梯门尚未关闭，不能运行")
-		} else if nextState == STOP {
-			fmt.Print("状态切换错误，只能从运行状态切换到停止状态")
-		}
+		fmt.Println("关闭电梯门")
+		currentState = CLOSE
 	} else if currentState == CLOSE {
-		if nextState == OPEN {
-			fmt.Println("打开电梯门")
-		} else if nextState == CLOSE {
-			fmt.Println("电梯门已经关闭")
-		} else if nextState == RUN {
-			fmt.Println("电梯开始运行")
-			currentState = RUN
-		} else if nextState == STOP {
-			fmt.Print("状态切换错误，只能从运行状态切换到停止状态")
-		}
+		fmt.Println("电梯开始运行")
+		currentState = RUN
 	} else if currentState == RUN {
-		if nextState == OPEN {
-			fmt.Println("不能打开运行中的电梯门")
-		} else if nextState == CLOSE {
-			fmt.Println("状态切换错误，只能从电梯门打开状态切换到关闭状态")
-		} else if nextState == RUN {
-			fmt.Println("电梯正在运行")
-		} else if nextState == STOP {
-			fmt.Print("停止电梯")
-			currentState = STOP
-		}
+		fmt.Print("停止电梯")
+		currentState = STOP
 	} else if currentState == STOP {
-		if nextState == OPEN {
-			fmt.Println("打开电梯门")
-			currentState = OPEN
-		} else if nextState == CLOSE {
-			fmt.Println("状态切换错误，只能从电梯门打开状态切换到关闭状态")
-		} else if nextState == RUN {
-			fmt.Println("电梯开始运行")
-			currentState = RUN
-		} else if nextState == STOP {
-			fmt.Print("电梯已经停止")
-		}
+		fmt.Println("打开电梯门")
+		currentState = OPEN
 	}
 }
-
 ```
 
 上面的代码先不说是否有bug，但是看上去已经存在太多的if判断嵌套。或许可以将if换为switch case语句，但是也改变不了嵌套复杂的问题。

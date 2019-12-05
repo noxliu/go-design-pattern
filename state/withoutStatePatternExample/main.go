@@ -12,49 +12,30 @@ var STOP = 3
 
 func stateChange(nextState int) {
 	if currentState == OPEN {
-		if nextState == OPEN {
-			fmt.Println("电梯门已经打开")
-		} else if nextState == CLOSE {
-			fmt.Println("关闭电梯门")
-			currentState = CLOSE
-		} else if nextState == RUN {
-			fmt.Println("电梯门尚未关闭，不能运行")
-		} else if nextState == STOP {
-			fmt.Print("状态切换错误，只能从运行状态切换到停止状态")
-		}
+		//打开状态只能切换到关闭
+		fmt.Println("关闭电梯门")
+		currentState = CLOSE
 	} else if currentState == CLOSE {
-		if nextState == OPEN {
-			fmt.Println("打开电梯门")
-		} else if nextState == CLOSE {
-			fmt.Println("电梯门已经关闭")
-		} else if nextState == RUN {
-			fmt.Println("电梯开始运行")
-			currentState = RUN
-		} else if nextState == STOP {
-			fmt.Print("状态切换错误，只能从运行状态切换到停止状态")
-		}
-	} else if currentState == RUN {
-		if nextState == OPEN {
-			fmt.Println("不能打开运行中的电梯门")
-		} else if nextState == CLOSE {
-			fmt.Println("状态切换错误，只能从电梯门打开状态切换到关闭状态")
-		} else if nextState == RUN {
-			fmt.Println("电梯正在运行")
-		} else if nextState == STOP {
-			fmt.Print("停止电梯")
-			currentState = STOP
-		}
-	} else if currentState == STOP {
+		//关闭状态可以切换到打开或者运行
 		if nextState == OPEN {
 			fmt.Println("打开电梯门")
 			currentState = OPEN
-		} else if nextState == CLOSE {
-			fmt.Println("状态切换错误，只能从电梯门打开状态切换到关闭状态")
 		} else if nextState == RUN {
 			fmt.Println("电梯开始运行")
 			currentState = RUN
-		} else if nextState == STOP {
-			fmt.Print("电梯已经停止")
+		}
+	} else if currentState == RUN {
+		//运行状态只能选择停止
+		fmt.Print("停止电梯")
+		currentState = STOP
+	} else if currentState == STOP {
+		//停止状态可以选择再次运行或者打开电梯门
+		if nextState == RUN {
+			fmt.Println("电梯开始运行")
+			currentState = RUN
+		} else if nextState == OPEN {
+			fmt.Println("打开电梯门")
+			currentState = OPEN
 		}
 	}
 }
