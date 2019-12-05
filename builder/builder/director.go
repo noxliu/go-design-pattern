@@ -4,7 +4,7 @@ type ManufacturingDirector struct {
 	builder BuildProcess
 }
 
-func (f *ManufacturingDirector) Construct() {
+func (f *ManufacturingDirector) Construct() { //构建
 	f.builder.SetSeats(4).SetWheels(4).SetStructure("small")
 }
 

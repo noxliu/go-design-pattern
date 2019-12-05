@@ -4,7 +4,7 @@ type BuildProcess interface {
 	SetWheels(wheels int) BuildProcess
 	SetSeats(seats int) BuildProcess
 	SetStructure(structure string) BuildProcess
-	GetVehicle() VehicleProduct
+	GetVehicle() VehicleProduct //显示结果
 }
 
 type VehicleProduct struct {

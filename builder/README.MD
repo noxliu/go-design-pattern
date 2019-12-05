@@ -17,10 +17,10 @@
 ```go
 
 ConcreteBuilder builder = new ConcreteBuilder();
-Director director = new Director( builder );
+Director director = new Director( builder );//将元素传给构建器
 
-director.construct();
-Product product = builder.getResult();
+director.construct(); //具体的构建方法
+Product product = builder.getResult();//显示结果
 ```
 
 
