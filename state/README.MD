@@ -92,6 +92,157 @@ state模式正是为了解决状态切换的需求而存在的。
 
 代码如下：
 
+state接口定义
+
+```go
+type State interface {
+	Open()
+	Close()
+	Run()
+	Stop()
+}
+```
+
+OPEN对象，可以执行关闭电梯门操作
+```go
+type Open struct {
+}
+
+func (c Open) Open() {
+}
+
+func (c Open) Close() {
+	fmt.Println("关闭电梯门")
+}
+
+func (c Open) Run() {
+}
+
+func (c Open) Stop() {
+}
+```
+
+CLOSE对象，可以执行打开电梯门或者启动电梯操作
+```go
+type Close struct {
+}
+
+func (*Close) Open() {
+	fmt.Println("打开电梯门")
+}
+
+func (*Close) Close() {
+}
+
+func (*Close) Run() {
+	fmt.Println("启动电梯")
+}
+
+func (*Close) Stop() {
+}
+```
+
+RUN对象，可以执行停止操作
+```go
+type Run struct {
+}
+
+func (c Run) Open() {
+}
+
+func (c Run) Close() {
+}
+
+func (c Run) Run() {
+}
+
+func (c Run) Stop() {
+	fmt.Println("停止电梯")
+}
+```
+
+STOP对象，可以执行再次启动电梯或者打开电梯门操作
+```go
+type Stop struct {
+}
+
+func (c Stop) Open() {
+	fmt.Println("打开电梯门")
+}
+
+func (c Stop) Close() {
+}
+
+func (c Stop) Run() {
+	fmt.Println("启动电梯")
+}
+
+func (c Stop) Stop() {
+
+}
+```
+
+context对象
+```go
+type Context struct {
+	currentState State
+}
+
+func (c *Context) GetCurrentState() State {
+	return c.currentState
+}
+
+func (c *Context) SetState(s State) {
+	c.currentState = s
+}
+
+func (c *Context) Open() {
+	c.currentState.Open()
+	c.currentState = &Open{}
+}
+
+func (c *Context) Close() {
+	c.currentState.Close()
+	c.currentState = &Close{}
+}
+
+func (c *Context) Run() {
+	c.currentState.Run()
+	c.currentState = &Run{}
+}
+
+func (c *Context) Stop() {
+	c.currentState.Stop()
+	c.currentState = &Stop{}
+}
+```
+
+示例代码，各种状态切换
+```go
+func main() {
+	stop := Stop{}
+	context := Context{}
+	context.SetState(&stop)
+	context.Open()
+	context.Close()
+	context.Run()
+	context.Stop()
+	context.Run()
+	context.Stop()
+	context.Open()
+}
+```
+
+输出结果：
+```go
+打开电梯门
+关闭电梯门
+启动电梯
+停止电梯
+启动电梯
+停止电梯
+打开电梯门
+```
 
 
 ### 参考文档：
