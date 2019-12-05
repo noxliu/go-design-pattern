@@ -1,16 +1,20 @@
 package state
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 type Run struct {
 }
 
-func SetState(s *State) {
+func (*Run) SetState(s State) {
 	fmt.Println("")
 }
 
-func (*Run) Run() {
-	fmt.Println("run")
+func (c Run) Run() {
+	fmt.Println(reflect.TypeOf(c))
+	fmt.Println("启动电梯")
 }
 
 func (*Run) Stop() {

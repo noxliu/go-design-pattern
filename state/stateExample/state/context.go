@@ -4,14 +4,20 @@ type Context struct {
 	currentState State
 }
 
-type ContextStateNeedChange interface {
-	SetState(s *State)
-	Run()
-	Stop()
+func (c *Context) GetCurrentState() State {
+	return c.currentState
 }
 
-func (c *Context) SetState(s *State) {
-	c.currentState = *s
+func (c *Context) SetState(s State) {
+	c.currentState = s
+}
+
+func (c *Context) Open() {
+	c.currentState.Open()
+}
+
+func (c *Context) Close() {
+	c.currentState.Close()
 }
 
 func (c *Context) Run() {
