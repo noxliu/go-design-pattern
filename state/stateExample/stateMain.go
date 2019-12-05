@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	run := Run{}
+	run := Open{}
 	context := Context{}
 	context.SetState(&run)
 	context.Run()
