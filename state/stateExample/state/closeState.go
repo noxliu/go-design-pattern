@@ -7,11 +7,6 @@ import (
 type Close struct {
 }
 
-/*
-func (*Close) SetState(s State) {
-	fmt.Println("")
-}*/
-
 func (*Close) Open() {
 	fmt.Println("打开电梯门")
 }

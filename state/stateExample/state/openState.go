@@ -7,11 +7,6 @@ import (
 type Open struct {
 }
 
-/*
-func (*Open) SetState(s State) {
-	fmt.Println("")
-}*/
-
 func (c Open) Open() {
 }
 
