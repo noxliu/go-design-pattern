@@ -19,12 +19,15 @@ func (c *Context) Open() {
 
 func (c *Context) Close() {
 	c.currentState.Close()
+	c.currentState = &Close{}
 }
 
 func (c *Context) Run() {
 	c.currentState.Run()
+	c.currentState = &Run{}
 }
 
 func (c *Context) Stop() {
 	c.currentState.Stop()
+	c.currentState = &Stop{}
 }

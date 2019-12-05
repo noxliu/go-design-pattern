@@ -9,5 +9,7 @@ func main() {
 	context := Context{}
 	context.SetState(&stop)
 	context.Open()
-
+	context.Close()
+	context.Run()
+	context.Stop()
 }
