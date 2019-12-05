@@ -57,5 +57,4 @@ func stateChange(nextState int) {
 			fmt.Print("电梯已经停止")
 		}
 	}
-
 }
