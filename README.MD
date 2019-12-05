@@ -37,7 +37,11 @@
 ### 参考文档
 
 https://dzone.com/refcardz/design-patterns
+
 https://www.tutorialspoint.com/design_pattern/index.htm
+
 https://en.wikipedia.org/wiki/Design_Patterns
+
 https://www.cnblogs.com/adamjwh/category/1215890.html
+
 https://www.runoob.com/design-pattern/design-pattern-tutorial.html
