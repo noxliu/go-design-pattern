@@ -8,8 +8,6 @@ type ComputerConstruct struct {
 	ComputerBuilder ComputerBuilder
 }
 
-//BuildComputer(ComputerItems ComputerItems) ComputerItems
-
 func (con ComputerConstruct) BuildComputer(ComputerItems ComputerItems) ComputerItems {
 	ComputerItems.ComputerProduct = "台式电脑：" +
 		ComputerItems.Cpu + " " +
