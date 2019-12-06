@@ -5,7 +5,7 @@ type ComputerBuilder interface {
 	SetMemory(memory string) ComputerBuilder
 	SetHardDisk(hardDisk string) ComputerBuilder
 	SetScreenSize(screenSize int) ComputerBuilder
-	GetComputerProduct() string //显示结果
+	GetComputerProduct() ComputerItems //显示结果
 }
 
 type ComputerItems struct {

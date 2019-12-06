@@ -24,6 +24,6 @@ func (c ComputerBuilderImplement) SetScreenSize(screenSize int) ComputerBuilder 
 	return c
 }
 
-func (c ComputerBuilderImplement) GetComputerProduct() string {
-	return c.ComputerItems.ComputerProduct
+func (c ComputerBuilderImplement) GetComputerProduct() ComputerItems {
+	return c.ComputerItems
 }

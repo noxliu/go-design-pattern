@@ -7,10 +7,9 @@ import (
 
 func main() {
 	builder := ComputerBuilderImplement{}
-	test := builder.SetCpu("Intel i7").SetMemory("16GB").SetHardDisk("1t ssd").SetScreenSize(21)
+	builder.SetCpu("Intel i7").SetMemory("16GB").SetHardDisk("1t ssd").SetScreenSize(21).GetComputerProduct()
 	ComputerConstruct := ComputerConstruct{}
 	fmt.Println("///")
-	fmt.Println(test.ComputerItems.Cpu)
 	ComputerConstruct.Build(&builder)
 	fmt.Println(builder.GetComputerProduct())
 }
