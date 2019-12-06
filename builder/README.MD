@@ -10,7 +10,7 @@
 
 将一个复杂的构建与表示分离，使得同样的材料，因为有了不同的构建过程，会有不一样的构建结果（不一样的表示）。
 
-![Builder Pattern UML](../images/builder_pattern.png)
+![Builder Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/builder_pattern.png)
 
 
 ### 优点
