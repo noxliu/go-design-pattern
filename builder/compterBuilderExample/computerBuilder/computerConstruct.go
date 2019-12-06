@@ -2,7 +2,11 @@ package computerBuilder
 
 import "strconv"
 
-func (c ComputerBuilderImplement) Build() ComputerBuilder {
+type ComputerConstruct struct {
+	ComputerBuilder ComputerBuilder
+}
+
+func (con ComputerConstruct) Build(c *ComputerBuilderImplement) ComputerBuilder {
 	c.ComputerItems.ComputerProduct = "台式电脑：" +
 		c.ComputerItems.Cpu +
 		c.ComputerItems.Memory +
