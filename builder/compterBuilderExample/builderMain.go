@@ -9,7 +9,7 @@ func main() {
 	ComputerConstruct := ComputerConstruct{}
 	builder.SetCpu("Intel i7").
 		SetMemory("16GB").
-		SetHardDisk("1Tssd").
+		SetHardDisk("1TSSD").
 		SetScreenSize(21).
 		SetConstruct(ComputerConstruct).
 		Build().PrintComputerInfo()
