@@ -5,22 +5,25 @@ type ComputerBuilderImplement struct {
 }
 
 func (c ComputerBuilderImplement) SetCpu(cpu string) ComputerBuilder {
-
-	return nil
+	c.ComputerItems.Cpu = cpu
+	return c
 }
 
 func (c ComputerBuilderImplement) SetMemory(memory string) ComputerBuilder {
-	return nil
+	c.ComputerItems.Memory = memory
+	return c
 }
 
 func (c ComputerBuilderImplement) SetHardDisk(hardDisk string) ComputerBuilder {
-	return nil
+	c.ComputerItems.HardDisk = hardDisk
+	return c
 }
 
 func (c ComputerBuilderImplement) SetScreenSize(screenSize int) ComputerBuilder {
-	return nil
+	c.ComputerItems.ScreenSize = screenSize
+	return c
 }
 
 func (c ComputerBuilderImplement) GetComputerProduct() string {
-	return nil
+	return c.ComputerItems.ComputerProduct
 }
