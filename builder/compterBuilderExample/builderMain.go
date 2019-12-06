@@ -13,4 +13,12 @@ func main() {
 		SetScreenSize(21).
 		SetConstruct(ComputerConstruct).
 		Build().PrintComputerInfo()
+
+	LaptopConstruct := LaptopConstruct{}
+	builder.SetCpu("Intel i7").
+		SetMemory("16GB").
+		SetHardDisk("1TSSD").
+		SetScreenSize(21).
+		SetConstruct(LaptopConstruct).
+		Build().PrintComputerInfo()
 }
