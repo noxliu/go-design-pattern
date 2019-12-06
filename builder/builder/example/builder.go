@@ -1,4 +1,4 @@
-package builder
+package example
 
 type BuildProcess interface {
 	SetWheels(wheels int) BuildProcess

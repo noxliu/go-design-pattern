@@ -1,4 +1,4 @@
-package builder
+package example
 
 type ManufacturingDirector struct {
 	builder BuildProcess
