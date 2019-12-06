@@ -6,6 +6,8 @@ type ComputerBuilder interface {
 	SetHardDisk(hardDisk string) ComputerBuilder
 	SetScreenSize(screenSize int) ComputerBuilder
 	GetComputerProduct() ComputerItems //显示结果
+	SetConstruct(construct Construct) ComputerBuilder
+	Build() ComputerItems
 }
 
 type ComputerItems struct {
@@ -14,4 +16,5 @@ type ComputerItems struct {
 	HardDisk        string
 	ScreenSize      int
 	ComputerProduct string
+	Construct       Construct
 }

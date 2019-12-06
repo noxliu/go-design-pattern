@@ -27,3 +27,13 @@ func (c ComputerBuilderImplement) SetScreenSize(screenSize int) ComputerBuilder 
 func (c ComputerBuilderImplement) GetComputerProduct() ComputerItems {
 	return c.ComputerItems
 }
+
+func (c ComputerBuilderImplement) SetConstruct(construct Construct) ComputerBuilder {
+	c.ComputerItems.Construct = construct
+	return c
+}
+
+func (c ComputerBuilderImplement) Build() ComputerItems {
+	c.ComputerItems.Construct.BuildComputer(c.ComputerItems)
+	return c.ComputerItems
+}
