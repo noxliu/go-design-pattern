@@ -34,6 +34,5 @@ func (c ComputerBuilderImplement) SetConstruct(construct Construct) ComputerBuil
 }
 
 func (c ComputerBuilderImplement) Build() ComputerItems {
-	c.ComputerItems.Construct.BuildComputer(c.ComputerItems)
-	return c.ComputerItems
+	return c.ComputerItems.Construct.BuildComputer(c.ComputerItems)
 }

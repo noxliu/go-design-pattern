@@ -1,5 +1,7 @@
 package computerBuilder
 
+import "fmt"
+
 type ComputerBuilder interface {
 	SetCpu(cpu string) ComputerBuilder
 	SetMemory(memory string) ComputerBuilder
@@ -17,4 +19,8 @@ type ComputerItems struct {
 	ScreenSize      int
 	ComputerProduct string
 	Construct       Construct
+}
+
+func (c ComputerItems) PrintComputerInfo() {
+	fmt.Println(c.ComputerProduct)
 }

@@ -1,6 +1,8 @@
 package computerBuilder
 
-import "strconv"
+import (
+	"strconv"
+)
 
 type ComputerConstruct struct {
 	ComputerBuilder ComputerBuilder
@@ -8,11 +10,11 @@ type ComputerConstruct struct {
 
 //BuildComputer(ComputerItems ComputerItems) ComputerItems
 
-func (con ComputerConstruct) BuildComputer(ComputerItems ComputerItems) ComputerBuilder {
+func (con ComputerConstruct) BuildComputer(ComputerItems ComputerItems) ComputerItems {
 	ComputerItems.ComputerProduct = "台式电脑：" +
-		ComputerItems.Cpu +
-		ComputerItems.Memory +
-		ComputerItems.HardDisk +
-		strconv.Itoa(ComputerItems.ScreenSize)
+		ComputerItems.Cpu + " " +
+		ComputerItems.Memory + " " +
+		ComputerItems.HardDisk + " " +
+		strconv.Itoa(ComputerItems.ScreenSize) + "寸显示屏"
 	return ComputerItems
 }
