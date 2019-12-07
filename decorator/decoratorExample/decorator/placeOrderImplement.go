@@ -2,9 +2,9 @@ package decorator
 
 import "fmt"
 
-type PlaceOrderImplment struct {
+type PlaceOrderImplement struct {
 }
 
-func (p *PlaceOrderImplment) PlaceOrder(order Order) {
+func (p *PlaceOrderImplement) PlaceOrder(order Order) {
 	fmt.Println()
 }
