@@ -8,7 +8,6 @@ func main() {
 		ProductId: "09988779",
 	}
 	placeOrder := PlaceOrderImplement{}
-	sendMsgBeforeOrder := SendMsgBeforeOrder{placeOrder}
-	sendMsgBeforeOrde
+	sendMsgBeforeOrder := SendMsgBeforeOrder{&placeOrder}
 	sendMsgBeforeOrder.PlaceOrder(order)
 }

@@ -6,5 +6,5 @@ type PlaceOrderImplement struct {
 }
 
 func (p *PlaceOrderImplement) PlaceOrder(order Order) {
-	fmt.Println()
+	fmt.Println("Complete order...")
 }
