@@ -9,5 +9,8 @@ func main() {
 	}
 	placeOrder := PlaceOrderImplement{}
 	sendMsgBeforeOrder := SendMsgBeforeOrder{&placeOrder}
-	sendMsgBeforeOrder.PlaceOrder(order)
+	sendMsgBeforeOrder.Function = &placeOrder
+	sendEmailAfterOrder := SendEmailAfterOrder{}
+	sendEmailAfterOrder.Function = &sendMsgBeforeOrder
+	sendEmailAfterOrder.PlaceOrder(order)
 }
