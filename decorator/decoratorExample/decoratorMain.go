@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import . "go-design-pattern/decorator/decoratorExample/decorator"
 
 func main() {
-	fmt.Println("---")
+	order := Order{
+		UserId:    "10099202",
+		ProductId: "09988779",
+	}
+	placeOrder := PlaceOrderImplment{}
+	sendMsgBeforeOrder := SendMsgBeforeOrder{placeOrder}
+	sendMsgBeforeOrde
+	sendMsgBeforeOrder.PlaceOrder(order)
 }

@@ -1,6 +1,6 @@
 package decorator
 
-type PlaceOrder interface {
+type PlaceOrderI interface {
 	PlaceOrder(order Order)
 }
 
