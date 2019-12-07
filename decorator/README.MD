@@ -10,7 +10,11 @@
 ***动态地给一个对象添加一些额外的职责或者功能。***
  
  ![Decorator Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/decorator_method.png)
- 
+
+装饰器模式在日常研发中心是一个出场率非常高的模式，因为有太多的场景适用于该模式了。
+
+1. 需要给已有的功能附加一些功能的时候，往往需要用到装饰器模式。 
+
 ### 优点
  
 将对象的创建和使用完全良好分离，很好的提高了代码的重用度。
