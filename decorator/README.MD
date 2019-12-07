@@ -9,7 +9,7 @@
  
 ***动态地给一个对象添加一些额外的职责或者功能。***
  
- ![Decorator Pattern UML](../images/factory_method_patern.png)
+ ![Decorator Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/decorator_method.png)
  
 ### 优点
  
