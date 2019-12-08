@@ -1,6 +1,6 @@
 ### 观察者模式（Observer Pattern）
 
-##### 结构模式（Structural Pattern）
+##### 行为模式（Behavioural Pattern）
 
 #### 定义
 
@@ -8,7 +8,7 @@
 
 *** ***
 
-![Proxy Pattern UML](../images/proxy_pattern.png)
+![Observer Pattern UML](../images/proxy_pattern.png)
 
 
 ### 优点
