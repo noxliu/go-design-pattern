@@ -42,8 +42,7 @@
 
 代码如下:
 
-原订单接口
-
+原订单接口:
 ```go
 type OrderTicketI interface {
 	PlaceOrder(order Order)
@@ -54,6 +53,18 @@ type Order struct {
 	ProductId string
 }
 ```
+
+原订单实现
+```go
+type OrderTicketImplement struct {
+}
+
+func (p *OrderTicketImplement) PlaceOrder(order Order) {
+	fmt.Println("完成订单， 产品ID：" + order.ProductId + ", 用户ID：" + order.UserId)
+}
+
+```
+
  
 ### 总结
 工厂方法模式是代码封装性的一个良好体现，很好的将对象的创建和使用隔离开。在开发中合理的使用，会体会到开闭原则的真正意义。
