@@ -7,8 +7,8 @@ type SendEmailAfterOrder struct {
 }
 
 func (s *SendEmailAfterOrder) PlaceOrder(order Order) {
-	sendEmail()
 	s.Function.PlaceOrder(order)
+	sendEmail()
 }
 
 func sendEmail() {
