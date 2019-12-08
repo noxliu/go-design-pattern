@@ -12,5 +12,5 @@ func (s *SendMsgBeforeOrder) PlaceOrder(order Order) {
 }
 
 func sendMsg() {
-	fmt.Println("send message...")
+	fmt.Println("发送短信")
 }

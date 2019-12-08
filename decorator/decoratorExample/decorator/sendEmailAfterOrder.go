@@ -12,5 +12,5 @@ func (s *SendEmailAfterOrder) PlaceOrder(order Order) {
 }
 
 func sendEmail() {
-	fmt.Println("send email...")
+	fmt.Println("发送邮件")
 }
