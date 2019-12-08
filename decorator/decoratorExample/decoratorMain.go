@@ -7,7 +7,7 @@ func main() {
 		UserId:    "10099202",
 		ProductId: "09988779",
 	}
-	placeOrder := PlaceOrderImplement{}
+	placeOrder := OrderTicketImplement{}
 	sendMsgBeforeOrder := SendMsgBeforeOrder{&placeOrder}
 	sendMsgBeforeOrder.Function = &placeOrder
 	sendEmailAfterOrder := SendEmailAfterOrder{}

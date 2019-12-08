@@ -3,7 +3,7 @@ package decorator
 import "fmt"
 
 type SendMsgBeforeOrder struct {
-	Function PlaceOrderI
+	Function OrderTicketI
 }
 
 func (s *SendMsgBeforeOrder) PlaceOrder(order Order) {
