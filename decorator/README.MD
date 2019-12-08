@@ -62,7 +62,38 @@ type OrderTicketImplement struct {
 func (p *OrderTicketImplement) PlaceOrder(order Order) {
 	fmt.Println("完成订单， 产品ID：" + order.ProductId + ", 用户ID：" + order.UserId)
 }
+```
 
+包装类，订单之前发送短信：
+```go
+type SendMsgBeforeOrder struct {
+	Function OrderTicketI
+}
+
+func (s *SendMsgBeforeOrder) PlaceOrder(order Order) {
+	sendMsg()
+	s.Function.PlaceOrder(order)
+}
+
+func sendMsg() {
+	fmt.Println("发送短信")
+}
+```
+
+包装类，订单之后发送邮件:
+```go
+type SendEmailAfterOrder struct {
+	Function OrderTicketI
+}
+
+func (s *SendEmailAfterOrder) PlaceOrder(order Order) {
+	s.Function.PlaceOrder(order)
+	sendEmail()
+}
+
+func sendEmail() {
+	fmt.Println("发送邮件")
+}
 ```
 
  
