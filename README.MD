@@ -17,7 +17,7 @@
 * [代理模式（Proxy）](https://github.com/nox60/go-design-pattern/tree/master/proxy)
 * 组合模式（Composite）
 * [享元模式（Flyweight）](https://github.com/nox60/go-design-pattern/tree/master/flyweight)
-* 装饰模式（Decorator）
+* [装饰模式（Decorator）](https://github.com/nox60/go-design-pattern/tree/master/decorator)
 * 桥模式（Bridge）
 
 ## 行为模式
