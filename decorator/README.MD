@@ -112,10 +112,61 @@ func sendWeChatMessage() {
 }
 ```
 
+调用例子
+```go
+func main() {
+	order := Order{
+		UserId:    "10099202",
+		ProductId: "09988779",
+	}
+	placeOrder := OrderTicketImplement{}
+	sendMsgBeforeOrder := SendMsgBeforeOrder{}
+	sendEmailAfterOrder := SendEmailAfterOrder{}
+	sendWeChatMessageAfterOrder := SendWeChatMessageAfterOrder{}
 
- 
+	//例子1 完成订单之前先发送短信，订单完成之后发送邮件
+	//使用短信发送功能包装原有的订票功能
+	sendMsgBeforeOrder.Decorator = &placeOrder
+
+	//使用邮件发送功能包装上面的短信发送功能(短信发送功能已经包装了原有的订票功能)，这样一来，就会实现先发送短信，然后订票，然后发送邮件
+	sendEmailAfterOrder.Decorator = &sendMsgBeforeOrder
+	sendEmailAfterOrder.PlaceOrder(order)
+
+	fmt.Println()
+
+	order2 := Order{
+		UserId:    "10098547",
+		ProductId: "09989948",
+	}
+	//例子2 完成订单之前先发送短信，订单完成之后发送邮件和微信消息
+	//使用短信发送功能包装原有的订票功能
+	sendMsgBeforeOrder.Decorator = &placeOrder
+
+	//使用邮件发送功能包装上面的短信发送功能(短信发送功能已经包装了原有的订票功能)，这样一来，就会实现先发送短信，然后订票，然后发送邮件
+	sendEmailAfterOrder.Decorator = &sendMsgBeforeOrder
+
+	//使用微信消息功能包装上面的邮件发送功能(邮件发送功能已经在原有的短信包装了的订票功能上进行了包装)
+	sendWeChatMessageAfterOrder.Decorator = &sendEmailAfterOrder
+	sendWeChatMessageAfterOrder.PlaceOrder(order2)
+}
+```
+
+输出结果：
+```go
+发送短信
+完成订单， 产品ID：09988779, 用户ID：10099202
+发送邮件
+
+发送短信
+完成订单， 产品ID：09989948, 用户ID：10098547
+发送邮件
+发送微信信息
+```
+
 ### 总结
-工厂方法模式是代码封装性的一个良好体现，很好的将对象的创建和使用隔离开。在开发中合理的使用，会体会到开闭原则的真正意义。
+通过上面的例子可以看出，装饰模式的特点就体现在装饰（包装）上，可以很好的给原有的功能进行包装以增加新的功能，而且对原有的功能没有影响。
+
+最重要的是，可以灵活的实现新增加的功能的选择，很大程度提高了代码的复用。
  
 ### 参考文档：
- 
+https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm
