@@ -2,13 +2,13 @@ package decorator
 
 import "fmt"
 
-type SendWeChatMessageBeforeOrder struct {
+type SendWeChatMessageAfterOrder struct {
 	Function OrderTicketI
 }
 
-func (s *SendWeChatMessageBeforeOrder) PlaceOrder(order Order) {
-	sendWeChatMessage()
+func (s *SendWeChatMessageAfterOrder) PlaceOrder(order Order) {
 	s.Function.PlaceOrder(order)
+	sendWeChatMessage()
 }
 
 func sendWeChatMessage() {
