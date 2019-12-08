@@ -23,7 +23,7 @@
 ## 行为模式
 
 * 中介者模式（Mediator）
-* 观察者模式（Observer）
+* [观察者模式（Observer）](https://github.com/nox60/go-design-pattern/tree/master/observer)
 * 命令模式（Command）
 * 迭代器模式（Iterator）
 * [模板方法模式（Template Method）](https://github.com/nox60/go-design-pattern/tree/master/templateMethod)
