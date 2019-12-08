@@ -13,5 +13,5 @@ func NewReader(name string) *Observer {
 }
 
 func (r *Observer) Update(s *Subject) {
-	fmt.Printf("%s receive %s\n", r.name, s.context)
+	fmt.Printf("%s receivd message: [%s]\n", r.name, s.context)
 }
