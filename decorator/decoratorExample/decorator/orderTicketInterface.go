@@ -1,6 +1,6 @@
 package decorator
 
-type PlaceOrderI interface {
+type OrderTicketI interface {
 	PlaceOrder(order Order)
 }
 
