@@ -55,8 +55,34 @@ type BaseInfo struct {
 }
 ```
 
+普通员工工资计算算法
 ```go
+type Employee struct {
+}
 
+func (*Employee) Calculate(b BaseInfo) int {
+	return b.BaseSalary + 1000
+}
+```
+
+经理工资计算算法
+```go
+type Manager struct {
+}
+
+func (*Manager) Calculate(b BaseInfo) int {
+	return b.BaseSalary + 2000
+}
+```
+
+销售经理工资计算算法
+```go
+type SalesManager struct {
+}
+
+func (*SalesManager) Calculate(b BaseInfo) int {
+	return b.BaseSalary * 2
+}
 ```
 
 ##### 数据处理系统案例
