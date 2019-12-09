@@ -10,17 +10,3 @@ func main() {
 	sal.CalculateSalary()
 
 }
-
-func test(userType string) {
-	if userType == "A" {
-		//..
-	} else if userType == "B" {
-		//..
-	} else if userType == "C" {
-		//..
-	} else if userType == "D" {
-		//..
-	} else {
-		//..
-	}
-}
