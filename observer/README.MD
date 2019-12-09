@@ -97,4 +97,4 @@ observer3 receivd message: [来自Subject的消息，数据处理完成]
 
 ### 参考文档：
 
-https://www.cnblogs.com/adamjwh/p/10913660.html
+https://www.tutorialspoint.com/design_pattern/observer_pattern.htm
