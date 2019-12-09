@@ -131,4 +131,4 @@ func main() {
 
 
 ### 参考文档：
-
+https://www.runoob.com/design-pattern/strategy-pattern.html
