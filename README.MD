@@ -27,7 +27,7 @@
 * 命令模式（Command）
 * 迭代器模式（Iterator）
 * [模板方法模式（Template Method）](https://github.com/nox60/go-design-pattern/tree/master/templateMethod)
-* 策略模式（Strategy）
+* [策略模式（Strategy）](https://github.com/nox60/go-design-pattern/tree/master/strategy)
 * [状态模式（State）](https://github.com/nox60/go-design-pattern/tree/master/state)
 * 备忘录模式（Memento）
 * 解释器模式（Interpreter）
