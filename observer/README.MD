@@ -8,7 +8,7 @@
 
 ***观察者模式又叫发布-订阅模式，定义对象间一（主题）对多（观察者）的依赖关系，使得每当主题对象改变状态，则所有依赖（观察）它的对象都会得到通知并自动更新。***
 
-![Observer Pattern UML](../images/proxy_pattern.png)
+![Observer Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/observer_pattern.png)
 
 
 ### 优点
