@@ -23,9 +23,78 @@
 1. 某数据处理系统，数据处理好之后可以供业务人员使用，但是数据处理时间较长，不可能一直等待。
 2. 业务人员可以作为观察者，一直观察数据处理任务（主题），一旦数据数据里任务完成，则通知所有的业务人员，可以查看已经处理完成的数据了。
 
+代码如下：
+
+消息发布方（主题）：
+```go
+type Subject struct {
+	observers []Observer
+	context   string
+}
+
+func NewSubject() *Subject {
+	return &Subject{
+		observers: make([]Observer, 0),
+	}
+}
+
+func (s *Subject) Register(o Observer) {
+	s.observers = append(s.observers, o)
+}
+
+func (s *Subject) notify() {
+	for _, o := range s.observers {
+		o.Update(s)
+	}
+}
+
+func (s *Subject) UpdateContext(context string) {
+	s.context = context
+	s.notify()
+}
+```
+
+消息订阅方
+```go
+type Observer struct {
+	name string
+}
+
+func NewObserver(name string) *Observer {
+	return &Observer{
+		name: name,
+	}
+}
+
+func (r *Observer) Update(s *Subject) {
+	fmt.Printf("%s receivd message: [%s]\n", r.name, s.context)
+}
+```
+
+测试代码
+```go
+func main() {
+	subject := NewSubject()
+	observer1 := NewObserver("observer1")
+	observer2 := NewObserver("observer2")
+	observer3 := NewObserver("observer3")
+
+	subject.Register(*observer1)
+	subject.Register(*observer2)
+	subject.Register(*observer3)
+
+	subject.UpdateContext("来自Subject的消息，数据处理完成")
+}
+```
+
+执行结果
+```go
+observer1 receivd message: [来自Subject的消息，数据处理完成]
+observer2 receivd message: [来自Subject的消息，数据处理完成]
+observer3 receivd message: [来自Subject的消息，数据处理完成]
+```
+
 
 ### 参考文档：
 
-https://en.wikipedia.org/wiki/Template_method_pattern
-
-https://dzone.com/articles/design-patterns-template-method
+https://www.cnblogs.com/adamjwh/p/10913660.html
