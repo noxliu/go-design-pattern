@@ -4,5 +4,5 @@ type SalesManager struct {
 }
 
 func (*SalesManager) Calculate(b BaseInfo) int {
-	return b.BaseSalary * 2
+	return b.BaseSalary*2 + 500
 }

@@ -38,6 +38,8 @@
 3. 扩展性良好，增加一个策略只需实现接口即可
 
 ### 例子分析
+
+##### 数据处理系统案例
 工资计算系统，根据不同的员工类型，要选择不同的算法计算工资。
 
 代码实现：
@@ -55,7 +57,7 @@ type BaseInfo struct {
 }
 ```
 
-普通员工工资计算算法
+普通员工工资计算算法：
 ```go
 type Employee struct {
 }
@@ -65,7 +67,7 @@ func (*Employee) Calculate(b BaseInfo) int {
 }
 ```
 
-经理工资计算算法
+经理工资计算算法：
 ```go
 type Manager struct {
 }
@@ -75,7 +77,7 @@ func (*Manager) Calculate(b BaseInfo) int {
 }
 ```
 
-销售经理工资计算算法
+销售经理工资计算算法：
 ```go
 type SalesManager struct {
 }
@@ -85,8 +87,47 @@ func (*SalesManager) Calculate(b BaseInfo) int {
 }
 ```
 
-##### 数据处理系统案例
+算法调用代码：
+```go
+type SalaryCalculator struct {
+	Algorithm SalaryAlgorithm
+	BaseInfo  BaseInfo
+}
 
+func (s *SalaryCalculator) CalculateSalary() {
+	fmt.Println("员工ID: " + s.BaseInfo.UserId + ", 员工姓名: " +
+		s.BaseInfo.Name + ", 基本工资: " +
+		strconv.Itoa(s.BaseInfo.BaseSalary) +
+		", 计算后实发工资: " +
+		strconv.Itoa(s.Algorithm.Calculate(s.BaseInfo)))
+}
+```
+
+测试代码：
+```go
+func main() {
+	employeeZhangsan := BaseInfo{"998876878", "张三", 1000}
+	employeeSalaryCalculator := SalaryCalculator{&Employee{}, employeeZhangsan}
+	employeeSalaryCalculator.CalculateSalary()
+
+	managerLisi := BaseInfo{"998800985", "李四", 1000}
+	managerSalaryCalculator := SalaryCalculator{&Manager{}, managerLisi}
+	managerSalaryCalculator.CalculateSalary()
+
+	salesManagerWangwu := BaseInfo{"998800225", "王五", 1000}
+	salesManagerSalaryCalculator := SalaryCalculator{&SalesManager{}, salesManagerWangwu}
+	salesManagerSalaryCalculator.CalculateSalary()
+}
+```
+
+执行结果：
+```go
+员工ID: 998876878, 员工姓名: 张三, 基本工资: 1000, 计算后实发工资: 2000
+员工ID: 998800985, 员工姓名: 李四, 基本工资: 1000, 计算后实发工资: 3000
+员工ID: 998800225, 员工姓名: 王五, 基本工资: 1000, 计算后实发工资: 2500
+```
+
+由上面的执行结果可以看到，虽然三位员工的基本工资一样， 但是根据不同的算法，算出了不同的实际工资。
 
 
 ### 参考文档：
