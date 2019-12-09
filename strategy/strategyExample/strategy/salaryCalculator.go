@@ -1,11 +1,11 @@
 package strategy
 
-type SalaryCalculator interface {
-	CalculateSalary() int
+type SalaryAlgorithm interface {
+	Calculate(b BaseInfo) int
 }
 
 type BaseInfo struct {
-	userId     string
+	UserId     string
 	Name       string
 	BaseSalary int
 }

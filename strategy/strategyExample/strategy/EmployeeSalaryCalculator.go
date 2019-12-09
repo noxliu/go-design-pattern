@@ -1,10 +1,8 @@
 package strategy
 
-type Employ struct {
-	BaseInfo         BaseInfo
-	SalaryCalculator SalaryCalculator
+type Employee struct {
 }
 
-func CalculateSalary() int {
-	return 100
+func (*Employee) Calculate(b BaseInfo) int {
+	return b.BaseSalary + 1000
 }
