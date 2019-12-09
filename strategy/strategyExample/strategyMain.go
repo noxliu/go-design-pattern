@@ -5,17 +5,8 @@ import (
 )
 
 func main() {
-	employeeZhangsan := BaseInfo{
-		UserId:     "998876878",
-		Name:       "张三",
-		BaseSalary: 1000,
-	}
-	employeeCalculator := Employee{}
-
-	sal := SalaryCalculator{
-		Algorithm: &employeeCalculator,
-		BaseInfo:  employeeZhangsan,
-	}
+	employeeZhangsan := BaseInfo{"998876878", "张三", 1000}
+	sal := SalaryCalculator{&Employee{}, employeeZhangsan}
 	sal.CalculateSalary()
 
 }
