@@ -19,5 +19,4 @@ func main() {
 	fmt.Println("游戏Game Over, 重新读档")
 	game.Load(progress)
 	game.Status()
-
 }
