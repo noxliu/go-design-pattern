@@ -5,6 +5,6 @@ import "fmt"
 type Printer struct {
 }
 
-func (*Printer) PrinterForString(string string) {
-	fmt.Println(string)
+func (*Printer) PrinterForString(string generatorI) {
+	fmt.Println(string.StringGenerator())
 }
