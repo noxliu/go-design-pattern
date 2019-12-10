@@ -3,27 +3,32 @@ package memento
 import "fmt"
 
 type Game struct {
-	Hp, Mp int
+	HP int
+	SP int
+	MP int
 }
 
-func (g *Game) Play(mpDelta, hpDelta int) {
-	g.Mp += mpDelta
-	g.Hp += hpDelta
+func (g *Game) Play(HP int, SP int, MP int) {
+	g.HP += HP
+	g.SP += SP
+	g.MP += MP
 }
 
 func (g *Game) Save() Memento {
 	return &gameMemento{
-		Hp: g.Hp,
-		Mp: g.Mp,
+		HP: g.HP,
+		SP: g.SP,
+		MP: g.MP,
 	}
 }
 
 func (g *Game) Load(m Memento) {
 	gm := m.(*gameMemento)
-	g.Mp = gm.Mp
-	g.Hp = gm.Hp
+	g.HP = gm.HP
+	g.SP = gm.SP
+	g.MP = gm.MP
 }
 
 func (g *Game) Status() {
-	fmt.Printf("Current HP:%d, MP:%d\n", g.Hp, g.Mp)
+	fmt.Printf("当前血量 HP: %d，当前耐力: %d, 当前魔法力: %d\n", g.HP, g.SP, g.MP)
 }

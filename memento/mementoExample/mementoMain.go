@@ -6,14 +6,15 @@ import (
 
 func main() {
 	game := &Game{
-		Hp: 10,
-		Mp: 10,
+		HP: 10,
+		SP: 10,
+		MP: 10,
 	}
 
 	game.Status()
 	progress := game.Save()
 
-	game.Play(-2, -3)
+	game.Play(-2, -3, -5)
 	game.Status()
 
 	game.Load(progress)
