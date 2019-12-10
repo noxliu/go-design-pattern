@@ -15,7 +15,7 @@ func (g *Game) Play(HP int, SP int, MP int) {
 }
 
 func (g *Game) Save() Memento {
-	return &gameMemento{
+	return Memento{
 		HP: g.HP,
 		SP: g.SP,
 		MP: g.MP,
@@ -23,12 +23,11 @@ func (g *Game) Save() Memento {
 }
 
 func (g *Game) Load(m Memento) {
-	gm := m.(*gameMemento)
-	g.HP = gm.HP
-	g.SP = gm.SP
-	g.MP = gm.MP
+	g.HP = m.HP
+	g.SP = m.SP
+	g.MP = m.MP
 }
 
 func (g *Game) Status() {
-	fmt.Printf("当前血量 HP: %d，当前耐力: %d, 当前魔法力: %d\n", g.HP, g.SP, g.MP)
+	fmt.Printf("当前生命值 HP: %d，当前耐力: %d, 当前魔法力: %d\n", g.HP, g.SP, g.MP)
 }

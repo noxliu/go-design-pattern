@@ -1,6 +1,6 @@
 package memento
 
-type gameMemento struct {
+type Memento struct {
 	HP int
 	SP int
 	MP int
