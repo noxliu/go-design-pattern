@@ -2,6 +2,9 @@ package adapter
 
 import "fmt"
 
-func PrinterForString(string string) {
+type Printer struct {
+}
+
+func (*Printer) PrinterForString(string string) {
 	fmt.Println(string)
 }
