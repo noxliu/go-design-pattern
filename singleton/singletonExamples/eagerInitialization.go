@@ -1,12 +1,12 @@
 package singletonExamples
 
-type singleton struct{}
+type eagerSingleton struct{}
 
-var ins *singleton
+var eagerSingletonInstance *eagerSingleton
 
-func GetInstance() *singleton {
-	if ins == nil {
-		ins = &singleton{}
+func GetInstance() *eagerSingleton {
+	if eagerSingletonInstance == nil {
+		eagerSingletonInstance = &eagerSingleton{}
 	}
-	return ins
+	return eagerSingletonInstance
 }
