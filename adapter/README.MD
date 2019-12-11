@@ -83,7 +83,7 @@ func (*GeneratorForIntArray) IntArrayGenerator() []int {
 }
 ```
 
-为intGenerator的适配器intToStringAdapter代码如下：
+intGenerator的适配器intToStringAdapter代码如下：
 ```go
 type IntToStringAdapter struct {
 	IntValue int
@@ -92,6 +92,52 @@ type IntToStringAdapter struct {
 func (i *IntToStringAdapter) stringGenerator() string {
 	return strconv.Itoa(i.IntValue)
 }
+```
+
+intArrayGenerator的适配器intArrayToStringAdapter代码如下：
+```go
+type IntArrayToStringAdapter struct {
+	IntArray []int
+}
+
+func (arr *IntArrayToStringAdapter) stringGenerator() string {
+	var buffer bytes.Buffer
+	if arr.IntArray != nil {
+		for i := 0; i < len(arr.IntArray); i++ {
+			buffer.WriteString(strconv.Itoa(arr.IntArray[i]))
+		}
+	}
+	return buffer.String()
+}
+```
+
+测试代码如下：
+```go
+func main() {
+	//只支持字符串类型的打印工具
+	printer := StringPrinter{}
+
+	stringGenerator := StringGenerator{}
+
+	intGenerator := IntGenerator{}
+	//将int类型适配到string类型的适配器
+	adapter := IntToStringAdapter{intGenerator.IntGenerator()}
+
+	intArrayGenerator := GeneratorForIntArray{}
+	//将int数组适配到string类型的适配器
+	adapterArray := IntArrayToStringAdapter{intArrayGenerator.IntArrayGenerator()}
+
+	printer.PrintString(&stringGenerator)
+	printer.PrintString(&adapter)
+	printer.PrintString(&adapterArray)
+}
+```
+
+从输出结果看，只支持字符串类型的打印工具已经能打印int类型和int数组了
+```go
+Hello world
+19982727
+1239998777771212221212
 ```
 
 
