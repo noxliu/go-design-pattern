@@ -5,11 +5,11 @@ import (
 	"strconv"
 )
 
-type ArrayToStringAdapter struct {
+type IntArrayToStringAdapter struct {
 	IntArray []int
 }
 
-func (arr *ArrayToStringAdapter) stringGenerator() string {
+func (arr *IntArrayToStringAdapter) stringGenerator() string {
 	var buffer bytes.Buffer
 	if arr.IntArray != nil {
 		for i := 0; i < len(arr.IntArray); i++ {

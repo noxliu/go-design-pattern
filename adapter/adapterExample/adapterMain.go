@@ -11,10 +11,12 @@ func main() {
 	stringGenerator := StringGenerator{}
 
 	intGenerator := IntGenerator{}
+	//将int类型适配到string类型的适配器
 	adapter := IntToStringAdapter{intGenerator.IntGenerator()}
 
 	intArrayGenerator := GeneratorForIntArray{}
-	adapterArray := ArrayToStringAdapter{intArrayGenerator.IntArrayGenerator()}
+	//将int数组适配到string类型的适配器
+	adapterArray := IntArrayToStringAdapter{intArrayGenerator.IntArrayGenerator()}
 
 	printer.PrintString(&stringGenerator)
 	printer.PrintString(&adapter)
