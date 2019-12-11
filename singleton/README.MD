@@ -6,81 +6,27 @@
 
 ***Ensures that only one instance of a class is allowed within a system.***
 
-***为其他对象提供一种代理以控制对这个对象的访问。***
+***保证一个类仅有一个实例，并提供一个访问它的全局访问点。***
 
 ![singleton Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/singleton_pattern.png)
 
-代理模式在程序编写中是一种非常常见的模式。
+单例模式在开发中是一个很常用也很重要的模式，比如设计一个简单的缓存，一般来说整个系统进程中尽量只能有一个缓存实例存在（如果非要有多个缓存示例存在就要考虑多个缓存的同步问题），那么这个缓存就是单例的。
 
-代理模式的目标是通过代理类来隔离访问者对目标类的直接访问，访问者只能访问代理类，这样能够保证访问者对目标类的访问是受限的。
-
-比如访问某些资源，如果访问者不具备访问的权限或条件，则代理类可以拒绝访问者的访问。这是常见实现权限的方式之一。
+还有个例子，就是多方同时编辑一个文件，那么该文件在服务端内存中也最好是单独的一份，不然会造成两边同时编辑的差异问题。
 
 ### 优点
-1. 职责清晰, 业务代码专注于实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完整事务，附带的结果就是编程简洁清晰。
-2. 代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。
+1. 闲置了内存中只有一个实例，降低了内存的存储开销和创建开销，尤其是当开销成本很大时，单例模式的优势就非常明显。
+2. 避免对资源或者对象的多重占用（比如写文件操作，只有一个实例时，避免对同一个资源文件同时写操作），简单来说就是对唯一实例的受控访问。
 
 ### 例子分析
 
-##### 文件读取案例
-1. 有一个文件读取的代码，能够读取磁盘上的文件。
-2. 但是需要在读取之前判断文件读取者是否具有相应的权限，如果权限不够则拒绝访问。
-3. 示例代码
+##### 1. 网站计数器案例
 
-文件访问接口
-```go
-type FileAccessor interface {
-	ReadFile(filePath string)
-}
-```
+##### 2. 网站计数器案例
 
-文件访问业务代码
-```go
-type fileAccessorImpl struct {
-}
 
-func (*fileAccessorImpl) ReadFile(filePath string) {
-	fmt.Println("访问文件操作")
-}
-```
 
-代理文件访问
-```go
-type FileAccessorProxy struct {
-	UserType string
-}
-
-func (f *FileAccessorProxy) ReadFile(filePath string) {
-	if f.UserType == "user" {
-		fmt.Printf("当前用户: %s \n", f.UserType)
-		fileAccessor := fileAccessorImpl{}
-		fileAccessor.ReadFile(filePath)
-	} else if f.UserType == "guest" {
-		fmt.Printf("当前用户: %s \n", f.UserType)
-		fmt.Println("对不起，你没有访问权限")
-	}
-}
-```
-
-测试访问
-```go
-	//fileAccessorImpl := fileAccessorImpl{} 用户不能访问到 fileAccessorImpl, 利用包权限隔离，只能通过下面的代理实现访问
-	userFileAccessProxy := FileAccessorProxy{UserType: "user"}
-	guestFileAccessProxy := FileAccessorProxy{UserType: "guest"}
-	userFileAccessProxy.ReadFile("/opt/user/file")
-	guestFileAccessProxy.ReadFile("/opt/user/file")
-```
-
-输出
-```go
-当前用户: user 
-访问文件操作
-当前用户: guest 
-对不起，你没有访问权限
-```
 
 ### 参考文档：
 
-https://en.wikipedia.org/wiki/Template_method_pattern
-
-https://dzone.com/articles/design-patterns-template-method
+https://studygolang.com/articles/11444
