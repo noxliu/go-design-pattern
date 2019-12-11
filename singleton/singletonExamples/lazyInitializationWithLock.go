@@ -7,7 +7,7 @@ type lazySingletonWithLock struct{}
 var lazySingletonWithLockInstance *lazySingletonWithLock
 var mu sync.Mutex
 
-func GetIns() *lazySingletonWithLock {
+func GetLazySingletonWithLockInstance() *lazySingletonWithLock {
 	mu.Lock()
 	defer mu.Unlock()
 
