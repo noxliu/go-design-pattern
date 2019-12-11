@@ -20,9 +20,10 @@
 
 ### 例子分析
 
-##### 1. 网站计数器案例
+##### 一. 各种单例例子
 
-##### 2. 网站计数器案例
+
+##### 二. 网站计数器案例
 
 
 
@@ -30,3 +31,5 @@
 ### 参考文档：
 
 https://studygolang.com/articles/11444
+
+https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples
