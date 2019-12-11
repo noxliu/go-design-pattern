@@ -21,5 +21,4 @@ func main() {
 	printer.PrintString(&stringGenerator)
 	printer.PrintString(&adapter)
 	printer.PrintString(&adapterArray)
-
 }
