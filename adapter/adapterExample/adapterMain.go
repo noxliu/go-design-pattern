@@ -5,9 +5,9 @@ import (
 )
 
 func main() {
-	printer := Printer{}
+	printer := StringPrinter{}
 	stringGenerator := StringGenerator{}
-	printer.StringPrinter(&stringGenerator)
+	printer.PrintString(&stringGenerator)
 
 	intGenerator := GeneratorForInt{}
 	adapter := AdapterOfGeneratorForInt{}
@@ -17,7 +17,7 @@ func main() {
 	adapterArray := AdapterOfGeneratorForArray{}
 	adapterArray.IntArray = intArrayGenerator.IntArrayGenerator()
 
-	printer.StringPrinter(&adapter)
-	printer.StringPrinter(&adapterArray)
+	printer.PrintString(&adapter)
+	printer.PrintString(&adapterArray)
 
 }
