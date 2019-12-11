@@ -1,5 +1,9 @@
 package adapter
 
+type generatorI interface {
+	StringGenerator() string
+}
+
 type GeneratorForString struct {
 }
 
