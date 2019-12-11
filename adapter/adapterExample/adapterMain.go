@@ -10,11 +10,11 @@ func main() {
 	printer.PrintString(&stringGenerator)
 
 	intGenerator := IntGenerator{}
-	adapter := AdapterOfGeneratorForInt{}
+	adapter := IntToStringAdapter{}
 	adapter.IntValue = intGenerator.IntGenerator()
 
 	intArrayGenerator := GeneratorForIntArray{}
-	adapterArray := AdapterOfGeneratorForArray{}
+	adapterArray := ArrayToStringAdapter{}
 	adapterArray.IntArray = intArrayGenerator.IntArrayGenerator()
 
 	printer.PrintString(&adapter)

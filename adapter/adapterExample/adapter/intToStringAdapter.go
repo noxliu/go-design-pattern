@@ -2,10 +2,10 @@ package adapter
 
 import "strconv"
 
-type AdapterOfGeneratorForInt struct {
+type IntToStringAdapter struct {
 	IntValue int
 }
 
-func (i *AdapterOfGeneratorForInt) stringGenerator() string {
+func (i *IntToStringAdapter) stringGenerator() string {
 	return strconv.Itoa(i.IntValue)
 }
