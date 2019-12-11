@@ -54,6 +54,46 @@ func (*StringGenerator) stringGenerator() string {
 }
 ```
 
+intGenerator代码如下：
+```go
+type IntGeneratorI interface {
+	IntGenerator() int
+}
+
+type IntGenerator struct {
+}
+
+func (*IntGenerator) IntGenerator() int {
+	return 19982727
+}
+```
+
+intArrayGenerator代码如下：
+```go
+type GeneratorForIntArrayI interface {
+	IntArrayGenerator() int
+}
+
+type GeneratorForIntArray struct {
+}
+
+func (*GeneratorForIntArray) IntArrayGenerator() []int {
+	array1 := []int{1, 2, 3, 999, 877777, 1212, 221212}
+	return array1
+}
+```
+
+为intGenerator的适配器intToStringAdapter代码如下：
+```go
+type IntToStringAdapter struct {
+	IntValue int
+}
+
+func (i *IntToStringAdapter) stringGenerator() string {
+	return strconv.Itoa(i.IntValue)
+}
+```
+
 
 ### 参考文档：
 https://en.wikipedia.org/wiki/Adapter_pattern
