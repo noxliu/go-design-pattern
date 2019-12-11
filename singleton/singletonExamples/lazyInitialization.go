@@ -1,17 +1,12 @@
 package singletonExamples
 
-import "sync"
+type lazySingleton struct{}
 
-type singleton struct{}
+var lazySingletonInstance *lazySingleton
 
-var ins *singleton
-var mu sync.Mutex
-
-func GetIns() *singleton {
-	mu.Lock()
-	defer mu.Unlock()
-	if ins == nil {
-		ins = &singleton{}
+func GetLazySingletonInstance() *lazySingleton {
+	if lazySingletonInstance == nil {
+		lazySingletonInstance = &lazySingleton{}
 	}
-	return ins
+	return lazySingletonInstance
 }
