@@ -1,12 +1,12 @@
 package adapter
 
-type generatorI interface {
-	StringGenerator() string
+type stringGeneratorI interface {
+	stringGenerator() string
 }
 
-type GeneratorForString struct {
+type StringGenerator struct {
 }
 
-func (*GeneratorForString) StringGenerator() string {
+func (*StringGenerator) stringGenerator() string {
 	return "Hello world"
 }
