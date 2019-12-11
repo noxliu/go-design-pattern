@@ -1,7 +1,23 @@
 package main
 
-import "fmt"
+import (
+	. "go-design-pattern/adapter/adapterExample/adapter"
+)
 
 func main() {
-	fmt.Println("")
+	printer := Printer{}
+	stringGenerator := GeneratorForString{}
+	printer.PrinterForString(&stringGenerator)
+
+	intGenerator := GeneratorForInt{}
+	adapter := AdapterOfGeneratorForInt{}
+	adapter.IntValue = intGenerator.IntGenerator()
+
+	intArrayGenerator := GeneratorForIntArray{}
+	adapterArray := AdapterOfGeneratorForArray{}
+	adapterArray.IntArray = intArrayGenerator.IntArrayGenerator()
+
+	printer.PrinterForString(&adapter)
+	printer.PrinterForString(&adapterArray)
+
 }
