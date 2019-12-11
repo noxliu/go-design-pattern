@@ -9,7 +9,7 @@ func main() {
 	stringGenerator := StringGenerator{}
 	printer.PrintString(&stringGenerator)
 
-	intGenerator := GeneratorForInt{}
+	intGenerator := IntGenerator{}
 	adapter := AdapterOfGeneratorForInt{}
 	adapter.IntValue = intGenerator.IntGenerator()
 
