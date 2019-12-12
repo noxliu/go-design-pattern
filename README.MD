@@ -8,7 +8,7 @@
 * 抽象工厂模式（Abstract Factory）
 * [创建者模式（Builder）](https://github.com/nox60/go-design-pattern/tree/master/builder)
 * 原型模式（Prototype）
-* 单例模式（Singleton）
+* [单例模式（Singleton）](https://github.com/nox60/go-design-pattern/tree/master/singleton)
 
 ## 结构模式
 
