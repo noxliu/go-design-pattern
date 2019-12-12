@@ -13,7 +13,7 @@ func main() {
 	managerSalaryCalculator := SalaryCalculator{&Manager{}, managerLisi}
 	managerSalaryCalculator.CalculateSalary()
 
-	salesManagerWangwu := BaseInfo{"998800225", "王五", 1000}
+	salesManagerWangwu := BaseInfo{"998811225", "王五", 1000}
 	salesManagerSalaryCalculator := SalaryCalculator{&SalesManager{}, salesManagerWangwu}
 	salesManagerSalaryCalculator.CalculateSalary()
 }
