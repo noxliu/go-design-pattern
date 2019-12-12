@@ -21,9 +21,83 @@
 ### 例子分析
 
 ##### 一. 各种单例例子
+饿汉模式，在加载时就创建，这样的缺点是如果单例一直用不到，会造成内存的开销。
 
+```go
+type eagerSingleton struct{}
 
+var eagerSingletonInstance *eagerSingleton = &eagerSingleton{}
 
+func GetEagerSingletonInstance() *eagerSingleton {
+	return eagerSingletonInstance
+}
+```
+
+懒汉模式，也就是懒加载，在需要时候再创建，但是缺点是如果有两个或者两个以上线程同时请求，有可能会因为线程不安全造成多个示例产生，单例失败。
+```go
+type lazySingleton struct{}
+
+var lazySingletonInstance *lazySingleton
+
+func GetLazySingletonInstance() *lazySingleton {
+	if lazySingletonInstance == nil {
+		lazySingletonInstance = &lazySingleton{}
+	}
+	return lazySingletonInstance
+}
+```
+
+带锁的懒汉模式，这样避免了上面懒汉模式的现成不安全问题，但是缺点是获取单例实例的时候都要加锁，这样还有锁开销。
+```go
+type lazySingletonWithLock struct{}
+
+var lazySingletonWithLockInstance *lazySingletonWithLock
+var mu sync.Mutex
+
+func GetLazySingletonWithLockInstance() *lazySingletonWithLock {
+	mu.Lock()
+	defer mu.Unlock()
+
+	if lazySingletonWithLockInstance == nil {
+		lazySingletonWithLockInstance = &lazySingletonWithLock{}
+	}
+	return lazySingletonWithLockInstance
+}
+```
+
+带判断的线程安全的模式，避免了每次加锁
+```go
+type threadSafeSingleton struct{}
+
+var threadSafeInstance *threadSafeSingleton
+var mu1 sync.Mutex
+
+func GetThreadSafeInstance() *threadSafeSingleton {
+	if threadSafeInstance == nil {
+		mu1.Lock()
+		defer mu1.Unlock()
+		if threadSafeInstance == nil {
+			threadSafeInstance = &threadSafeSingleton{}
+		}
+	}
+	return threadSafeInstance
+}
+```
+
+基于sync.Once的单例模式
+```go
+type syncOnceSingleton struct{}
+
+var syncOnceInstance *syncOnceSingleton
+var once sync.Once
+
+func GetSyncOnceInstance() *syncOnceSingleton {
+	once.Do(func() {
+		syncOnceInstance = &syncOnceSingleton{}
+	})
+	return syncOnceInstance
+}
+```
 
 
 ### 参考文档：
