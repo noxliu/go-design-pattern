@@ -47,6 +47,7 @@ type Game struct {
 	MP int
 }
 
+
 func (g *Game) Play(HP int, SP int, MP int) {
 	g.HP += HP
 	g.SP += SP
