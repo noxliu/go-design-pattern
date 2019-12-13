@@ -5,15 +5,15 @@ import (
 )
 
 func main() {
-	employeeZhangsan := BaseInfo{"998876878", "张三", 1000}
+	employeeZhangsan := BaseInfo{"995646878", "张三", 1000}
 	employeeSalaryCalculator := SalaryCalculator{&Employee{}, employeeZhangsan}
 	employeeSalaryCalculator.CalculateSalary()
 
-	managerLisi := BaseInfo{"998800985", "李四", 1000}
+	managerLisi := BaseInfo{"998877985", "李四", 1000}
 	managerSalaryCalculator := SalaryCalculator{&Manager{}, managerLisi}
 	managerSalaryCalculator.CalculateSalary()
 
-	salesManagerWangwu := BaseInfo{"998800225", "王五", 1000}
+	salesManagerWangwu := BaseInfo{"998811225", "王五", 1000}
 	salesManagerSalaryCalculator := SalaryCalculator{&SalesManager{}, salesManagerWangwu}
 	salesManagerSalaryCalculator.CalculateSalary()
 }

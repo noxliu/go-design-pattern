@@ -244,7 +244,6 @@ func main() {
 打开电梯门
 ```
 
-
 ### 参考文档：
 
 https://en.wikipedia.org/wiki/Template_method_pattern

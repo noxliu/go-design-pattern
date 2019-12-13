@@ -20,7 +20,7 @@
 
 ### 例子分析
 
-##### 一. 各种单例例子
+##### 各种单例例子
 饿汉模式，在加载时就创建，这样的缺点是如果单例一直用不到，会造成内存的开销。
 
 ```go
@@ -98,7 +98,6 @@ func GetSyncOnceInstance() *syncOnceSingleton {
 	return syncOnceInstance
 }
 ```
-
 
 ### 参考文档：
 
