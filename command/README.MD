@@ -36,33 +36,7 @@
  
 ##### 购票案例
 
-1. 现在有一个订票功能，希望能够动态的增加一些其他功能，比如在订单完成之前短信通知用户，或者在订单完成之后邮件发送订单详情给用户，以及订单完成之后微信通知用户一些信息等。
-2. 以上功能需要灵活的排列组合，有时候只需要短信，有时候需要短信+邮件，有时候是短信+微信信息。
-3. 原有的订票功能已经实现，新的功能不能影响到原有功能。
 
-代码如下:
-
-原订单接口:
-```go
-type OrderTicketI interface {
-	PlaceOrder(order Order)
-}
-
-type Order struct {
-	UserId    string
-	ProductId string
-}
-```
-
-原订单实现
-```go
-type OrderTicketImplement struct {
-}
-
-func (p *OrderTicketImplement) PlaceOrder(order Order) {
-	fmt.Println("完成订单， 产品ID：" + order.ProductId + ", 用户ID：" + order.UserId)
-}
-```
 
 
 ### 总结
