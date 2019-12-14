@@ -80,22 +80,6 @@ func sendMsg() {
 }
 ```
 
-包装类，订单之后发送邮件:
-```go
-type SendEmailAfterOrder struct {
-	Function OrderTicketI
-}
-
-func (s *SendEmailAfterOrder) PlaceOrder(order Order) {
-	s.Function.PlaceOrder(order)
-	sendEmail()
-}
-
-func sendEmail() {
-	fmt.Println("发送邮件")
-}
-```
-
 
 
 ### 总结
