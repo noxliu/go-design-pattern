@@ -169,4 +169,3 @@ func main() {
 最重要的是，可以灵活的实现新增加的功能的选择，很大程度提高了代码的复用。
  
 ### 参考文档：
-https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm
