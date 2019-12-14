@@ -96,22 +96,6 @@ func sendEmail() {
 }
 ```
 
-包装类，订单之后发送微信消息:
-```go
-type SendWeChatMessageAfterOrder struct {
-	Function OrderTicketI
-}
-
-func (s *SendWeChatMessageAfterOrder) PlaceOrder(order Order) {
-	s.Function.PlaceOrder(order)
-	sendWeChatMessage()
-}
-
-func sendWeChatMessage() {
-	fmt.Println("发送微信信息")
-}
-```
-
 
 
 ### 总结
