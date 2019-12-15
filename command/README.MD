@@ -116,7 +116,3 @@ func GetMsgTemplate(templateNo int) string {
 从上面的输出结果来看，内存中只保存了3分模板，减少了内存的开销。
 
 ### 参考文档：
-
-https://en.wikipedia.org/wiki/Template_method_pattern
-
-https://dzone.com/articles/design-patterns-template-method
