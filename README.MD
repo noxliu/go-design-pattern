@@ -7,13 +7,13 @@
 * [工厂方法模式（Factory Method）](https://github.com/nox60/go-design-pattern/tree/master/factoryMethod)
 * 抽象工厂模式（Abstract Factory）
 * [创建者模式（Builder）](https://github.com/nox60/go-design-pattern/tree/master/builder)
-* 原型模式（Prototype）
-* 单例模式（Singleton）
+* [原型模式（Prototype）](https://github.com/nox60/go-design-pattern/tree/master/prototype)
+* [单例模式（Singleton）](https://github.com/nox60/go-design-pattern/tree/master/singleton)
 
 ## 结构模式
 
 * 外观模式（Facade）
-* 适配器模式（Adapter）
+* [适配器模式（Adapter）](https://github.com/nox60/go-design-pattern/tree/master/adapter)
 * [代理模式（Proxy）](https://github.com/nox60/go-design-pattern/tree/master/proxy)
 * 组合模式（Composite）
 * [享元模式（Flyweight）](https://github.com/nox60/go-design-pattern/tree/master/flyweight)
@@ -27,9 +27,9 @@
 * 命令模式（Command）
 * 迭代器模式（Iterator）
 * [模板方法模式（Template Method）](https://github.com/nox60/go-design-pattern/tree/master/templateMethod)
-* 策略模式（Strategy）
+* [策略模式（Strategy）](https://github.com/nox60/go-design-pattern/tree/master/strategy)
 * [状态模式（State）](https://github.com/nox60/go-design-pattern/tree/master/state)
-* 备忘录模式（Memento）
+* [备忘录模式（Memento）](https://github.com/nox60/go-design-pattern/tree/master/memento)
 * 解释器模式（Interpreter）
 * 职责链模式（Chain of Responsibility）
 * [访问者模式（Visitor）](https://github.com/nox60/go-design-pattern/tree/master/visitor)

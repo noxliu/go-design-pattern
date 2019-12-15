@@ -6,7 +6,7 @@ type Observer struct {
 	name string
 }
 
-func NewReader(name string) *Observer {
+func NewObserver(name string) *Observer {
 	return &Observer{
 		name: name,
 	}

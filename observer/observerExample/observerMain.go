@@ -6,13 +6,13 @@ import (
 
 func main() {
 	subject := NewSubject()
-	reader1 := NewReader("reader1")
-	reader2 := NewReader("reader2")
-	reader3 := NewReader("reader3")
+	observer1 := NewObserver("observer1")
+	observer2 := NewObserver("observer2")
+	observer3 := NewObserver("observer3")
 
-	subject.Register(*reader1)
-	subject.Register(*reader2)
-	subject.Register(*reader3)
+	subject.Register(*observer1)
+	subject.Register(*observer2)
+	subject.Register(*observer3)
 
-	subject.UpdateContext("Message from subject")
+	subject.UpdateContext("来自Subject的消息，数据处理完成")
 }
