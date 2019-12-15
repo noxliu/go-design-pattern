@@ -56,22 +56,7 @@ func (m *Message) Merge(MessageTemplate string) string {
 }
 ```
 
-全局变量F充当缓存作用，缓存所有可以共享的内部状态，也就是消息的模板，当缓存中没有模板存在的时候，就调用QueryByNo函数去数据库查，这里也可以看到，缓存模板也减少了请求数据的开销，这正是享元模式的意义所在。
-```go
-var F = make(map[int]*string)
 
-func GetMsgTemplate(templateNo int) string {
-	msgTemplateBody := F[templateNo]
-	if msgTemplateBody == nil {
-		//模拟去数据库查询
-		messageBody := QueryByNo(templateNo)
-		F[templateNo] = &messageBody
-		msgTemplateBody = &messageBody
-	}
-
-	return *msgTemplateBody
-}
-```
 
 
 ### 参考文档：
