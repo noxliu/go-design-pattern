@@ -12,8 +12,9 @@
 ![Decorator Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/decorator_method.png)
 
 
-
 ### 优点
+ 
+ 
  
 ### 例子分析
  
@@ -21,5 +22,6 @@
 
 
 ### 总结
- 
+
+
 ### 参考文档：
