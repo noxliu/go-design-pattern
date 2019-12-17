@@ -6,7 +6,7 @@
 
 ***Facilitates the reuse of many fine grained objects, making the utilization of large numbers of objects more efficient.***
 
-***提高对象的重用率，减少大量重复对象在内存中的创建开销和资源占用开销***
+******
 
 ![Fly_Weight Pattern UML](../images/fly_weight_pattern.png)
 
