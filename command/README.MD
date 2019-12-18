@@ -4,7 +4,7 @@
 
 #### 定义
 
-***Allows for capturing and externalizing an object's internal state so that it can be restored later, all without violating encapsulation.***
+******
 
 ******
 
