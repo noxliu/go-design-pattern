@@ -16,10 +16,7 @@ func (*ProjectManager) HaveRight(money int) bool {
 }
 
 func (*ProjectManager) HandleFeeRequest(name string, money int) bool {
-	if name == "bob" {
-		fmt.Printf("Project manager permit %s %d fee request\n", name, money)
-		return true
-	}
-	fmt.Printf("Project manager don't permit %s %d fee request\n", name, money)
-	return false
+	fmt.Printf("Project manager permit %s %d fee request\n", name, money)
+	return true
+
 }

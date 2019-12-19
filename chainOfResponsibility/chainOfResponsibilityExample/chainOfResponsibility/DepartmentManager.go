@@ -10,10 +10,6 @@ func (*DepartmentManager) HaveRight(money int) bool {
 }
 
 func (*DepartmentManager) HandleFeeRequest(name string, money int) bool {
-	if name == "tom" {
-		fmt.Printf("Dep manager permit %s %d fee request\n", name, money)
-		return true
-	}
-	fmt.Printf("Dep manager don't permit %s %d fee request\n", name, money)
-	return false
+	fmt.Printf("Dep manager permit %s %d fee request\n", name, money)
+	return true
 }
