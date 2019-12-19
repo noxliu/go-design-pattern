@@ -10,6 +10,6 @@ func (*DepartmentManager) HaveRight(money int) bool {
 }
 
 func (*DepartmentManager) HandleFeeRequest(name string, money int) bool {
-	fmt.Printf("Dep manager permit %s %d fee request\n", name, money)
+	fmt.Printf("主管经理处理 %s 的 %d 报销请求\n", name, money)
 	return true
 }
