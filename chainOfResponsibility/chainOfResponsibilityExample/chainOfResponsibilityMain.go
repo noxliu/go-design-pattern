@@ -24,5 +24,6 @@ func main() {
 	projectManagerChain.HandleFeeRequest("张三", 600)
 	projectManagerChain.HandleFeeRequest("李四", 499)
 	projectManagerChain.HandleFeeRequest("王五", 1099)
+	projectManagerChain.HandleFeeRequest("李四", 199)
 
 }

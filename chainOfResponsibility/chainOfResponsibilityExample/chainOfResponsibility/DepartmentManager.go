@@ -6,7 +6,7 @@ type DepartmentManager struct {
 }
 
 func (*DepartmentManager) HaveRight(money int) bool {
-	return money < 5000
+	return money < 500
 }
 
 func (*DepartmentManager) HandleFeeRequest(name string, money int) bool {
