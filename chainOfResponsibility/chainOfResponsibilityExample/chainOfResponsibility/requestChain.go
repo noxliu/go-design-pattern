@@ -1,11 +1,5 @@
 package chainOfResponsibility
 
-//管理者接口
-type Manager interface {
-	HaveRight(money int) bool
-	HandleFeeRequest(name string, money int) bool
-}
-
 type RequestChain struct {
 	Manager
 	successor *RequestChain
