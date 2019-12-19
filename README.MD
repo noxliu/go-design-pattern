@@ -31,7 +31,7 @@
 * [状态模式（State）](https://github.com/nox60/go-design-pattern/tree/master/state)
 * [备忘录模式（Memento）](https://github.com/nox60/go-design-pattern/tree/master/memento)
 * 解释器模式（Interpreter）
-* 职责链模式（Chain of Responsibility）
+* [职责链模式（Chain of Responsibility）](https://github.com/nox60/go-design-pattern/tree/master/chainOfResponsibility)
 * [访问者模式（Visitor）](https://github.com/nox60/go-design-pattern/tree/master/visitor)
 
 ### 参考文档
