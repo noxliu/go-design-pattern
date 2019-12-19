@@ -5,12 +5,6 @@ import "fmt"
 type ProjectManager struct {
 }
 
-func NewProjectManagerChain() *RequestChain {
-	return &RequestChain{
-		Manager: &ProjectManager{},
-	}
-}
-
 func (*ProjectManager) HaveRight(money int) bool {
 	return money < 200
 }
