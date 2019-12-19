@@ -32,7 +32,8 @@ func (r *RequestChain) HaveRight(money int) bool {
 }
 
 //三种角色定义
-type ProjectManager struct{}
+type ProjectManager struct {
+}
 
 func NewProjectManagerChain() *RequestChain {
 	return &RequestChain{
@@ -53,7 +54,8 @@ func (*ProjectManager) HandleFeeRequest(name string, money int) bool {
 	return false
 }
 
-type DepManager struct{}
+type DepManager struct {
+}
 
 func NewDepManagerChain() *RequestChain {
 	return &RequestChain{
@@ -74,7 +76,8 @@ func (*DepManager) HandleFeeRequest(name string, money int) bool {
 	return false
 }
 
-type GeneralManager struct{}
+type GeneralManager struct {
+}
 
 func NewGeneralManagerChain() *RequestChain {
 	return &RequestChain{

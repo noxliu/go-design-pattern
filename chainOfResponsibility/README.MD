@@ -8,7 +8,7 @@
 
 ******
 
-![Fly_Weight Pattern UML](../images/fly_weight_pattern.png)
+![Chain_Of_Responsibility Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/chain_of_responsibility_pattern.png)
 
 
 ### 优点
