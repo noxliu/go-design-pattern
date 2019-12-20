@@ -24,54 +24,7 @@
 
 ##### 游戏案例
 
-1. 游戏程序，有体力HP，耐力SP，魔法力MP三个值。
-2. 游戏玩家可以存档。
-3. 一旦游戏角色GAME OVER，可以读取最近的存档重新开始。
 
-代码如下：
-
-备忘录对象，用来保存游戏状态（在现实中往往保存在数据库或者缓存中）：
-```go
-type Memento struct {
-	HP int
-	SP int
-	MP int
-}
-```
-
-游戏程序：
-```go
-type Game struct {
-	HP int
-	SP int
-	MP int
-}
-
-
-func (g *Game) Play(HP int, SP int, MP int) {
-	g.HP += HP
-	g.SP += SP
-	g.MP += MP
-}
-
-func (g *Game) Save() Memento {
-	return Memento{
-		HP: g.HP,
-		SP: g.SP,
-		MP: g.MP,
-	}
-}
-
-func (g *Game) Load(m Memento) {
-	g.HP = m.HP
-	g.SP = m.SP
-	g.MP = m.MP
-}
-
-func (g *Game) Status() {
-	fmt.Printf("当前生命值 HP: %d，当前耐力: %d, 当前魔法力: %d\n", g.HP, g.SP, g.MP)
-}
-```
 
 
 
