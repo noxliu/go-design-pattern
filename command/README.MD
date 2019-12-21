@@ -20,32 +20,7 @@
 
 ### 例子分析
 
-##### 各种单例例子
-饿汉模式，在加载时就创建，这样的缺点是如果单例一直用不到，会造成内存的开销。
-
-```go
-type eagerSingleton struct{}
-
-var eagerSingletonInstance *eagerSingleton = &eagerSingleton{}
-
-func GetEagerSingletonInstance() *eagerSingleton {
-	return eagerSingletonInstance
-}
-```
-
-懒汉模式，也就是懒加载，在需要时候再创建，但是缺点是如果有两个或者两个以上线程同时请求，有可能会因为线程不安全造成多个示例产生，单例失败。
-```go
-type lazySingleton struct{}
-
-var lazySingletonInstance *lazySingleton
-
-func GetLazySingletonInstance() *lazySingleton {
-	if lazySingletonInstance == nil {
-		lazySingletonInstance = &lazySingleton{}
-	}
-	return lazySingletonInstance
-}
-```
+##### ******例子
 
 
 ### 参考文档：
