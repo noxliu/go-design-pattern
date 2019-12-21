@@ -47,23 +47,5 @@ func GetLazySingletonInstance() *lazySingleton {
 }
 ```
 
-带锁的懒汉模式，这样避免了上面懒汉模式的现成不安全问题，但是缺点是获取单例实例的时候都要加锁，这样还有锁开销。
-```go
-type lazySingletonWithLock struct{}
-
-var lazySingletonWithLockInstance *lazySingletonWithLock
-var mu sync.Mutex
-
-func GetLazySingletonWithLockInstance() *lazySingletonWithLock {
-	mu.Lock()
-	defer mu.Unlock()
-
-	if lazySingletonWithLockInstance == nil {
-		lazySingletonWithLockInstance = &lazySingletonWithLock{}
-	}
-	return lazySingletonWithLockInstance
-}
-```
-
 
 ### 参考文档：
