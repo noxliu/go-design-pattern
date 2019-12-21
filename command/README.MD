@@ -84,19 +84,5 @@ func GetThreadSafeInstance() *threadSafeSingleton {
 }
 ```
 
-基于sync.Once的单例模式
-```go
-type syncOnceSingleton struct{}
-
-var syncOnceInstance *syncOnceSingleton
-var once sync.Once
-
-func GetSyncOnceInstance() *syncOnceSingleton {
-	once.Do(func() {
-		syncOnceInstance = &syncOnceSingleton{}
-	})
-	return syncOnceInstance
-}
-```
 
 ### 参考文档：
