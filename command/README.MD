@@ -65,24 +65,5 @@ func GetLazySingletonWithLockInstance() *lazySingletonWithLock {
 }
 ```
 
-带判断的线程安全的模式，避免了每次加锁
-```go
-type threadSafeSingleton struct{}
-
-var threadSafeInstance *threadSafeSingleton
-var mu1 sync.Mutex
-
-func GetThreadSafeInstance() *threadSafeSingleton {
-	if threadSafeInstance == nil {
-		mu1.Lock()
-		defer mu1.Unlock()
-		if threadSafeInstance == nil {
-			threadSafeInstance = &threadSafeSingleton{}
-		}
-	}
-	return threadSafeInstance
-}
-```
-
 
 ### 参考文档：
