@@ -22,25 +22,6 @@ type CarType struct {
 }
 ```
 
-两种实现：
-```go
-type Benz struct {
-	CarType CarType
-}
-
-func (b Benz) Drive() string {
-	return b.CarType.CarName
-}
-
-type Bmw struct {
-	CarType CarType
-}
-
-func (b Bmw) Drive() string {
-	return b.CarType.CarName
-}
-```
-
 
 #### 定义
 
