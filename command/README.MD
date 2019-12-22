@@ -157,35 +157,6 @@ func GetCar(carType string) Car {
 
 从上面的代码可以看出，GetCar是一个工厂函数，其负责了汽车对象的创建，这样就解决了对象的创建和使用分离的问题，工厂创建对象，客户端使用对象。回到上面的问题：即便有100处代码使用了汽车类型，调用点不受任何影响，不会发生改动。只是工厂函数内部改动即可：
 
-```go
-func GetCar(carType string) Car {
-	carType1 := CarType{
-		carName: carType,
-		wheelbase:    2840,
-		length      : 4704,
-	}
-	if carType == "benz" {
-		benz := Benz{CarType: carType1}
-		return benz
-	} else if carType == "bmw" {
-		bmw := Bmw{CarType: carType1}
-		return bmw
-	} else {
-		return nil
-	}
-}
-```
-
-这样一来，代码质量就高了很多。
-
-上述改动，只是简单的使用了简单工厂对对象的创建进行了处理，就达到了很好的效果。
-
-似乎看起来，简单工厂已经很好的解决了很多问题，为什么还会有工厂方法模式的存在？
-
-简单工厂的问题在于，上述代码中的GetCar函数承担了太多职责，一旦有很多种类型的汽车要创建，那个 if 代码块就会不断膨胀，维护起来会非常困难。
-
-此时我们使用工厂方法模式解决该问题。工厂方法和简单工厂的差异是在于：简单工厂是在上面所提到的工厂函数中进行判断和决策，以绝对要创建的对象类型，这也是简单工厂的问题之一，如果让工厂函数承担了所有的判断逻辑，一旦对象的类型增多的时候，判断逻辑部分的代码会变得过于复杂。而工厂方法模式，***则是将判断逻辑部分转移到客户端代码中。*** 这是工厂方法和简单工厂最大的差异之一。
-
 #### 定义
 
 ***Exposes a method for creating objects, allowing subclasses to control the actual creation process.***
@@ -200,10 +171,6 @@ func GetCar(carType string) Car {
 ### 例子分析
 
 ##### 一. 汽车案例
-
-
-
-
 
 ### 总结
 
