@@ -62,47 +62,6 @@ func main() {
 }
 ```
 
-以上代码是没有使用任何工厂模式的用法，虽然并没有什么bug，但是如果在代码中这样接口的实例化和使用有多处:
-
-
-```go
-	carTypeBenz := CarType{
-		CarName: "benz",
-		Size:    10,
-	}
-
-	benz := Benz{CarType: carTypeBenz}
-	fmt.Println(benz.Drive())
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
-	bmw := Benz{CarType: carTypeBmw}
-	fmt.Println(bmw.Drive())
- 
-    ...
-
-	carTypeBenz := CarType{
-		CarName: "benz",
-		Size:    10,
-	}
-
-	benz := Benz{CarType: carTypeBenz}
-	fmt.Println(benz.Drive())
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
-	bmw := Benz{CarType: carTypeBmw}
-	fmt.Println(bmw.Drive())
-
-    ...
-```
-
 
 #### 定义
 
