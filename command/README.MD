@@ -5,7 +5,7 @@
 
 #### 定义
 
-***Exposes a method for creating objects, allowing subclasses to control the actual creation process.***
+******
 
 ******
 
