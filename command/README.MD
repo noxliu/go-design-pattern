@@ -4,7 +4,7 @@
 
 #### 定义
 
-***Gives more than one object an opportunity to handle a request by linking receiving objects together.***
+******
 
 ******
 
