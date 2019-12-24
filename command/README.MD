@@ -133,15 +133,7 @@ func main() {
 }
 ```
 
-执行结果
-```go
-项目经理处理 张三 的 100 报销请求
-总经理处理 张三 的 600 报销请求
-主管经理处理 李四 的 499 报销请求
-总经理处理 王五 的 1099 报销请求
-项目经理处理 李四 的 199 报销请求
-```
+
 
 
 ### 参考文档：
-https://www.runoob.com/design-pattern/chain-of-responsibility-pattern.html
