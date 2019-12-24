@@ -10,13 +10,8 @@
 
 ![Chain_Of_Responsibility Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/chain_of_responsibility_pattern.png)
 
-责任链模式在现实开发中很常见的一个模式，比如我们工作中的上下级处理任务，某个级别没有权限处理，则之后提交到更高一级的处理，以此类推。
 
 ### 优点
-1. 降低耦合度。将请求的发送者和接收者解耦。 
-2. 简化了对象。使得对象不需要知道链的结构。 
-3. 增强给对象指派职责的灵活性。通过改变链内的成员或者调动它们的次序，允许动态地新增或者删除责任。 
-4. 增加新的请求处理类很方便。
 
 ### 例子分析
 
