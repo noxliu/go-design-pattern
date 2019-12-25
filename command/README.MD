@@ -4,7 +4,7 @@
 
 #### 定义
 
-***Allows for the dynamic creation of objects based upon easily interchangeable algorithms.***
+******
 
 ***。建造者模式，就是把复杂，易出错的进行封装。便于创建对象。将创建和展现分开***
 
