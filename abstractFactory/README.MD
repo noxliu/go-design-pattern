@@ -33,12 +33,24 @@ func (*LenovoMouseFactory) GetMouse() Mouse {}
 
 测试代码：
 ```go
+dellPcFactory := DellPcFactory{}
+dellPc := dellPcFactory.GetPc()
 
+dellMouseFactory := DellMouseFactory{}
+dellMouse := dellMouseFactory.GetMouse()
+
+hpPcFactory := HpPcFactory{}
+hpPc := hpPcFactory.GetPc()
+
+hpMouseFactory := HpMouseFactory{}
+hpMouse := hpMouseFactory.GetMouse()
+
+...
 ```
 
 这样我们有分别三个电脑产品，三个鼠标产品，就有了六个工厂。但显然，同一品牌的电脑和鼠标是有关系的，上面的代码不光产生了太多的类型，代码的内聚性也不好。
 
-
+抽象工厂模式则是为了解决以上问题提出的。
 
 ### 优点
 
