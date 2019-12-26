@@ -21,6 +21,23 @@
 
 如果用工厂方法模式，会是什么样子呢？
 
+各种工厂：
+```go
+func (*DellPcFactory) GetPc() Pc {}
+func (*HpPcFactory) GetPc() Pc {}
+func (*LenovoPcFactory) GetPc() Pc {}
+func (*DellMouseFactory) GetMouse() Mouse {}
+func (*HpMouseFactory) GetMouse() Mouse {}
+func (*LenovoMouseFactory) GetMouse() Mouse {}
+```
+
+测试代码：
+```go
+
+```
+
+这样我们有分别三个电脑产品，三个鼠标产品，就有了六个工厂。但显然，同一品牌的电脑和鼠标是有关系的，上面的代码不光产生了太多的类型，代码的内聚性也不好。
+
 
 
 ### 优点
