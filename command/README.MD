@@ -21,18 +21,7 @@
 ### 例子分析
 
 ##### 报销程序案例
-1. 报销程序，暂定有三级领导：项目经理project manager, 主管经理 department manager, 总经理 general manager。
-2. 项目经理能处理200元以下的报销任务，如果处理不了则转移到更高一级经理，也就是主管经理处处理。
-3. 主管经理能处理500元以下的报销任务，如果处理不了则转移到总经理处，总经理能处理大于500元的任务报销任务。
-4. 代码如下：
 
-经理接口
-```go
-type Manager interface {
-	HaveRight(money int) bool
-	HandleFeeRequest(name string, money int) bool
-}
-```
 
 
 
