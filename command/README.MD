@@ -125,41 +125,6 @@ func (r *RequestChain) HaveRight(money int) bool {
 }
 ```
 
-测试代码
-```go
-func main() {
-	projectManager := ProjectManager{}
-	projectManagerChain := RequestChain{}
-	projectManagerChain.Manager = &projectManager
-
-	departmentManager := DepartmentManager{}
-	departmentManagerChain := RequestChain{}
-	departmentManagerChain.Manager = &departmentManager
-
-	generalManager := GeneralManager{}
-	generalManagerChain := RequestChain{}
-	generalManagerChain.Manager = &generalManager
-
-	departmentManagerChain.SetSuccessor(&generalManagerChain)
-	projectManagerChain.SetSuccessor(&departmentManagerChain)
-
-	projectManagerChain.HandleFeeRequest("张三", 100)
-	projectManagerChain.HandleFeeRequest("张三", 600)
-	projectManagerChain.HandleFeeRequest("李四", 499)
-	projectManagerChain.HandleFeeRequest("王五", 1099)
-	projectManagerChain.HandleFeeRequest("李四", 199)
-
-}
-```
-
-执行结果
-```go
-项目经理处理 张三 的 100 报销请求
-总经理处理 张三 的 600 报销请求
-主管经理处理 李四 的 499 报销请求
-总经理处理 王五 的 1099 报销请求
-项目经理处理 李四 的 199 报销请求
-```
 
 
 ### 参考文档：
