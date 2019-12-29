@@ -29,7 +29,6 @@
 
 ![Chain_Of_Responsibility Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/chain_of_responsibility_pattern.png)
 
-责任链模式在现实开发中很常见的一个模式，比如我们工作中的上下级处理任务，某个级别没有权限处理，则之后提交到更高一级的处理，以此类推。
 
 ### 优点
 
