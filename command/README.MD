@@ -37,13 +37,5 @@
 
 ##### 报销程序案例
 
-
-
-
 ### 参考文档：
-https://www.runoob.com/design-pattern/chain-of-responsibility-pattern.html
 
-
-
-### 参考文档：
-https://www.runoob.com/design-pattern/chain-of-responsibility-pattern.html
