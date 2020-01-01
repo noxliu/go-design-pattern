@@ -142,4 +142,3 @@ Hello world
 
 
 ### 参考文档：
-https://en.wikipedia.org/wiki/Adapter_pattern
