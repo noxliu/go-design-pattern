@@ -94,31 +94,5 @@ func (i *IntToStringAdapter) stringGenerator() string {
 }
 ```
 
-intArrayGenerator的适配器intArrayToStringAdapter代码如下：
-```go
-type IntArrayToStringAdapter struct {
-	IntArray []int
-}
-
-func (arr *IntArrayToStringAdapter) stringGenerator() string {
-	var buffer bytes.Buffer
-	if arr.IntArray != nil {
-		for i := 0; i < len(arr.IntArray); i++ {
-			buffer.WriteString(strconv.Itoa(arr.IntArray[i]))
-		}
-	}
-	return buffer.String()
-}
-```
-
-
-
-从输出结果看，只支持字符串类型的打印工具已经能打印int类型和int数组了
-```go
-Hello world
-19982727
-1239998777771212221212
-```
-
 
 ### 参考文档：
