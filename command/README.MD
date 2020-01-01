@@ -54,20 +54,6 @@ func (*StringGenerator) stringGenerator() string {
 }
 ```
 
-intGenerator代码如下：
-```go
-type IntGeneratorI interface {
-	IntGenerator() int
-}
-
-type IntGenerator struct {
-}
-
-func (*IntGenerator) IntGenerator() int {
-	return 19982727
-}
-```
-
 
 
 
