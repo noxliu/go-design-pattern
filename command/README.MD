@@ -133,13 +133,5 @@ func main() {
 }
 ```
 
-从输出结果看，只支持字符串类型的打印工具已经能打印int类型和int数组了
-```go
-Hello world
-19982727
-1239998777771212221212
-```
-
 
 ### 参考文档：
-https://en.wikipedia.org/wiki/Adapter_pattern
