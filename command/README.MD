@@ -83,18 +83,6 @@ func (*GeneratorForIntArray) IntArrayGenerator() []int {
 }
 ```
 
-intGenerator的适配器intToStringAdapter代码如下：
-```go
-type IntToStringAdapter struct {
-	IntValue int
-}
-
-func (i *IntToStringAdapter) stringGenerator() string {
-	return strconv.Itoa(i.IntValue)
-}
-```
-
-
 
 
 
