@@ -103,23 +103,6 @@ func main() {
     ...
 ```
 
-假设上面的代码片段大量存在于各种方法和函数中，正常情况下没有任何问题。但是假如汽车接口一旦发生了变化，比如对原有汽车结构体中的Size进行了拆分，分为了两个字段（wheelbase和length）,那么这个重构就会造成所有调用点都要改动，都要将size改成两个参数。
-
-```go
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
->>
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		wheelbase:    2840,
-        	length      : 4704,
-	}
-```
-
 
 
 
