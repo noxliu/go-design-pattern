@@ -3,25 +3,6 @@
 ##### 创建模式（Creational Pattern）
 
 
-在讨论工厂方法模式之前，我们首先要讨论的一定是简单工厂(Simple Factory)，严格的说，简单工厂不是Gof23设计模式中的一种。
-
-首先我们看看不使用简单工厂或者工厂方法之前，我们要创建对象的方式:
-
-假设我们有汽车类型接口及其两种实现：一个benz，一个bwm
-
-汽车类型car：
-
-```go
-type Car interface {
-	Drive() string
-}
-
-type CarType struct {
-	CarName string
-	Size    int
-}
-```
-
 
 #### 定义
 
