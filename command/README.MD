@@ -145,20 +145,6 @@ func GetCar(carType string) Car {
 }
 ```
 
-而新的客户端代码则变成了
-
-```go
-	car1 := simpleFactory.GetCar("bmw")
-	fmt.Println(car1.Drive())
-
-	car2 := simpleFactory.GetCar("benz")
-	fmt.Println(car2.Drive())
-```
-
-从上面的代码可以看出，GetCar是一个工厂函数，其负责了汽车对象的创建，这样就解决了对象的创建和使用分离的问题，工厂创建对象，客户端使用对象。回到上面的问题：即便有100处代码使用了汽车类型，调用点不受任何影响，不会发生改动。只是工厂函数内部改动即可：
-
-
-
 
 #### 定义
 
