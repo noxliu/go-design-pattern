@@ -254,29 +254,7 @@ func (*BmwFactory) GetCar(carName string) Car {
 }
 ```
 
-这样，在客户端代码中，调用不同的工厂生产不同的对象：
-
-```go
-	bmwFactory := factoryMethod.BmwFactory{}
-	bmw1 := bmwFactory.GetCar("bmw1")
-	fmt.Println(bmw1.Drive())
-
-	benzFactory := factoryMethod.BenzFactory{}
-	benz1 := benzFactory.GetCar("my benz")
-	fmt.Println(benz1.Drive())
-```
-
 ### 总结
 工厂方法模式是代码封装性的一个良好体现，很好的将对象的创建和使用隔离开。在开发中合理的使用，会体会到开闭原则的真正意义。
 
 ### 参考文档：
-
-https://en.wikipedia.org/wiki/Visitor_pattern
-
-https://dzone.com/articles/design-patterns-visitor
-
-https://blog.51cto.com/zero01/2067822
-
-https://zhidao.baidu.com/question/131823823.html
-
-https://blog.csdn.net/qq_34337272/article/details/80472071
