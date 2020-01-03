@@ -157,24 +157,7 @@ func GetCar(carType string) Car {
 
 从上面的代码可以看出，GetCar是一个工厂函数，其负责了汽车对象的创建，这样就解决了对象的创建和使用分离的问题，工厂创建对象，客户端使用对象。回到上面的问题：即便有100处代码使用了汽车类型，调用点不受任何影响，不会发生改动。只是工厂函数内部改动即可：
 
-```go
-func GetCar(carType string) Car {
-	carType1 := CarType{
-		carName: carType,
-		wheelbase:    2840,
-		length      : 4704,
-	}
-	if carType == "benz" {
-		benz := Benz{CarType: carType1}
-		return benz
-	} else if carType == "bmw" {
-		bmw := Bmw{CarType: carType1}
-		return bmw
-	} else {
-		return nil
-	}
-}
-```
+
 
 
 #### 定义
