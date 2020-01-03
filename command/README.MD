@@ -235,24 +235,7 @@ func (*BenzFactory) GetCar(carName string) Car {
 }
 ```
 
-```go
-type BmwFactory struct {
-}
 
-func (*BmwFactory) GetCar(carName string) Car {
-	cartype := CarType{
-		CarName:  carName,
-		CarBrand: "bmw",
-		Size:     10,
-	}
-
-	bmw := Bmw{
-		CarType: cartype,
-	}
-
-	return bmw
-}
-```
 
 ### 总结
 工厂方法模式是代码封装性的一个良好体现，很好的将对象的创建和使用隔离开。在开发中合理的使用，会体会到开闭原则的真正意义。
