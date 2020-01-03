@@ -41,31 +41,6 @@ func (b Bmw) Drive() string {
 }
 ```
 
-对两种汽车类型的调用：
-```go
-func main() {
-	carTypeBenz := CarType{
-		CarName: "benz",
-		Size:    10,
-	}
-
-	benz := Benz{CarType: carTypeBenz}
-	fmt.Println(benz.Drive())
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
-	bmw := Benz{CarType: carTypeBmw}
-	fmt.Println(bmw.Drive())
-}
-```
-
-以上代码是没有使用任何工厂模式的用法，虽然并没有什么bug，但是如果代码中这样的接口实例化和使用存在多处:
-
-
-
 
 #### 定义
 
