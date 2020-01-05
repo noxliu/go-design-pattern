@@ -65,24 +65,6 @@ func (*FtpDownloader) save(savePath string) {
 }
 ```
 
-4. 执行测试代码，分别用不同的下载器进行下载：
-```go
-func main() {
-	template := Template{}
-
-	ftpDownloader := FtpDownloader{
-		UserName: "testUser",
-		PassWord: "password",
-	}
-	template.Implement = &ftpDownloader
-	template.Download("ftp://www.xxx.com/a.zip", "/opt/local")
-
-	httpDownloader := HttpDownloader{}
-	template.Implement = &httpDownloader
-	template.Download("http://www.xxx.com/a.zip", "/opt/local")
-}
-```
-
 
 
 ### 参考文档：
