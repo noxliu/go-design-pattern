@@ -19,19 +19,7 @@
 ### 例子分析
 
 ##### 下载工具案例
-有一个下载工具，可能有多个步骤，目前为了简化假设只有两个：首先是下载文件，然后是写入磁盘。
 
-下载文件会有多种方式，比如http直接下载，也可能是ftp下载（需要用户名和密码），写入磁盘也可能有不同的实现。
-
-1. 我们在父类中定义了下面的方法模版：
-```go
-func (t *Template) Download(url string, savePath string) {
-	fmt.Println("start download")
-	t.Implement.download(url)
-	t.Implement.save(savePath)
-	fmt.Println("finish download")
-}
-```
 
 
 
