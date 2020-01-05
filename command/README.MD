@@ -80,39 +80,6 @@ func sendMsg() {
 }
 ```
 
-包装类，订单之后发送邮件:
-```go
-type SendEmailAfterOrder struct {
-	Function OrderTicketI
-}
-
-func (s *SendEmailAfterOrder) PlaceOrder(order Order) {
-	s.Function.PlaceOrder(order)
-	sendEmail()
-}
-
-func sendEmail() {
-	fmt.Println("发送邮件")
-}
-```
-
-包装类，订单之后发送微信消息:
-```go
-type SendWeChatMessageAfterOrder struct {
-	Function OrderTicketI
-}
-
-func (s *SendWeChatMessageAfterOrder) PlaceOrder(order Order) {
-	s.Function.PlaceOrder(order)
-	sendWeChatMessage()
-}
-
-func sendWeChatMessage() {
-	fmt.Println("发送微信信息")
-}
-```
-
-
 
 ### 总结
 通过上面的例子可以看出，装饰模式的特点就体现在装饰（包装）上，可以很好的给原有的功能进行包装以增加新的功能，而且对原有的功能没有影响。
