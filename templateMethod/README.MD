@@ -83,16 +83,6 @@ func main() {
 }
 ```
 
-5. 输出结果
-```go
-start download
-ftp download from  ftp://www.xxx.com/a.zip
-ftp save file to  /opt/local
-finish download
-start download
-http download from  http://www.xxx.com/a.zip
-http save file to  /opt/local
-finish download
-```
+
 
 ### 参考文档：
