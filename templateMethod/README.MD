@@ -96,7 +96,3 @@ finish download
 ```
 
 ### 参考文档：
-
-https://en.wikipedia.org/wiki/Template_method_pattern
-
-https://dzone.com/articles/design-patterns-template-method
