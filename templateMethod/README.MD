@@ -49,22 +49,6 @@ func (*FtpDownloader) save(savePath string) {
 }
 ```
 
-3. 在具体实现方法中，http下载器的实现：
-```go
-type FtpDownloader struct {
-	UserName string
-	PassWord string
-}
-
-func (*FtpDownloader) download(url string) {
-	fmt.Println("ftp download from ", url)
-}
-
-func (*FtpDownloader) save(savePath string) {
-	fmt.Println("ftp save file to ", savePath)
-}
-```
-
 
 
 ### 参考文档：
