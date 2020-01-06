@@ -64,22 +64,6 @@ func (p *OrderTicketImplement) PlaceOrder(order Order) {
 }
 ```
 
-包装类，订单之前发送短信：
-```go
-type SendMsgBeforeOrder struct {
-	Function OrderTicketI
-}
-
-func (s *SendMsgBeforeOrder) PlaceOrder(order Order) {
-	sendMsg()
-	s.Function.PlaceOrder(order)
-}
-
-func sendMsg() {
-	fmt.Println("发送短信")
-}
-```
-
 
 ### 总结
 
