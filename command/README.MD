@@ -121,27 +121,6 @@ func (con LaptopConstruct) BuildComputer(ComputerItems ComputerItems) ComputerIt
 }
 ```
 
-测试代码
-```go
-func main() {
-	builder := ComputerBuilderImplement{}
-	ComputerConstruct := ComputerConstruct{}
-	builder.SetCpu("Intel i7").
-		SetMemory("16GB").
-		SetHardDisk("1TSSD").
-		SetScreenSize(21).
-		SetConstruct(ComputerConstruct).
-		Build().PrintComputerInfo()
-
-	LaptopConstruct := LaptopConstruct{}
-	builder.SetCpu("Intel i7").
-		SetMemory("16GB").
-		SetHardDisk("1TSSD").
-		SetScreenSize(21).
-		SetConstruct(LaptopConstruct).
-		Build().PrintComputerInfo()
-}
-```
 
 
 
