@@ -82,13 +82,6 @@ func (c ComputerBuilderImplement) Build() ComputerItems {
 
 ```
 
-Construct接口
-```go
-type Construct interface {
-	BuildComputer(ComputerItems ComputerItems) ComputerItems
-}
-```
-
 
 
 
