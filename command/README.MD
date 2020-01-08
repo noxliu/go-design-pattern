@@ -44,29 +44,6 @@
 
 代码实现：
 
-算法接口：
-```go
-type SalaryAlgorithm interface {
-	Calculate(b BaseInfo) int
-}
-
-type BaseInfo struct {
-	UserId     string
-	Name       string
-	BaseSalary int
-}
-```
-
-普通员工工资计算算法：
-```go
-type Employee struct {
-}
-
-func (*Employee) Calculate(b BaseInfo) int {
-	return b.BaseSalary + 1000
-}
-```
-
 
 
 ### 参考文档：
