@@ -122,26 +122,6 @@ func (c Open) Stop() {
 }
 ```
 
-CLOSE对象，可以执行打开电梯门或者启动电梯操作
-```go
-type Close struct {
-}
-
-func (*Close) Open() {
-	fmt.Println("打开电梯门")
-}
-
-func (*Close) Close() {
-}
-
-func (*Close) Run() {
-	fmt.Println("启动电梯")
-}
-
-func (*Close) Stop() {
-}
-```
-
 
 
 
