@@ -161,26 +161,7 @@ func (c Run) Stop() {
 }
 ```
 
-STOP对象，可以执行再次启动电梯或者打开电梯门操作
-```go
-type Stop struct {
-}
 
-func (c Stop) Open() {
-	fmt.Println("打开电梯门")
-}
-
-func (c Stop) Close() {
-}
-
-func (c Stop) Run() {
-	fmt.Println("启动电梯")
-}
-
-func (c Stop) Stop() {
-
-}
-```
 
 
 
