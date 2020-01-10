@@ -14,32 +14,10 @@
 
 
 ### 优点
-1. 建造者模式有利于创造复杂对象，利用不同的执行（建造）顺序，可以制造出不同的结果。
-2. 可以将多个部件组装到同一个对象中，但是因为不同的建造顺序，可以制造出不同的结果。
 
 ### 例子分析
 
 ##### 电脑案例
-1. 一台电脑的装配需要多种零部件配合。
-
-2. 通过一些相同的零部件，加上一些差异化的零部件，可以分别组装出不同类型的电脑，比如台式电脑和笔记本电脑。
-
-3. 代码如下：
-
-
-创建者接口
-```go
-type ComputerBuilder interface {
-	SetCpu(cpu string) ComputerBuilder
-	SetMemory(memory string) ComputerBuilder
-	SetHardDisk(hardDisk string) ComputerBuilder
-	SetScreenSize(screenSize int) ComputerBuilder
-	GetComputerProduct() ComputerItems //显示结果
-	SetConstruct(construct Construct) ComputerBuilder
-	Build() ComputerItems
-}
-```
-
 
 
 
