@@ -22,11 +22,6 @@
 ##### 电梯案例
 
 
-
-
-
-
-
 ### 参考文档：
 
 https://en.wikipedia.org/wiki/Template_method_pattern
