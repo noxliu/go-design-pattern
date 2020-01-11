@@ -121,35 +121,6 @@ func (con LaptopConstruct) BuildComputer(ComputerItems ComputerItems) ComputerIt
 }
 ```
 
-测试代码
-```go
-func main() {
-	builder := ComputerBuilderImplement{}
-	ComputerConstruct := ComputerConstruct{}
-	builder.SetCpu("Intel i7").
-		SetMemory("16GB").
-		SetHardDisk("1TSSD").
-		SetScreenSize(21).
-		SetConstruct(ComputerConstruct).
-		Build().PrintComputerInfo()
-
-	LaptopConstruct := LaptopConstruct{}
-	builder.SetCpu("Intel i7").
-		SetMemory("16GB").
-		SetHardDisk("1TSSD").
-		SetScreenSize(21).
-		SetConstruct(LaptopConstruct).
-		Build().PrintComputerInfo()
-}
-```
-
-执行结果：
-```go
-台式电脑：Intel i7 16GB 1TSSD 21寸显示屏
-笔记本电脑：Intel i7 16GB 1TSSD 21寸触摸显示屏
-```
-
-
 
 ### 参考文档：
 
