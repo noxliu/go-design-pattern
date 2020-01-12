@@ -89,38 +89,6 @@ type Construct interface {
 }
 ```
 
-台式机Construct实现
-```go
-type ComputerConstruct struct {
-	ComputerBuilder ComputerBuilder
-}
-
-func (con ComputerConstruct) BuildComputer(ComputerItems ComputerItems) ComputerItems {
-	ComputerItems.ComputerProduct = "台式电脑：" +
-		ComputerItems.Cpu + " " +
-		ComputerItems.Memory + " " +
-		ComputerItems.HardDisk + " " +
-		strconv.Itoa(ComputerItems.ScreenSize) + "寸显示屏"
-	return ComputerItems
-}
-```
-
-笔记本Construct实现，可以看到和上面的台式电脑在构建显示屏的时候有差异
-```go
-type LaptopConstruct struct {
-	ComputerBuilder ComputerBuilder
-}
-
-func (con LaptopConstruct) BuildComputer(ComputerItems ComputerItems) ComputerItems {
-	ComputerItems.ComputerProduct = "笔记本电脑：" +
-		ComputerItems.Cpu + " " +
-		ComputerItems.Memory + " " +
-		ComputerItems.HardDisk + " " +
-		strconv.Itoa(ComputerItems.ScreenSize) + "寸触摸显示屏"
-	return ComputerItems
-}
-```
-
 
 ### 参考文档：
 
