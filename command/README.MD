@@ -1,123 +1,68 @@
-### 装饰模式（Decorator pattern）
- 
-##### 创建模式（Creational Pattern）
- 
- 
+### 访问者模式（Visitor Pattern）
+
+##### 行为模式（Behavioural Pattern）
+
 #### 定义
- 
-***Allows for the dynamic wrapping of objects in order to modify their existing responsibilities and behaviors.***
- 
-***动态地给一个对象添加一些额外的职责或者功能。***
- 
-![Decorator Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/decorator_method.png)
 
-装饰器模式在日常研发中心是一个出场率非常高的模式，因为有太多的场景适用于该模式了。
+***Represent an operation to be performed on elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.***
 
-装饰器模式常常用来动态的为已存在的功能增加新的功能，而不用对原有代码进行任何修改以造成影响。
+***访问者模式用于操作某个结构中各个对象. 它可以不用改变对象本身, 对对象的新操作定义在访问者自己内部.***
 
-比如，我们现在有一个订票功能OrderTicket。但是我们打算给他增加一些功能，比如订票之后发短信通知，或者发邮件通知。
+![Visitor Pattern UML](../images/visitor_pattern.png)
 
-听起来，似乎新建两个函数，SendMsgAfterOrderTicket（订票之后发短信），和SendEmailAfterOrderTicket（订票之后发邮件）。
+在访问者模式中
 
-这样我们在新的函数中实现发短信或者发邮件的功能，先调用原有的OrderTicket实现订票，然后在订票之后发送短信或者邮件。
+被访问的对象称为**元素对象**element
 
-但是如果我们需要既发送短信又发送邮件呢？如果在增加一个自动推送手机APP消息呢？如果希望只是选择性的选择其中的一种或者两种或者全部的通知呢？
+而访问对象称为**访问者**visitor
 
-重写的方式势必会比较多。如果继续增加通知方式，带来的更多麻烦则更不用说了。
+元素对象表示具备一定属性、数据、内容的对象，其不能因为有外部对象希望访问（读取）其内容，就改动自己的代码以提供对外方法，这样做的的缺陷是会污染到原对象的代码：新增加的给予外部对象提供数据的方法会和元素对象本身的业务代码混合在一起。
 
-这就是装饰器模式显示作用的地方了。
+1. 应对以上场景，访问者模式的解决方案是，当有访问需要访问元素对象的时候，元素对象提供一个accept方法，使得元素对象具备了可访问性，允许接受者访问其内部对象。
+
+```go
+type Element interface {
+	Accept(visitor Visitor)
+}
+
+func (e Engine) Accept(visitor Visitor) {
+	visitor.VisitEngine(e)
+}
+```
+
+2. 访问者将数据访问逻辑全部移到访问方法"visitMethod"内部，访问方法由访问者自己实现，这样就避免了对元素对象的污染。
+
+```go
+func (*VisitEngine) VisitEngine(engine Engine) string {
+	return engine.EngineType
+}
+```
 
 ### 优点
- 
-1. 良好的给原有的对象增加了新的功能并不会入侵原有代码。
-2. 能很好的组织新增加的功能，比如选择新功能的数量或者执行顺序，增加到原有功能的前面或者后面。
- 
+实现了元素本身的可访问性，也保证了逻辑的清晰隔离：外部的访问逻辑不会和原有的业务逻辑混在一起。
+
 ### 例子分析
- 
-##### 购票案例
 
-1. 现在有一个订票功能，希望能够动态的增加一些其他功能，比如在订单完成之前短信通知用户，或者在订单完成之后邮件发送订单详情给用户，以及订单完成之后微信通知用户一些信息等。
-2. 以上功能需要灵活的排列组合，有时候只需要短信，有时候需要短信+邮件，有时候是短信+微信信息。
-3. 原有的订票功能已经实现，新的功能不能影响到原有功能。
+##### 一. 汽车案例
+某个二手汽车相关的业务系统，汽车对象有若干字段，比如轮胎尺寸、轴距、马力、使用时间（年）等。
 
-代码如下:
+目前有个需求是，在某节日，可能会根据汽车的某些特性进行附加的礼品赠送，这就要求能够对汽车对象的某些属性能够访问以判断是否满足赠送条件。
 
-原订单接口:
-```go
-type OrderTicketI interface {
-	PlaceOrder(order Order)
-}
+首先能够想到的第一个做法，就是在客户下单之前，在程序中取出汽车的相关字段进行计算，如果达到条件，则进行礼品赠送。但是这里的坏处就是要修改原有的业务逻辑，而且一旦赠送活动结束，此处增加的业务代码可能成为无用的废代码，污染了原有程序。
 
-type Order struct {
-	UserId    string
-	ProductId string
-}
-```
+另外一个做法则是使用访问者模式，此处只要实现能够访问汽车对象（通过增加accept方法使汽车对象具备可访问性），则可以在不破坏原有业务逻辑的前提下，编写并上线访问者相关的程序，按照访问者模式的设计，新增加的业务逻辑全部增加在访问者的visit方法中，即便某一套折扣逻辑未来要下线停用或者更改赠送逻辑，也是在访问者者相关的代码中更改，总之不会影响到现有的标准逻辑。
 
-原订单实现
-```go
-type OrderTicketImplement struct {
-}
+具体代码详见 
 
-func (p *OrderTicketImplement) PlaceOrder(order Order) {
-	fmt.Println("完成订单， 产品ID：" + order.ProductId + ", 用户ID：" + order.UserId)
-}
-```
+##### 二. 购物车案例
+某供应链系统，部分员工的工作是在该系统在线采购公司所需要的原材料，不同种类材料有不同价格以及其他复杂属性。业务经理作为资深领导，有时候要实时的关注员工正在采购的工作，如果发现问题需要进行帮助和建议。
 
-包装类，订单之前发送短信：
-```go
-type SendMsgBeforeOrder struct {
-	Function OrderTicketI
-}
+因为员工采购的材料可能有多个属性，需要一些附加的业务计算逻辑帮经理判断员工正在采购的工作的状况，如果直接让经理的访问逻辑加入到员工的业务逻辑代码中以帮助经理监督过程，这样会侵入原有的代码。
 
-func (s *SendMsgBeforeOrder) PlaceOrder(order Order) {
-	sendMsg()
-	s.Function.PlaceOrder(order)
-}
+所以，此处最合适的方法也依然是实现访问者模式，让员工对象实现可访问性。
 
-func sendMsg() {
-	fmt.Println("发送短信")
-}
-```
-
-包装类，订单之后发送邮件:
-```go
-type SendEmailAfterOrder struct {
-	Function OrderTicketI
-}
-
-func (s *SendEmailAfterOrder) PlaceOrder(order Order) {
-	s.Function.PlaceOrder(order)
-	sendEmail()
-}
-
-func sendEmail() {
-	fmt.Println("发送邮件")
-}
-```
-
-包装类，订单之后发送微信消息:
-```go
-type SendWeChatMessageAfterOrder struct {
-	Function OrderTicketI
-}
-
-func (s *SendWeChatMessageAfterOrder) PlaceOrder(order Order) {
-	s.Function.PlaceOrder(order)
-	sendWeChatMessage()
-}
-
-func sendWeChatMessage() {
-	fmt.Println("发送微信信息")
-}
-```
-
-
-
-### 总结
-通过上面的例子可以看出，装饰模式的特点就体现在装饰（包装）上，可以很好的给原有的功能进行包装以增加新的功能，而且对原有的功能没有影响。
-
-最重要的是，可以灵活的实现新增加的功能的选择，很大程度提高了代码的复用。
- 
 ### 参考文档：
-https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm
+
+https://en.wikipedia.org/wiki/Visitor_pattern
+
+https://dzone.com/articles/design-patterns-visitor
