@@ -20,25 +20,7 @@
 ### 例子分析
 
 ##### 电脑案例
-1. 一台电脑的装配需要多种零部件配合。
 
-2. 通过一些相同的零部件，加上一些差异化的零部件，可以分别组装出不同类型的电脑，比如台式电脑和笔记本电脑。
-
-3. 代码如下：
-
-
-创建者接口
-```go
-type ComputerBuilder interface {
-	SetCpu(cpu string) ComputerBuilder
-	SetMemory(memory string) ComputerBuilder
-	SetHardDisk(hardDisk string) ComputerBuilder
-	SetScreenSize(screenSize int) ComputerBuilder
-	GetComputerProduct() ComputerItems //显示结果
-	SetConstruct(construct Construct) ComputerBuilder
-	Build() ComputerItems
-}
-```
 
 ### 参考文档：
 
