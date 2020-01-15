@@ -40,35 +40,6 @@ func (*StringPrinter) PrintString(string stringGeneratorI) {
 }
 ```
 
-stringGenerator代码如下：
-```go
-type stringGeneratorI interface {
-	stringGenerator() string
-}
-
-type StringGenerator struct {
-}
-
-func (*StringGenerator) stringGenerator() string {
-	return "Hello world"
-}
-```
-
-intGenerator代码如下：
-```go
-type IntGeneratorI interface {
-	IntGenerator() int
-}
-
-type IntGenerator struct {
-}
-
-func (*IntGenerator) IntGenerator() int {
-	return 19982727
-}
-```
-
-
 
 
 
