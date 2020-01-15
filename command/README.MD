@@ -23,22 +23,6 @@
 ### 例子分析
 
 ##### 打印工具案例
-1. 目前有一打印工具，只能打印字符串类型数据。
-2. 但目前除一字符串生成器以外，还有另外两个生成器，分别生成int类型和int数组，这两种生成器生成的内容无法匹配打印工具，无法打印。
-
-打印工具代码如下，可以看到，只有一个StringPrinter方法，其无法接受stringGeneratorI接口以外类型：
-```go
-type StringPrinterI interface {
-	StringPrinter(string string)
-}
-
-type StringPrinter struct {
-}
-
-func (*StringPrinter) PrintString(string stringGeneratorI) {
-	fmt.Println(string.stringGenerator())
-}
-```
 
 
 
