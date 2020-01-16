@@ -6,7 +6,7 @@
 
 ***Allows for the dynamic creation of objects based upon easily interchangeable algorithms.***
 
-***使用多个简单的对象一步一步构建成一个复杂的对象。建造者模式，就是把复杂，易出错的进行封装。便于创建对象。将创建和展现分开***
+******
 
 ![Builder Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/builder_pattern.png)
 
