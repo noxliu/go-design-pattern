@@ -217,24 +217,6 @@ type Factory interface {
 然后每个汽车对象均有一个创建工厂，来创建对应的汽车对象：
 
 
-```go
-type BmwFactory struct {
-}
-
-func (*BmwFactory) GetCar(carName string) Car {
-	cartype := CarType{
-		CarName:  carName,
-		CarBrand: "bmw",
-		Size:     10,
-	}
-
-	bmw := Bmw{
-		CarType: cartype,
-	}
-
-	return bmw
-}
-```
 
 这样，在客户端代码中，调用不同的工厂生产不同的对象：
 
