@@ -73,31 +73,5 @@ func (g *Game) Status() {
 }
 ```
 
-测试程序：
-```go
-func main() {
-	game := &Game{
-		HP: 10,
-		SP: 8,
-		MP: 6,
-	}
-
-	game.Status()
-	progress := game.Save()
-	game.Play(-10, -8, -6)
-	game.Status()
-	fmt.Println("游戏Game Over, 重新读档")
-	game.Load(progress)
-	game.Status()
-}
-```
-
-输出
-```go
-当前生命值 HP: 10，当前耐力: 8, 当前魔法力: 6
-当前生命值 HP: 0，当前耐力: 0, 当前魔法力: 0
-游戏Game Over, 重新读档
-当前生命值 HP: 10，当前耐力: 8, 当前魔法力: 6
-```
 
 ### 参考文档：
