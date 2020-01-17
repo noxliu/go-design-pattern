@@ -202,34 +202,6 @@ func GetCar(carType string) Car {
 
 ##### 一. 汽车案例
 
-汽车案例的例子在上面的简单工厂中我们已经看到。也讨论了简单工厂的问题。
-
-此处，我们为每一种对象（汽车类型）增加一个构建工厂方法。
-
-首先是工厂接口
-
-```go
-type Factory interface {
-	GetCar() Car
-}
-```
-
-然后每个汽车对象均有一个创建工厂，来创建对应的汽车对象：
-
-
-
-这样，在客户端代码中，调用不同的工厂生产不同的对象：
-
-```go
-	bmwFactory := factoryMethod.BmwFactory{}
-	bmw1 := bmwFactory.GetCar("bmw1")
-	fmt.Println(bmw1.Drive())
-
-	benzFactory := factoryMethod.BenzFactory{}
-	benz1 := benzFactory.GetCar("my benz")
-	fmt.Println(benz1.Drive())
-```
-
 ### 总结
 工厂方法模式是代码封装性的一个良好体现，很好的将对象的创建和使用隔离开。在开发中合理的使用，会体会到开闭原则的真正意义。
 
