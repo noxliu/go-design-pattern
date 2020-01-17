@@ -20,7 +20,3 @@
 ##### 二. 购物车案例
 
 ### 参考文档：
-
-https://en.wikipedia.org/wiki/Visitor_pattern
-
-https://dzone.com/articles/design-patterns-visitor
