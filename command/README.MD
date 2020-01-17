@@ -120,30 +120,6 @@ func main() {
 	}
 ```
 
-所有使用该汽车对象的地方都需要改动（有100处使用，就要改动100处）。
-
-所以，上述代码也没有实现代码的复用，创建汽车类型的代码在很多地方重复，这是造成如果使用了100处就要改动这100个地方的原因。
-
-我们使用简单工厂模式对上述代码进行改动。
-
-增加一个工厂函数，用于产生汽车对象。
-```go
-func GetCar(carType string) Car {
-	carType1 := CarType{
-		carName: carType,
-		size:    10,
-	}
-	if carType == "benz" {
-		benz := Benz{CarType: carType1}
-		return benz
-	} else if carType == "bmw" {
-		bmw := Bmw{CarType: carType1}
-		return bmw
-	} else {
-		return nil
-	}
-}
-```
 
 #### 定义
 
