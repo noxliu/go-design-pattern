@@ -20,39 +20,6 @@
 ### 例子分析
 
 ##### 数据处理系统案例
-1. 某数据处理系统，数据处理好之后可以供业务人员使用，但是数据处理时间较长，不可能一直等待。
-2. 业务人员可以作为观察者，一直观察数据处理任务（主题），一旦数据数据里任务完成，则通知所有的业务人员，可以查看已经处理完成的数据了。
-
-代码如下：
-
-消息发布方（主题）：
-```go
-type Subject struct {
-	observers []Observer
-	context   string
-}
-
-func NewSubject() *Subject {
-	return &Subject{
-		observers: make([]Observer, 0),
-	}
-}
-
-func (s *Subject) Register(o Observer) {
-	s.observers = append(s.observers, o)
-}
-
-func (s *Subject) notify() {
-	for _, o := range s.observers {
-		o.Update(s)
-	}
-}
-
-func (s *Subject) UpdateContext(context string) {
-	s.context = context
-	s.notify()
-}
-```
 
 
 ### 参考文档：
