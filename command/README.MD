@@ -71,28 +71,6 @@ func (r *Observer) Update(s *Subject) {
 }
 ```
 
-测试代码
-```go
-func main() {
-	subject := NewSubject()
-	observer1 := NewObserver("observer1")
-	observer2 := NewObserver("observer2")
-	observer3 := NewObserver("observer3")
-
-	subject.Register(*observer1)
-	subject.Register(*observer2)
-	subject.Register(*observer3)
-
-	subject.UpdateContext("来自Subject的消息，数据处理完成")
-}
-```
-
-执行结果
-```go
-observer1 receivd message: [来自Subject的消息，数据处理完成]
-observer2 receivd message: [来自Subject的消息，数据处理完成]
-observer3 receivd message: [来自Subject的消息，数据处理完成]
-```
 
 
 ### 参考文档：
