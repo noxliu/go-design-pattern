@@ -54,23 +54,5 @@ func (s *Subject) UpdateContext(context string) {
 }
 ```
 
-消息订阅方
-```go
-type Observer struct {
-	name string
-}
-
-func NewObserver(name string) *Observer {
-	return &Observer{
-		name: name,
-	}
-}
-
-func (r *Observer) Update(s *Subject) {
-	fmt.Printf("%s receivd message: [%s]\n", r.name, s.context)
-}
-```
-
-
 
 ### 参考文档：
