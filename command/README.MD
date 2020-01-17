@@ -217,32 +217,6 @@ func (c *Context) Stop() {
 }
 ```
 
-示例代码，各种状态切换
-```go
-func main() {
-	stop := Stop{}
-	context := Context{}
-	context.SetState(&stop)
-	context.Open()
-	context.Close()
-	context.Run()
-	context.Stop()
-	context.Run()
-	context.Stop()
-	context.Open()
-}
-```
-
-输出结果：
-```go
-打开电梯门
-关闭电梯门
-启动电梯
-停止电梯
-启动电梯
-停止电梯
-打开电梯门
-```
 
 ### 参考文档：
 
