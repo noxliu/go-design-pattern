@@ -1,143 +1,103 @@
-### 工厂方法模式（Factory Method pattern）
+### 备忘录模式（Memento Pattern）
 
-##### 创建模式（Creational Pattern）
-
-
-在讨论工厂方法模式之前，我们首先要讨论的一定是简单工厂(Simple Factory)，严格的说，简单工厂不是Gof23设计模式中的一种。
-
-首先我们看看不使用简单工厂或者工厂方法之前，我们要创建对象的方式:
-
-假设我们有汽车类型接口及其两种实现：一个benz，一个bwm
-
-汽车类型car：
-
-```go
-type Car interface {
-	Drive() string
-}
-
-type CarType struct {
-	CarName string
-	Size    int
-}
-```
-
-两种实现：
-```go
-type Benz struct {
-	CarType CarType
-}
-
-func (b Benz) Drive() string {
-	return b.CarType.CarName
-}
-
-type Bmw struct {
-	CarType CarType
-}
-
-func (b Bmw) Drive() string {
-	return b.CarType.CarName
-}
-```
-
-对两种汽车类型的调用：
-```go
-func main() {
-	carTypeBenz := CarType{
-		CarName: "benz",
-		Size:    10,
-	}
-
-	benz := Benz{CarType: carTypeBenz}
-	fmt.Println(benz.Drive())
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
-	bmw := Benz{CarType: carTypeBmw}
-	fmt.Println(bmw.Drive())
-}
-```
-
-以上代码是没有使用任何工厂模式的用法，虽然并没有什么bug，但是如果代码中这样的接口实例化和使用存在多处:
-
-
-```go
-	carTypeBenz := CarType{
-		CarName: "benz",
-		Size:    10,
-	}
-
-	benz := Benz{CarType: carTypeBenz}
-	fmt.Println(benz.Drive())
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
-	bmw := Benz{CarType: carTypeBmw}
-	fmt.Println(bmw.Drive())
- 
-    ...
-
-	carTypeBenz := CarType{
-		CarName: "benz",
-		Size:    10,
-	}
-
-	benz := Benz{CarType: carTypeBenz}
-	fmt.Println(benz.Drive())
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
-	bmw := Benz{CarType: carTypeBmw}
-	fmt.Println(bmw.Drive())
-
-    ...
-```
-
-假设上面的代码片段大量存在于各种方法和函数中，正常情况下没有任何问题。但是假如汽车接口一旦发生了变化，比如对原有汽车结构体中的Size进行了拆分，分为了两个字段（wheelbase和length）,那么这个重构就会造成所有调用点都要改动，都要将size改成两个参数。
-
-```go
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		Size:    9,
-	}
-
->>
-
-	carTypeBmw := CarType{
-		CarName: "bmw",
-		wheelbase:    2840,
-        	length      : 4704,
-	}
-```
-
+##### 行为模式（Behavioural Pattern）
 
 #### 定义
 
-***Exposes a method for creating objects, allowing subclasses to control the actual creation process.***
+***Allows for capturing and externalizing an object's internal state so that it can be restored later, all without violating encapsulation.***
 
-***定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法模式使一个类的实例化延迟到其子类。***
+***在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存着这个状态。这样以后就可将该对象恢复到原先保存的状态。***
 
-![Factory_Method Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/factory_method_patern.png)
+![Memento Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/memento_pattern.png)
+
+备忘录模式的核心其实就是reload这个操作。
+
+在游戏过程中，我们经常有先保存当前游戏状态，然后去打怪或者做其他事情，一旦发现状况不对，则读取刚才的存档已避免损失这样的操作。
+
+这就是备忘录模式的典型场景，我们所保存的存档，就是备忘录。
 
 ### 优点
-
-将对象的创建和使用完全良好分离，很好的提高了代码的重用度。
+1. 给用户提供了一种可以恢复状态的机制，可以使用能够比较方便地回到某个历史的状态。
+2. 实现了信息的封装，使得用户不需要关心状态的保存细节。
 
 ### 例子分析
 
-##### 一. 汽车案例
+##### 游戏案例
 
-### 总结
-工厂方法模式是代码封装性的一个良好体现，很好的将对象的创建和使用隔离开。在开发中合理的使用，会体会到开闭原则的真正意义。
+1. 游戏程序，有体力HP，耐力SP，魔法力MP三个值。
+2. 游戏玩家可以存档。
+3. 一旦游戏角色GAME OVER，可以读取最近的存档重新开始。
+
+代码如下：
+
+备忘录对象，用来保存游戏状态（在现实中往往保存在数据库或者缓存中）：
+```go
+type Memento struct {
+	HP int
+	SP int
+	MP int
+}
+```
+
+游戏程序：
+```go
+type Game struct {
+	HP int
+	SP int
+	MP int
+}
+
+
+func (g *Game) Play(HP int, SP int, MP int) {
+	g.HP += HP
+	g.SP += SP
+	g.MP += MP
+}
+
+func (g *Game) Save() Memento {
+	return Memento{
+		HP: g.HP,
+		SP: g.SP,
+		MP: g.MP,
+	}
+}
+
+func (g *Game) Load(m Memento) {
+	g.HP = m.HP
+	g.SP = m.SP
+	g.MP = m.MP
+}
+
+func (g *Game) Status() {
+	fmt.Printf("当前生命值 HP: %d，当前耐力: %d, 当前魔法力: %d\n", g.HP, g.SP, g.MP)
+}
+```
+
+测试程序：
+```go
+func main() {
+	game := &Game{
+		HP: 10,
+		SP: 8,
+		MP: 6,
+	}
+
+	game.Status()
+	progress := game.Save()
+	game.Play(-10, -8, -6)
+	game.Status()
+	fmt.Println("游戏Game Over, 重新读档")
+	game.Load(progress)
+	game.Status()
+}
+```
+
+输出
+```go
+当前生命值 HP: 10，当前耐力: 8, 当前魔法力: 6
+当前生命值 HP: 0，当前耐力: 0, 当前魔法力: 0
+游戏Game Over, 重新读档
+当前生命值 HP: 10，当前耐力: 8, 当前魔法力: 6
+```
 
 ### 参考文档：
