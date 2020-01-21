@@ -67,25 +67,6 @@ func (*Employee) Calculate(b BaseInfo) int {
 }
 ```
 
-经理工资计算算法：
-```go
-type Manager struct {
-}
-
-func (*Manager) Calculate(b BaseInfo) int {
-	return b.BaseSalary + 2000
-}
-```
-
-销售经理工资计算算法：
-```go
-type SalesManager struct {
-}
-
-func (*SalesManager) Calculate(b BaseInfo) int {
-	return b.BaseSalary * 2
-}
-```
 
 ### 参考文档：
 https://www.runoob.com/design-pattern/strategy-pattern.html
