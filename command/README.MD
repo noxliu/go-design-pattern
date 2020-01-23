@@ -36,3 +36,5 @@
 ##### 数据处理系统案例
 
 ### 参考文档：
+https://cloud.tencent.com/developer/article/1056075
+http://www.ayqy.net/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%88command-pattern%EF%BC%89/
