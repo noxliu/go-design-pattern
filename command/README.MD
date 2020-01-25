@@ -6,11 +6,17 @@
 
 ***Encapsulates a request allowing it to be treated as an object. This allows the request to be handled in traditionally object based relationships such as queuing and callbacks.***
 
-******
+***将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。***
 
 ![Strategy Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/command_pattern.png)
 
 命令模式的核心在解耦请求者与执行者。
+
+比如有一个订单系统，客户端程序如果直接调用服务端程序进行下单，下单之前要检查库存等一系列操作，然后还要记录下单日志，时间等。
+
+看上去也能实现功能，但是客户端接触到服务端的代码就过多了（过于耦合）
+
+使用命令模式，把每一笔订单提交交给一个调用者(invoker)来安排执行任务。这样就实现了客户端和服务端的解耦。
 
 使用场景：
 - 需要支持回滚操作
