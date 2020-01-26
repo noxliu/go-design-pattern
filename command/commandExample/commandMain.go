@@ -5,7 +5,6 @@ import (
 )
 
 func main() {
-	//fmt.Println("....")
 	onlyPlaceOrdercommand := PlaceOrderCommand{}
 	placeOrderAndPostCommand := PlaceOrderAndPostCommand{}
 	invoker := Invoker{}
