@@ -17,6 +17,5 @@ func (b *Invoker) ExecuteOrders() {
 		command.ExecCommand()
 		fmt.Println("记录日志")
 		fmt.Println(">>>>处理结束<<<<")
-
 	}
 }

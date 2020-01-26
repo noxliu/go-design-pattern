@@ -29,6 +29,10 @@
 - 调用者：安排命令
 - 执行者：执行命令
 
+### 优点
+将请求和执行的两端进行解耦，使代码中不同部分的权责更加清晰。
+
+### 例子分析
 在回到上面提到的订单系统例子中，如果不是使用命令模式，而要求实现命令撤销/回滚操作的话，则需要客户端实现和维护相关撤销/回滚代码。如果多个客户端在同时提交命令，需要对这些命令进行优先级排队（某些客户端可能应该具备较高的执行权重），那么也是相当困难的事情，因为这需要多个客户端之间进行协调。
 
 如果需要记录执行日志，也是一个麻烦工作，因为客户端直接调用了服务端的一些方法来完成了任务，需要重新维护一套日志功能。
@@ -49,14 +53,78 @@
 
 所以命令模式的思路，是在客户端的请求发送类和请求处理类之间增加一个Invoker类（调用者），将请求发送类发送的所有请求封装成对象，然后让Invoker类去管理这些请求对象，并决定这些请求是否允许执行、何时执行、按什么顺序执行。
 
+##### 订单处理案例
+订单处理receiver
+```go
+type OrderReceiver struct {
+}
 
+func (*OrderReceiver) execOrder() {
+	fmt.Println("下单")
+}
+```
 
-### 优点
+订单发货receiver
+```go
+type PostReceiver struct {
+}
 
-### 例子分析
+func (*PostReceiver) execPost() {
+	fmt.Println("发货")
+}
+```
 
-##### 数据处理系统案例
+command接口
+```go
+type Command interface {
+	ExecCommand()
+}
+```
+
+仅下单功能命令
+```go
+type PlaceOrderCommand struct {
+	receiver OrderReceiver
+}
+
+func (c *PlaceOrderCommand) ExecCommand() {
+	c.receiver.execOrder()
+}
+```
+
+先下单再发货命令
+```go
+type PlaceOrderAndPostCommand struct {
+	receiver     OrderReceiver
+	postReceiver PostReceiver
+}
+
+func (c *PlaceOrderAndPostCommand) ExecCommand() {
+	c.receiver.execOrder()
+	c.postReceiver.execPost()
+}
+```
+
+invoker
+```go
+type Invoker struct {
+	orders []Command
+}
+
+func (b *Invoker) AddOrder(command Command) {
+	b.orders = append(b.orders, command)
+}
+
+func (b *Invoker) ExecuteOrders() {
+	for _, command := range b.orders {
+		fmt.Println(">>>>处理命令<<<<")
+		fmt.Println("判断库存")
+		command.ExecCommand()
+		fmt.Println("记录日志")
+		fmt.Println(">>>>处理结束<<<<")
+	}
+}
+```
 
 ### 参考文档：
-https://cloud.tencent.com/developer/article/1056075
 http://www.ayqy.net/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%88command-pattern%EF%BC%89/
