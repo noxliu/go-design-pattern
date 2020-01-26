@@ -6,6 +6,8 @@ import (
 
 func main() {
 	//fmt.Println("....")
-	command := Command{}
-	command.ExecCommand()
+	command := PlaceOrderCommand{}
+	invoker := Invoker{}
+	invoker.AddOrder(&command)
+	invoker.ExecuteOrders()
 }
