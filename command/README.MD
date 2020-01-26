@@ -126,5 +126,32 @@ func (b *Invoker) ExecuteOrders() {
 }
 ```
 
+例子代码
+```go
+func main() {
+	onlyPlaceOrdercommand := PlaceOrderCommand{}
+	placeOrderAndPostCommand := PlaceOrderAndPostCommand{}
+	invoker := Invoker{}
+	invoker.AddOrder(&onlyPlaceOrdercommand)
+	invoker.AddOrder(&placeOrderAndPostCommand)
+	invoker.ExecuteOrders()
+}
+```
+
+执行结果
+```go
+>>>>处理命令<<<<
+判断库存
+下单
+记录日志
+>>>>处理结束<<<<
+>>>>处理命令<<<<
+判断库存
+下单
+发货
+记录日志
+>>>>处理结束<<<<
+```
+
 ### 参考文档：
 http://www.ayqy.net/blog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%88command-pattern%EF%BC%89/
