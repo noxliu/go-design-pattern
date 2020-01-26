@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	. "go-design-pattern/command/commandExample/command"
+)
 
 func main() {
-	fmt.Println("....")
+	//fmt.Println("....")
+	command := Command{}
+	command.ExecCommand()
 }

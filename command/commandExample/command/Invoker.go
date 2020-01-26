@@ -10,6 +10,6 @@ func (b *Invoker) AddOrder(command Command) {
 
 func (b *Invoker) ExecuteOrders() {
 	for _, command := range b.orders {
-		command.execCommand()
+		command.ExecCommand()
 	}
 }

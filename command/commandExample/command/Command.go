@@ -1,10 +1,9 @@
 package command
 
-import "fmt"
-
 type Command struct {
+	Receiver Receiver
 }
 
-func (*Command) execCommand() {
-	fmt.Println("exec command")
+func (c *Command) ExecCommand() {
+	c.Receiver.DoSomething()
 }
