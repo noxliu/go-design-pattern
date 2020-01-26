@@ -1,9 +1,9 @@
 package command
 
 type PlaceOrderCommand struct {
-	Receiver Receiver
+	receiver OrderReceiver
 }
 
 func (c *PlaceOrderCommand) ExecCommand() {
-	c.Receiver.DoSomething()
+	c.receiver.execOrder()
 }
