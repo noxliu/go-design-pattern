@@ -116,7 +116,7 @@ func main() {
 	carTypeBmw := CarType{
 		CarName: "bmw",
 		wheelbase:    2840,
-        	length      : 4704,
+		length      : 4704,
 	}
 ```
 
