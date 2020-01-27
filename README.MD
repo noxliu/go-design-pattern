@@ -5,7 +5,7 @@
 ## 创建模式
 
 * [工厂方法模式（Factory Method）](https://github.com/nox60/go-design-pattern/tree/master/factoryMethod)
-* 抽象工厂模式（Abstract Factory）
+* [抽象工厂模式（Abstract Factory）](https://github.com/nox60/go-design-pattern/tree/master/abstractFactoryExample)
 * [创建者模式（Builder）](https://github.com/nox60/go-design-pattern/tree/master/builder)
 * [原型模式（Prototype）](https://github.com/nox60/go-design-pattern/tree/master/prototype)
 * [单例模式（Singleton）](https://github.com/nox60/go-design-pattern/tree/master/singleton)
