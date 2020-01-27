@@ -4,12 +4,12 @@
 
 #### 定义
 
-******
+***Provide an interface that delegates creation calls to one or more concrete classes in order to deliver specific objects.***
 
 ******
 
 
-![Builder Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/builder_pattern.png)
+![Builder Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/abstract_factory_pattern.png)
 
 抽象工厂提出了产品族概念，这和工厂方法模式是有差别的。
 
