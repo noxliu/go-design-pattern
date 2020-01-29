@@ -72,12 +72,5 @@ func (f *FileAccessorProxy) ReadFile(filePath string) {
 	guestFileAccessProxy.ReadFile("/opt/user/file")
 ```
 
-输出
-```go
-当前用户: user 
-访问文件操作
-当前用户: guest 
-对不起，你没有访问权限
-```
 
 ### 参考文档：
