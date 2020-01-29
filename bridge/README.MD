@@ -1,27 +1,83 @@
-### 备忘录模式（Memento Pattern）
+### 代理模式（Proxy Pattern）
 
-##### 行为模式（Behavioural Pattern）
+##### 结构模式（Structural Pattern）
 
 #### 定义
 
-***Allows for capturing and externalizing an object's internal state so that it can be restored later, all without violating encapsulation.***
+***Allows for object level access control by acting as a pass through entity or a placeholder object.***
 
-***在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存着这个状态。这样以后就可将该对象恢复到原先保存的状态。***
+***为其他对象提供一种代理以控制对这个对象的访问。***
 
-![Memento Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/memento_pattern.png)
+![Proxy Pattern UML](../images/proxy_pattern.png)
 
-备忘录模式的核心其实就是reload这个操作。
+代理模式在程序编写中是一种非常常见的模式。
 
-在游戏过程中，我们经常有先保存当前游戏状态，然后去打怪或者做其他事情，一旦发现状况不对，则读取刚才的存档已避免损失这样的操作。
+代理模式的目标是通过代理类来隔离访问者对目标类的直接访问，访问者只能访问代理类，这样能够保证访问者对目标类的访问是受限的。
 
-这就是备忘录模式的典型场景，我们所保存的存档，就是备忘录。
+比如访问某些资源，如果访问者不具备访问的权限或条件，则代理类可以拒绝访问者的访问。这是常见实现权限的方式之一。
 
 ### 优点
+1. 职责清晰, 业务代码专注于实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完整事务，附带的结果就是编程简洁清晰。
+2. 代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。
+
 ### 例子分析
 
-##### 游戏案例
+##### 文件读取案例
 
+1. 有一个文件读取的代码，能够读取磁盘上的文件。
+2. 但是需要在读取之前判断文件读取者是否具有相应的权限，如果权限不够则拒绝访问。
+3. 示例代码
 
+文件访问接口
+```go
+type FileAccessor interface {
+	ReadFile(filePath string)
+}
+```
 
+文件访问业务代码
+```go
+type fileAccessorImpl struct {
+}
+
+func (*fileAccessorImpl) ReadFile(filePath string) {
+	fmt.Println("访问文件操作")
+}
+```
+
+代理文件访问
+```go
+type FileAccessorProxy struct {
+	UserType string
+}
+
+func (f *FileAccessorProxy) ReadFile(filePath string) {
+	if f.UserType == "user" {
+		fmt.Printf("当前用户: %s \n", f.UserType)
+		fileAccessor := fileAccessorImpl{}
+		fileAccessor.ReadFile(filePath)
+	} else if f.UserType == "guest" {
+		fmt.Printf("当前用户: %s \n", f.UserType)
+		fmt.Println("对不起，你没有访问权限")
+	}
+}
+```
+
+测试访问
+```go
+	//fileAccessorImpl := fileAccessorImpl{} 用户不能访问到 fileAccessorImpl, 利用包权限隔离，只能通过下面的代理实现访问
+	userFileAccessProxy := FileAccessorProxy{UserType: "user"}
+	guestFileAccessProxy := FileAccessorProxy{UserType: "guest"}
+	userFileAccessProxy.ReadFile("/opt/user/file")
+	guestFileAccessProxy.ReadFile("/opt/user/file")
+```
+
+输出
+```go
+当前用户: user 
+访问文件操作
+当前用户: guest 
+对不起，你没有访问权限
+```
 
 ### 参考文档：
