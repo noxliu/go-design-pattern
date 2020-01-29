@@ -27,20 +27,6 @@
 3. 代码如下：
 
 
-创建者接口
-```go
-type ComputerBuilder interface {
-	SetCpu(cpu string) ComputerBuilder
-	SetMemory(memory string) ComputerBuilder
-	SetHardDisk(hardDisk string) ComputerBuilder
-	SetScreenSize(screenSize int) ComputerBuilder
-	GetComputerProduct() ComputerItems //显示结果
-	SetConstruct(construct Construct) ComputerBuilder
-	Build() ComputerItems
-}
-```
-
-
 
 
 ### 参考文档：
