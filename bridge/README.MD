@@ -35,16 +35,6 @@ type FileAccessor interface {
 }
 ```
 
-文件访问业务代码
-```go
-type fileAccessorImpl struct {
-}
-
-func (*fileAccessorImpl) ReadFile(filePath string) {
-	fmt.Println("访问文件操作")
-}
-```
-
 
 
 ### 参考文档：
