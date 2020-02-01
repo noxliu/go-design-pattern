@@ -1,26 +1,126 @@
-### 适配器模式（Adapter Pattern）
+### 策略模式（Strategy Pattern）
 
-##### 结构模式（Structural Pattern）
+##### 行为模式（Behavioural Pattern）
 
 #### 定义
 
-***Permits classes with disparate interfaces to work together by creating a common object by which they may communicate and interact.***
+***Defines a set of encapsulated algorithms that can be swapped to carry out a specific behavior.***
 
-***将一个类的接口转换成客户希望的另外一个接口。使原本由于接口不兼容而不能一起工作的那些类可以一起工作。***
+***定义了一组算法，将每个算法都封装起来，并且使它们之间可以互换。***
 
-![Memento Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/adapter_pattern.png)
+![Strategy Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/strategy_pattern.png)
 
+在现实研发中，我们或许有这样的场景存在，根据不同的角色或者对象，选择不同的算法，比如：
 
+```go
+	if userType == "A" {
+		//业务算法逻辑A
+	} else if userType == "B" {
+		//业务算法逻辑B
+	} else if userType == "C" {
+		//业务算法逻辑C
+	} else if userType == "D" {
+		//业务算法逻辑D
+	} else {
+		//..
+	}
+```
+
+上面的代码的功能是根据用户类型或者其他参数，来选择算法逻辑进行计算，上面的版本还没有if嵌套，一旦嵌套将更加复杂。
+
+更大的麻烦是，如果其中一些逻辑发生变化，势必需要重构代码，但具备一定开发经验的同行都知道，一旦if嵌套过多，改动起来要去梳理整个所有的if结构，麻烦会很大。很容易带来新的BUG。
+
+策略模式的核心思想就是将上面的算法封装成独立的类，一个算法一个类，以为根据上下文灵活的选择算法的需求，也能实现算法的灵活切换。
 
 ### 优点
-将适配器和适配者类解耦, 避免了因为要适配某个借口，直接修改适配者源码。
-
+1. 算法可以自由切换
+2. 避免使用多重条件判断（如果不用策略模式我们可能会使用多重条件语句，不利于维护）
+3. 扩展性良好，增加一个策略只需实现接口即可
 
 ### 例子分析
 
-##### 打印工具案例
+##### 数据处理系统案例
+工资计算系统，根据不同的员工类型，要选择不同的算法计算工资。
+
+代码实现：
+
+算法接口：
+```go
+type SalaryAlgorithm interface {
+	Calculate(b BaseInfo) int
+}
+
+type BaseInfo struct {
+	UserId     string
+	Name       string
+	BaseSalary int
+}
+```
+
+普通员工工资计算算法：
+```go
+type Employee struct {
+}
+
+func (*Employee) Calculate(b BaseInfo) int {
+	return b.BaseSalary + 1000
+}
+```
+
+经理工资计算算法：
+```go
+type Manager struct {
+}
+
+func (*Manager) Calculate(b BaseInfo) int {
+	return b.BaseSalary + 2000
+}
+```
+
+销售经理工资计算算法：
+```go
+type SalesManager struct {
+}
+
+func (*SalesManager) Calculate(b BaseInfo) int {
+	return b.BaseSalary * 2
+}
+```
+
+算法调用代码：
+```go
+type SalaryCalculator struct {
+	Algorithm SalaryAlgorithm
+	BaseInfo  BaseInfo
+}
+
+func (s *SalaryCalculator) CalculateSalary() {
+	fmt.Println("员工ID: " + s.BaseInfo.UserId + ", 员工姓名: " +
+		s.BaseInfo.Name + ", 基本工资: " +
+		strconv.Itoa(s.BaseInfo.BaseSalary) +
+		", 计算后实发工资: " +
+		strconv.Itoa(s.Algorithm.Calculate(s.BaseInfo)))
+}
+```
+
+测试代码：
+```go
+func main() {
+	employeeZhangsan := BaseInfo{"998876878", "张三", 1000}
+	employeeSalaryCalculator := SalaryCalculator{&Employee{}, employeeZhangsan}
+	employeeSalaryCalculator.CalculateSalary()
+
+	managerLisi := BaseInfo{"998800985", "李四", 1000}
+	managerSalaryCalculator := SalaryCalculator{&Manager{}, managerLisi}
+	managerSalaryCalculator.CalculateSalary()
+
+	salesManagerWangwu := BaseInfo{"998800225", "王五", 1000}
+	salesManagerSalaryCalculator := SalaryCalculator{&SalesManager{}, salesManagerWangwu}
+	salesManagerSalaryCalculator.CalculateSalary()
+}
+```
 
 
 
 ### 参考文档：
-https://en.wikipedia.org/wiki/Adapter_pattern
+https://www.runoob.com/design-pattern/strategy-pattern.html
