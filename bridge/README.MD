@@ -40,22 +40,7 @@
 ### 例子分析
 
 ##### 数据处理系统案例
-工资计算系统，根据不同的员工类型，要选择不同的算法计算工资。
 
-代码实现：
-
-算法接口：
-```go
-type SalaryAlgorithm interface {
-	Calculate(b BaseInfo) int
-}
-
-type BaseInfo struct {
-	UserId     string
-	Name       string
-	BaseSalary int
-}
-```
 
 
 ### 参考文档：
