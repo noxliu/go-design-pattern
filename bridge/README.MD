@@ -40,20 +40,6 @@ func (*StringPrinter) PrintString(string stringGeneratorI) {
 }
 ```
 
-stringGenerator代码如下：
-```go
-type stringGeneratorI interface {
-	stringGenerator() string
-}
-
-type StringGenerator struct {
-}
-
-func (*StringGenerator) stringGenerator() string {
-	return "Hello world"
-}
-```
-
 
 
 ### 参考文档：
