@@ -77,17 +77,6 @@ func (*Manager) Calculate(b BaseInfo) int {
 }
 ```
 
-销售经理工资计算算法：
-```go
-type SalesManager struct {
-}
-
-func (*SalesManager) Calculate(b BaseInfo) int {
-	return b.BaseSalary * 2
-}
-```
-
-
 
 
 ### 参考文档：
