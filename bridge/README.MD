@@ -8,23 +8,7 @@
 
 ***定义了一组算法，将每个算法都封装起来，并且使它们之间可以互换。***
 
-![Strategy Pattern UML](https://github.com/nox60/go-design-pattern/blob/master/images/strategy_pattern.png)
 
-在现实研发中，我们或许有这样的场景存在，根据不同的角色或者对象，选择不同的算法，比如：
-
-```go
-	if userType == "A" {
-		//业务算法逻辑A
-	} else if userType == "B" {
-		//业务算法逻辑B
-	} else if userType == "C" {
-		//业务算法逻辑C
-	} else if userType == "D" {
-		//业务算法逻辑D
-	} else {
-		//..
-	}
-```
 
 ### 优点
 
