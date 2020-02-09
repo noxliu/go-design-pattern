@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "go-design-pattern/command/commandExample/command"
+	. "./command"
 )
 
 func main() {
