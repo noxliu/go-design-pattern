@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "go-design-pattern/adapter/adapterExample/adapter"
+	. "./adapter"
 )
 
 func main() {
