@@ -1,20 +1,20 @@
 package main
 
 import (
-	. "go-design-pattern/chainOfResponsibility/chainOfResponsibilityExample/chainOfResponsibility"
+	"./chainOfResponsibility"
 )
 
 func main() {
-	projectManager := ProjectManager{}
-	projectManagerChain := RequestChain{}
+	projectManager := chainOfResponsibility.ProjectManager{}
+	projectManagerChain := chainOfResponsibility.RequestChain{}
 	projectManagerChain.Manager = &projectManager
 
-	departmentManager := DepartmentManager{}
-	departmentManagerChain := RequestChain{}
+	departmentManager := chainOfResponsibility.DepartmentManager{}
+	departmentManagerChain := chainOfResponsibility.RequestChain{}
 	departmentManagerChain.Manager = &departmentManager
 
-	generalManager := GeneralManager{}
-	generalManagerChain := RequestChain{}
+	generalManager := chainOfResponsibility.GeneralManager{}
+	generalManagerChain := chainOfResponsibility.RequestChain{}
 	generalManagerChain.Manager = &generalManager
 
 	departmentManagerChain.SetSuccessor(&generalManagerChain)
