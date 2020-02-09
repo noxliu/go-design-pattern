@@ -1,8 +1,8 @@
 package main
 
 import (
+	. "./decorator"
 	"fmt"
-	. "go-design-pattern/decorator/decoratorExample/decorator"
 )
 
 func main() {
