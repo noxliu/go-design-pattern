@@ -1,20 +1,20 @@
 package main
 
 import (
-	. "go-design-pattern/templateMethod/templateMethodDownloader/templateMethod"
+	"./templateMethod"
 )
 
 func main() {
-	template := Template{}
+	template := templateMethod.Template{}
 
-	ftpDownloader := FtpDownloader{
+	ftpDownloader := templateMethod.FtpDownloader{
 		UserName: "testUser",
 		PassWord: "password",
 	}
 	template.Implement = &ftpDownloader
 	template.Download("ftp://www.xxx.com/a.zip", "/opt/local")
 
-	httpDownloader := HttpDownloader{}
+	httpDownloader := templateMethod.HttpDownloader{}
 	template.Implement = &httpDownloader
 	template.Download("http://www.xxx.com/a.zip", "/opt/local")
 }
