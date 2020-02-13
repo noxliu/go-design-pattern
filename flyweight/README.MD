@@ -188,20 +188,3 @@ https://dzone.com/articles/design-patterns-template-method
 2. 当需要给客户发送信息时候，只需要调用正确的模版然后套用相关数据发送信息即可。
 
 3. 代码示例
-
-message 结构体是不可共享的外部状态，是消息的变化的内容。
-```go
-type Message struct {
-	ProductName string
-	OrderNo     string
-	TrackNo     string
-	TemplateNo  int
-}
-
-func (m *Message) Merge(MessageTemplate string) string {
-	message := strings.ReplaceAll(MessageTemplate, "<<ProductName>>", m.ProductName)
-	message = strings.ReplaceAll(message, "<<OrderNo>>", m.OrderNo)
-	message = strings.ReplaceAll(message, "<<TrackNo>>", m.TrackNo)
-	return message
-}
-```
