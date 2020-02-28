@@ -229,25 +229,3 @@ type ComputerBuilder interface {
 	Build() ComputerItems
 }
 ```
-
-创建者实现
-```go
-
-type ComputerBuilderImplement struct {
-	ComputerItems ComputerItems
-}
-
-func (c ComputerBuilderImplement) SetCpu(cpu string) ComputerBuilder {
-	c.ComputerItems.Cpu = cpu
-	return c
-}
-
-func (c ComputerBuilderImplement) SetMemory(memory string) ComputerBuilder {
-	c.ComputerItems.Memory = memory
-	return c
-}
-
-func (c ComputerBuilderImplement) SetHardDisk(hardDisk string) ComputerBuilder {
-	c.ComputerItems.HardDisk = hardDisk
-	return c
-}
