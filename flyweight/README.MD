@@ -120,3 +120,11 @@ func GetMsgTemplate(templateNo int) string {
 https://en.wikipedia.org/wiki/Template_method_pattern
 
 https://dzone.com/articles/design-patterns-template-method
+
+
+
+
+
+
+
+
